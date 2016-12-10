@@ -1,0 +1,54 @@
+<div class="btn-group" ng-if="tabActionData.tpl == 'drop-down' && tabActionData.actions.length">
+    <button type="button" class="btn btn-default dropdown-toggle white-btn btn-sm" data-toggle="dropdown">
+        <span class="btn-img">
+            <span class="{{tabActionData.icon}}" ng-if="tabActionData.icon"></span>
+            <i class="{{tabActionData.plus}}" ng-if="tabActionData.plus"></i>
+        </span>
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+        <li ng-repeat="item in tabActionData.actions">
+            <a
+                href="#"
+                ng-click="actionClick($event, item)"
+                translate="{{item.label}}"
+            ></a>
+        </li>
+    </ul>
+</div>
+
+
+
+<button
+    class="btn btn-default white-btn btn-sm pull-right"
+    ng-click="actionClick($event, tabActionData)"
+    ng-if="tabActionData.tpl == 'btn'"
+>
+    <span class="btn-img" ng-if="tabActionData.plus">
+        <span class="{{tabActionData.icon}}" ng-if="tabActionData.icon"></span>
+        <i class="{{tabActionData.plus}}"></i>
+    </span>
+    <i class="{{tabActionData.icon}}" ng-if="!tabActionData.plus"></i>
+</button>
+
+
+
+<button
+    class="btn btn-hide btn-default btn-xs action-btn"
+    ng-click="actionClick($event, tabActionData)"
+    btn-title="{{tabActionData.btnTitle}}"
+    ng-if="tabActionData.tpl == 'grid'"
+>
+    <i class="{{tabActionData.icon}}"></i>
+</button>
+
+
+
+<button
+    class="btn btn-default white-btn btn-sm"
+    ng-click="actionClick($event, tabActionData)"
+    ng-if="tabActionData.tpl == 'edit'"
+    btn-title="btnTitles.title-7"
+>
+    <i class="sdaicon-edit"></i>&nbsp;<span translate="buttons.edit"></span>
+</button>

@@ -1,0 +1,662 @@
+@-webkit-keyframes ngdialog-flyin {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-40px);
+        -ms-transform: translateY(-40px);
+        transform: translateY(-40px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+@keyframes ngdialog-flyin {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-40px);
+        -ms-transform: translateY(-40px);
+        transform: translateY(-40px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes ngdialog-flyout {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(-40px);
+        -ms-transform: translateY(-40px);
+        transform: translateY(-40px);
+    }
+}
+@keyframes ngdialog-flyout {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(-40px);
+        -ms-transform: translateY(-40px);
+        transform: translateY(-40px);
+    }
+}
+@-webkit-keyframes ngdialog-overlay-fadein {
+    0% {
+        background: rgba(255,255,255, 0);
+    }
+    100% {
+        background: rgba(255,255,255, 0.7);
+    }
+}
+@keyframes ngdialog-overlay-fadein {
+    0% {
+        background: rgba(255, 255, 255, 0);
+    }
+    100% {
+        background: rgba(255, 255, 255, 0.7);
+    }
+}
+@-webkit-keyframes ngdialog-overlay-fadeout {
+    0% {
+        background: rgba(255,255,255, 0.7);
+    }
+    100% {
+        background: rgba(255,255,255, 0);
+    }
+}
+@keyframes ngdialog-overlay-fadeout {
+    0% {
+        background: rgba(255, 255, 255, 0.7);
+    }
+    100% {
+        background: rgba(255, 255, 255, 0);
+    }
+}
+
+.ngdialog.flex-dialog,
+.ngdialog.flex-confirmation {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.ngdialog.flex-confirmation {
+    -webkit-align-items: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+}
+
+.ngdialog.flex-dialog .ngdialog-overlay,
+.ngdialog.flex-dashboard .ngdialog-overlay,
+.ngdialog.flex-confirmation .ngdialog-overlay {
+    position: fixed;
+    background: rgba(255,255,255, 0.7);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-animation: ngdialog-overlay-fadein 0.5s;
+    animation: ngdialog-fadein 0.5s;
+}
+
+.ngdialog.flex-dialog.ngdialog-closing .ngdialog-content,
+.ngdialog.flex-confirmation.ngdialog-closing .ngdialog-content {
+    -webkit-animation: ngdialog-flyout .5s;
+    animation: ngdialog-flyout .5s;
+}
+.ngdialog.flex-dialog.ngdialog-closing .ngdialog-overlay,
+.ngdialog.flex-confirmation.ngdialog-closing .ngdialog-overlay {
+    -webkit-animation: ngdialog-overlay-fadeout .5s;
+    animation: ngdialog-overlay-fadeout .5s;
+}
+
+.ngdialog.flex-dialog .ngdialog-content,
+.ngdialog.flex-confirmation .ngdialog-content {
+    max-width: 80%;
+    max-height: calc(100vh - 100px);
+    width: 825px;
+    position: relative;
+    overflow: hidden;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-animation: ngdialog-flyin .5s;
+    animation: ngdialog-flyin .5s;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #93D1EE;
+}
+
+.ngdialog.flex-confirmation .ngdialog-content {
+    width: 400px;
+    margin-top: 150px;
+}
+
+.ngdialog.flex-dialog.m .ngdialog-content {
+    width: 550px;
+}
+.ngdialog.flex-dialog.l .ngdialog-content {
+    width: 90%;
+    max-width: 90%;
+}
+
+.ngdialog.flex-dialog .ngdialog-content .dialog-title,
+.ngdialog.flex-confirmation .ngdialog-content .dialog-title {
+    padding: 0 12px;
+    height: 40px;
+    line-height: 40px;
+    background: #199ddb;
+    z-index: 1;
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+.ngdialog.flex-dialog .ngdialog-content .dialog-form-content,
+.ngdialog.flex-confirmation .ngdialog-content .dialog-form-content {
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow: auto;
+    padding: 20px 30px;
+    max-height: calc(100vh - 188px);
+}
+.ngdialog.flex-confirmation .ngdialog-content .dialog-form-content {
+    padding: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: #333;
+}
+
+.ngdialog.flex-dialog .ngdialog-content .dialog-form-content .loading {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    z-index: 201;
+    background: #fff
+}
+
+.ngdialog.flex-dialog .ngdialog-content .dialog-form-content .loading img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -24px 0 0 -24px;
+}
+
+.ngdialog.flex-dialog .ngdialog-content .dialog-nav,
+.ngdialog.flex-confirmation .ngdialog-content .dialog-nav {
+    padding: 0 15px;
+    background: #fff;
+    border-top: 1px solid #e3e3e3;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    height: 48px;
+}
+
+/*----------------------------------------------------------------*/
+.ngdialog.flex-dialog .dialog-nav-pagination {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  left: 0;
+  top: 0;
+}
+.ngdialog.flex-dialog .dialog-nav-pagination button {
+  margin: 0 2px;
+  vertical-align: middle;
+}
+.ngdialog.flex-dialog .dialog-nav-pagination span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50px;
+  height: 100%;
+  line-height: 31px;
+}
+.ngdialog.flex-dialog .dialog-nav-pagination .grey-btn {
+  min-width: 1px;
+}
+/*----------------------------------------------------------------*/
+
+.ngdialog.flex-dialog .ngdialog-content .dialog-nav > *,
+.ngdialog.flex-confirmation .ngdialog-content .dialog-nav > * {
+    margin-left: 10px;
+}
+
+.ngdialog.flex-dialog .ngdialog-close,
+.ngdialog.flex-confirmation .ngdialog-close {
+    cursor: pointer;
+    position: absolute;
+    right: 8px;
+    top: 11px;
+    z-index: 2;
+}
+
+.ngdialog.flex-dialog .ngdialog-close:before,
+.ngdialog.flex-confirmation .ngdialog-close:before {
+    background: transparent;
+    content: '\00D7';
+    font-size: 36px;
+    color: #fff;
+}
+
+.ngdialog.flex-dialog .dialog-form,
+.ngdialog.flex-confirmation .dialog-form {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow: auto;
+}
+
+
+/*---------------------------------------------------------------------------------*/
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table,
+.ngdialog.flex-dialog .dialog-form .dialog-form-content .panel .panel-body > table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table.text-table td, {
+    height: auto;
+}
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content .panel .panel-heading.with-buns {
+    padding: 5px 15px;
+    white-space: nowrap;;
+}
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content .panel .panel-heading.with-buns > * {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+}
+.ngdialog.flex-dialog .dialog-form .dialog-form-content .panel .panel-heading .panel-title {
+    font-size: 14px;
+    font-weight: bold
+}
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table td,
+.ngdialog.flex-dialog .dialog-form .dialog-form-content .panel .panel-body > table td {
+    padding-bottom: 20px;
+    vertical-align: middle;
+    height: 40px;
+    position: relative;
+}
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table tr.with-separator td {
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table tr.with-separator + tr td {
+    padding-top: 20px;
+}
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table td.info-td {
+    position: static;
+    width: 20px;
+}
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table td.text-td {
+    text-align: left !important;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table td .form-control {
+    display: inline-block;
+}
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table td textarea {
+    height: 60px;
+    resize: vertical;
+}
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table td resizable textarea {
+    height: 100%;
+    resize: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table > tbody > tr > td:first-child,
+.ngdialog.flex-dialog .dialog-form .dialog-form-content .panel .panel-body > table > tbody > tr > td:first-child {
+    width: 150px;
+    padding-right: 10px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table td.visiblefield {
+    padding-left: 20px;
+    position: relative;
+}
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table > tbody > tr > td.nav-td {
+    border-right: 1px solid #ccc;
+    text-align: left;
+    font-size: 13px;
+    width: 150px;
+    vertical-align: top;
+}
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table > tbody > tr > td.nav-td .nav-pills > li:hover > a {
+    background: #d6effb;
+    color: #1390ca;
+}
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table > tbody > tr > td.nav-td .nav-pills > li.active > a {
+    background: #eee;
+    color: #1390ca;
+}
+/*---------------------*/
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table.underline  tr {
+    border: solid;
+    border-width: 1px 0;
+    border-color: #e3e3e3;
+}
+
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table.underline tr:first-child {
+    border-top: none;
+}
+.ngdialog.flex-dialog .dialog-form .dialog-form-content > div > table.underline tr:last-child {
+    border-bottom: none;
+}
+
+/*----------------------*/
+
+.ngdialog.flex-dialog .dialog-form .control-label {
+    color: #232323;
+    font-size: 13px;
+    padding: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.ngdialog.flex-dialog .dialog-form .control-label em {
+    color: red;
+}
+
+.ngdialog.flex-dialog .dialog-form .tt-icon {
+    font-size: 14px;
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    color: #555555;
+    white-space: normal;
+}
+
+.ngdialog.flex-dialog .dialog-form .remove-icon {
+    font-size: 14px;
+    color: #555555;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    cursor: pointer;
+    color: #428bca;
+}
+
+.ngdialog.flex-dialog .dialog-form .tt-control {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.ngdialog.flex-dialog .dialog-form .tooltip {
+    white-space: normal;
+}
+
+.ngdialog.flex-dialog .dialog-form .valid-error {
+    font-size: 11px;
+    color: red;
+    line-height: 12px;
+    position: absolute;
+    left: 0;
+    bottom: 7px;
+}
+
+.ngdialog.flex-dialog .dialog-form .errors {
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: red;
+    line-height: 12px;
+    padding-left: 150px;
+    overflow: hidden;
+}
+
+.ngdialog.flex-dialog .dialog-list-filter {
+    margin-bottom: 12px;
+}
+
+.ngdialog.flex-dialog .dialog-list-filter .input-group {
+    width: 300px;
+}
+
+.ngdialog.flex-dialog .data-list-table {
+    min-height: 318px;
+    margin-bottom: 15px;
+}
+
+.ngdialog.flex-dialog .data-list-table.td-padding td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+/*---------------------------------------------------------------------------------*/
+
+.ngdialog.flex-dialog .selected-items {
+    float: left;
+    width: 100%;
+}
+
+.ngdialog.flex-dialog .selected-items .selected-items-list {
+    float: left;
+    width: 100%;
+    height: 118px;
+    overflow-y: scroll;
+    padding: 4px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #dadada;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.ngdialog.flex-dialog .selected-items .selected-items-list.es {
+    overflow: auto;
+    padding: 15px 0;
+    height: auto;
+    text-align: center;
+}
+
+.ngdialog.flex-dialog .selected-items .selected-items-title {
+    float: left;
+    width: 100%;
+    color: #333333;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.ngdialog.flex-dialog .selected-items .selected-items-list .item {
+    float: left;
+    width: 25%;
+    padding: 4px;
+}
+
+.ngdialog.flex-dialog .selected-items .selected-items-list .item div {
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #ececec;
+    padding: 0 30px 0 8px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    position: relative;
+}
+
+.ngdialog.flex-dialog .selected-items .selected-items-list .item div i {
+    position: absolute;
+    right: 4px;
+    top: 6px;
+    font-size: 17px;
+    color: #b1b1b1;
+    cursor: pointer;
+}
+
+.ngdialog.flex-dialog .selected-items .selected-items-list .item div i:hover {
+    color: #199ddb;
+}
+
+.ngdialog.flex-dialog .selected-items .selected-items-list .item div p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.ngdialog.flex-dialog .selected-items .selected-items-list .empty-selection {
+    padding: 0 15px;
+    display: inline-block;
+}
+
+.ngdialog.flex-dialog .selected-items .selected-items-list .empty-selection div {
+    width: 150px;
+    height: 109px;
+    border: 1px dotted #999;
+    background: #fafafa;
+}
+
+
+/*---------------------------------------------------------------------------------*/
+
+.ngdialog.flex-dialog .dialog-accordion .panel-group {
+    margin-bottom: 10px;
+}
+
+.ngdialog.flex-dialog .dialog-accordion .panel {
+    border: 1px solid #92d0ee;
+}
+
+.ngdialog.flex-dialog .dialog-accordion .panel-heading {
+    background: #199ddb;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.ngdialog.flex-dialog .dialog-accordion .panel-heading .panel-title {
+    font-size: 13px;
+}
+
+.ngdialog.flex-dialog .dialog-accordion .panel-group .panel + .panel {
+    margin-top: 10px;
+}
+
+.ngdialog.flex-dialog .dialog-accordion .panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border-top: 1px solid #92d0ee;
+}
+
+.ngdialog.flex-dialog .dialog-accordion .panel-body table td {
+    padding-bottom: 5px;
+    height: 1px;
+}
+
+/*---------------------------------------------------------------------------------*/
+
+.ngdialog.flex-dialog .dialog-table-naligation,
+.ngdialog.flex-dialog .dialog-info {
+    border-bottom: 1px solid #ccc;
+    margin: 0 -30px 10px -30px;
+    padding: 0 30px 10px 30px;
+}
+.ngdialog.flex-dialog .dialog-table-naligation + .data-list-table .ng-table-nav {
+    top: -52px
+}
+.ngdialog.flex-dialog .dialog-info table {
+  border-collapse: collapse;
+  color: #333;
+}
+.ngdialog.flex-dialog .dialog-info table td {
+  vertical-align: top;
+  padding-right: 20px;
+}
+.ngdialog.flex-dialog .dialog-info table td h3 {
+  font-size: 18px;
+}
+.ngdialog.flex-dialog .dialog-info table td h4 {
+  font-size: 18px;
+}
+.ngdialog.flex-dialog .dialog-info table td p {
+  font-size: 11px;
+}

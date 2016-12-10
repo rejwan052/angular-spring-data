@@ -1,0 +1,93 @@
+html {
+	height: 100%;
+}
+body {
+	font: 12px/18px Arial, "Lucida Grande", sans-serif;
+	height: 100%;
+}
+
+.wrapper {
+	min-width: 1000px;
+	max-width: 1920px;
+	margin: 0 auto;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+.spinner {
+	background: url(../img/spinner.gif) #fff center center no-repeat;
+}
+.data-loading {
+	background: url(../img/spinner.gif) #fff center center no-repeat;
+	min-height: 55px;
+	width: 100%;
+}
+
+/* Work List
+-----------------------------------------------------------------------------*/
+.data-type-select {
+	margin: 0 0 20px 0;
+	overflow: hidden;
+}
+.data-type-select select {
+	width: 300px;
+	float: left;
+}
+.data-type-select button {
+	float: right;
+}
+
+/* ng-Table Nav
+-----------------------------------------------------------------------------*/
+.ng-table-nav {
+	position: absolute;
+	right: 0;
+	top: -44px;
+	color: #9c9c9c;
+}
+.ng-table-nav .total {
+	float: left;
+	font-size: 13px;
+}
+.ng-table-nav .paging {
+	float: left;
+}
+.ng-table-nav .paging .pager {
+	margin: 0;
+}
+
+/* Work List
+-----------------------------------------------------------------------------*/
+.data-list-filter {
+	margin-bottom: 12px;
+}
+
+/* Two Cols Details
+-----------------------------------------------------------------------------*/
+.two-cols-details {
+	border: 1px solid #e3e2e2;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.two-cols-details-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.two-cols-details-table .tcdt-td {
+	padding: 10px;
+	vertical-align: top;
+	height: 500px;
+}
+.two-cols-details-table .tcdt-td:first-child {
+	border-right: 1px solid #e3e2e2;
+	width: 425px;
+}
+.two-cols-details-table .tcdt-text {
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+.two-cols-details-table .tcdt-text strong {
+	font-weight: bold;
+}

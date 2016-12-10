@@ -1,0 +1,24 @@
+<form class="form-horizontal dialog-form" name="dialogForm">
+	<div class="dialog-title">
+		<p
+			style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 20px;"
+			dialog-title="ngDialogData"
+		></p>
+	</div>
+
+	<div class="dialog-form-content">
+	    
+	    <div class="loading" ng-if="loading">
+	    	<img ng-src="{{ngDialogData.spinner}}">
+	    </div>
+
+	    <div class="errors" ng-if="errors.length">
+	        <p ng-repeat="item in errors">{{item}}</p>
+	    </div>
+
+	    <div ng-include="ngDialogData.template" onload="skgDialogCtrl.init()"></div>
+
+	</div>
+
+	<div class="dialog-nav" ng-include="ngDialogData.navigation"></div>
+</form>

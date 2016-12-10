@@ -1,0 +1,20 @@
+.skg-message {
+    position: fixed;
+    top: 150px;
+    left: 50%;
+    width: 500px;
+    margin-left: -250px;
+    z-index: 50;
+}
+.skg-message p {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.skg-message h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.skg-message strong {
+    font-weight: bold;
+}

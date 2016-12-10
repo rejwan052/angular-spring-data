@@ -1,0 +1,84 @@
+<table>
+    <tr>
+        <td>
+            <label class="control-label"><span translate="labels.username"></span>
+                <em>&nbsp;*</em>
+            </label>
+        </td>
+        <td>
+            <input
+                type="text"
+                class="form-control input-sm"
+                ng-model="formModel.login"
+                name="Login"
+                ng-required="true"
+                ng-maxlength="256"
+            >
+            <p
+                class="valid-error"
+                translate="validation.required"
+                ng-if="dialogForm.Login.$error.required && !dialogForm.Login.$pristine"
+            ></p>
+            <p
+                class="valid-error"
+                translate="validation.maxLength"
+                ng-if="dialogForm.Login.$error.maxlength"
+            ></p>
+        </td>
+    </tr>
+    <tr ng-if="!hidePassword && !formModel.id">
+        <td>
+            <label class="control-label"><span translate="labels.password"></span>
+                <em>&nbsp;*</em>
+            </label>
+        </td>
+        <td>
+            <input
+                type="password"
+                class="form-control input-sm"
+                ng-model="formModel.password"
+                name="Password"
+                ng-required="true"
+                ng-maxlength="256"
+            >
+            <p
+                class="valid-error"
+                translate="validation.required"
+                ng-if="dialogForm.Password.$error.required && !dialogForm.Password.$pristine"
+            ></p>
+            <p
+                class="valid-error"
+                translate="validation.maxLength"
+                ng-if="dialogForm.Password.$error.maxlength"
+                ></p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label class="control-label">
+                <span translate="labels.name"></span>
+            </label>
+        </td>
+        <td>
+            <input
+                type="text"
+                class="form-control input-sm"
+                ng-model="formModel.name"
+            >
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label class="control-label">
+                <span translate="labels.email"></span>
+            </label>
+        </td>
+        <td>
+            <input
+                type="text"
+                class="form-control input-sm"
+                ng-model="formModel.email"
+            >
+        </td>
+    </tr>
+</table>

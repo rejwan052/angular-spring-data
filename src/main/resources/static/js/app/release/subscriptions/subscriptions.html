@@ -1,0 +1,65 @@
+<div class="work-list" ng-if="adminWriter">
+    <table>
+        <tr>
+            <td></td>
+            <td style="border: none; padding-right: 15px">
+                <button
+                    class="btn btn-default white-btn btn-sm pull-right"
+                    btn-title="btnTitles.createSubscription"
+                    ng-click="openWizard($event, '.createSubscription')"
+                >
+                    <i class="glyphicon glyphicon-plus-sign"></i>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="table-with-list">
+
+    <div style="float:left; width: 100%">
+
+        <div class="data-list-filter" table-search="tableParams" table-search-value="filter.searchQuery"></div>
+
+        <div class="data-list-table">
+            <table
+                ng-table="tableParams"
+                class="table table-striped table-hover ng-table-responsive"
+                template-pagination="js/templates/table/table-nav.html"
+                col-actions="1"
+            >
+                <tbody ng-repeat="item in $data">
+                    <tr>
+                        <td data-title="tableHeaders.subscriber" sortable="'subscriber.name'">
+                            {{item.subscriber.name}}
+                        </td>
+                        <td data-title="tableHeaders.subscriptionDate" sortable="'subscriptionDate'">
+                            {{item.subscriptionDate}}
+                        </td>
+                        <td data-title="" class="action-td">
+                            <button
+                                class="btn btn-hide btn-default btn-xs action-btn"
+                                ng-click="deleteSubscription(item)"
+                                btn-title="btnTitles.delete"
+                                ng-if="adminWriter"
+                            >
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody ng-if="$data && !$data.length">
+                    <tr>
+                        <td
+                            translate="noData.noDataFound"
+                            colspan="2"
+                            style="text-align: center"
+                        ></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>

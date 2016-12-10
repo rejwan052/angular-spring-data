@@ -1,0 +1,10 @@
+{
+  "name": "angular-spring-security",
+  "description": "Angular Spring Security",
+  "version": "0.0.0",
+  "build": 0,
+  "devDependencies": {
+    "bower": "~1.8.0",
+    "requirejs": "^2.1.20"
+  }
+}

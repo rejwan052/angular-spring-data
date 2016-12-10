@@ -1,0 +1,109 @@
+.data-form {
+	width: 900px;
+	margin: 0 auto;
+}
+.data-form form {
+    float:  left;
+    width: 100%;
+}
+.data-form table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.data-form table.sectioned {
+	width: 48%;
+	margin: 0 1%;
+	float:  left;
+}
+.data-form table tr.blue-h th {
+	color: #199ddb;
+	font-weight: bold;
+	font-size: 15px;
+	border-bottom: 1px solid #199ddb;
+	padding: 0 0 5px 5px;
+}
+.data-form table tr.grey-h th {
+	font-weight: bold;
+	font-size: 14px;
+	color: #989898;
+	text-align: right;
+	padding-bottom: 10px;
+}
+.data-form table tr.blue-h + tr td,
+.data-form table tr.blue-h + tr th {
+	padding-top: 20px;
+}
+.data-form table.text-table td {
+    height: auto;
+}
+.data-form table td {
+    padding-bottom: 20px;
+    vertical-align: middle;
+    height: 40px;
+    position: relative;
+}
+.data-form table td.info-td {
+    position: static;
+    width: 20px;
+}
+.data-form table td .form-control {
+    display: inline-block;
+}
+.data-form table td textarea {
+    height: 60px;
+}
+.data-form table td:first-child {
+    width: 150px;
+    padding-right: 10px;
+    text-align: right;
+    vertical-align: middle;
+}
+.data-form table td.visiblefield {
+    padding-left: 20px;
+    position: relative;
+}
+.data-form .control-label {
+    color: #232323;
+    font-size: 13px;
+    padding: 0;
+}
+.data-form .control-label em {
+    color: red;
+}
+.data-form .tt-icon {
+    font-size: 14px;
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    color: rgb(85, 85, 85);
+    white-space: normal;
+}
+.data-form .remove-icon {
+    font-size: 14px;
+    color: rgb(85, 85, 85);
+    position: absolute;
+    left: 0;
+    top: 10px;
+    cursor: pointer;
+    color: #428bca;
+}
+.data-form span.input-group-addon {
+    background: none;
+    border: none;
+    padding: 6px 4px;
+}
+.data-form .tt-control {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.data-form .tooltip {
+    white-space: normal;
+}
+.data-form .valid-error {
+    font-size: 11px;
+    color: red;
+    line-height: 12px;
+    position: absolute;
+    left: 0;
+    bottom: 7px;
+}

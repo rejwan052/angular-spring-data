@@ -1,0 +1,11 @@
+<div class="panel panel-default content-in" style="position: relative;">
+    <div class="panel-body" ui-view="security"></div>
+    <div class="view-select">
+		<select
+		    ng-model="viewType"
+		    class="form-control"
+		    ng-options="item.value as item.label for item in viewList"
+		> 		
+		</select>	
+	</div>
+</div>

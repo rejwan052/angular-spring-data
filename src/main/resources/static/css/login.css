@@ -1,0 +1,123 @@
+/*.login {
+	position: fixed;
+	width: 300px;
+	left: 50%;
+	top: 50%;
+	margin: -125px 0 0 -150px;
+}
+.login-error {
+	display: none;
+	position: absolute;
+	width: 100%;
+	margin-top: -65px;
+}
+.login .logo {
+	display: block;
+	height: 27px;
+	padding-left: 35px;
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+	width: 185px;
+	line-height: 14px;
+	margin: 0 auto 15px auto;
+	position: relative;
+}
+.login .logo i {
+	position: absolute;
+	font-size: 35px;
+	top: -4px;
+	left: -4px;
+}
+.login .panel-body {
+	background: #199ddb;
+}
+.login .form-group {
+	margin-bottom: 5px;
+}
+.login .control-label {
+	font-size: 14px;
+	color: #fff;
+}
+
+.login-form {
+	width: 50%;
+} */
+
+.login {
+    width: 400px;
+    margin: 16px auto;
+    font-size: 16px;
+}
+
+.login-header,
+.login p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.login-triangle {
+    width: 0;
+    margin-right: auto;
+    margin-left: auto;
+    border: 12px solid transparent;
+    border-bottom-color: #5B8C9B;
+}
+
+.login-header {
+    background: #5B8C9B;
+    padding: 20px;
+    font-size: 1.4em;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.login-container {
+    background: #ebebeb;
+    padding: 12px;
+}
+
+.login p {
+    padding: 12px;
+}
+
+.login input {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    padding: 16px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+    background: #fff;
+    border-color: #bbb;
+    color: #555;
+}
+
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+    border-color: #888;
+}
+
+.login input[type="submit"] {
+    background: #5B8C9B;
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+
+.login input[type="submit"]:hover {
+    background: #5B8C9B;
+}
+
+.login input[type="submit"]:focus {
+    border-color: #87b9e6;
+}

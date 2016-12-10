@@ -1,0 +1,43 @@
+<div class="dialog-info" ng-if="ngDialogData.header" ng-include="ngDialogData.header"></div>
+
+<div class="dialog-list-filter">
+    <div
+        class="input-group"
+    >
+        <div class="data-list-filter" table-search="tableParams" table-search-value="filter.searchQuery"></div>
+    </div>
+</div>
+
+<div class="data-list-table">
+    <table
+        ng-table="tableParams"
+        class="table table-striped table-hover ng-table-responsive"
+        template-pagination="js/templates/table/table-nav-empty.html"
+        dialog-table-pagination
+        col-actions="1"
+        ng-class="{'color-first': ngDialogData.cols.indexOf('color') != -1}"
+    >
+        <tr ng-repeat="item in $data" ng-dblclick="addItem(item.id)">
+            <td data-title="tableHeaders.name" sortable="'name'" ng-show="ngDialogData.cols.indexOf('name') != -1">
+                {{item.name}}
+            </td>
+            <td>
+                <button class="btn btn-hide btn-default btn-xs action-btn" ng-click="addItem(item.id)">
+                    <i class="glyphicon glyphicon-plus-sign"></i>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="selected-items">
+    <div class="selected-items-title">{{labels.selected}}</div>
+    <div class="selected-items-list">
+        <div class="item" ng-repeat="item in allItems | include:this.selectedItems" ng-dblclick="removeItem(item.id)">
+            <div>
+                <p>{{item.name}}</p>
+                <i class="glyphicon glyphicon-remove-circle" ng-click="removeItem(item.id)"></i>
+            </div>
+        </div>
+    </div>
+</div>

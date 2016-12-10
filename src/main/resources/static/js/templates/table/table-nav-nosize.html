@@ -1,0 +1,31 @@
+<div class="ng-table-nav">
+    <div class="total" style="float: left; line-height: 30px; margin: 0 0 0 15px">{{params.$params.page}} / <span ng-repeat="page in pages" ng-if="page.type == 'last' && pages.length">{{page.number}}</span><span ng-if="!pages.length">1</span></div>
+    <div class="paging" style="float: left; margin: 3px 0 0 5px">
+        <ul class="pager">
+            <li
+                ng-repeat="page in pages"
+                ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'}"
+                ng-switch="page.type"
+            >
+                <button
+                    ng-switch-when="prev"
+                    type="button"
+                    ng-click="params.page(page.number)"
+                    class="btn btn-default btn-xs"
+                    ng-disabled="!page.active"
+                >
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                </button>
+                <button
+                    ng-switch-when="next"
+                    type="button"
+                    ng-click="params.page(page.number)"
+                    class="btn btn-default btn-xs"
+                    ng-disabled="!page.active"
+                >
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>

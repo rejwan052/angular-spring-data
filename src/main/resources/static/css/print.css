@@ -1,0 +1,80 @@
+@media print {
+	body {
+		-webkit-print-color-adjust: exact;
+	}
+	table {
+		page-break-inside: auto;
+		position: relative
+	}
+   	tr {
+   		page-break-inside: avoid;
+   		page-break-after: auto;
+   		position: relative
+   	}
+   	td {
+   		page-break-inside: avoid;
+   		position: relative
+   	}
+   	tbody {
+   		page-break-inside: auto;
+   		position: relative
+   	}
+   	thead {
+   		display: table-header-group;
+   		position: relative
+   	}
+    tfoot {
+    	display: table-footer-group;
+    	position: relative
+    }
+	a[href]:after {
+  		content: "";
+  		display: none;
+	}
+	#header,
+	.title-nav .title-table .btn,
+	.data-list-filter,
+	div[ng-include="templates.pagination"],
+	.work-list .btn-group,
+	.work-list .btn,
+	#footer {
+		display: none;
+	}
+
+	.content-in {
+		margin: 22px 0;
+		border: none;
+	}
+	.content-in .work-list {
+		margin: -9px 0 12px 0;
+		border: none;
+	}
+	.content-in .panel-body {
+		padding: 15px 0;
+	}
+	table .action-td {
+		display: none;
+	}
+	.open>.dropdown-menu {
+		display: none;
+	}
+	.title-nav .nav-ul {
+		white-space: nowrap;
+	}
+	.footer {
+		display: none;
+	}
+	.title-nav table {
+		border-left: none;
+	}
+	.title-nav .nav-ul li {
+		width: 117px;
+	}
+	.title-nav .nav-ul li a i {
+		font-size: 30px;
+		vertical-align: middle;
+	}
+	.title-nav .nav-ul li a span {
+		font-size: 12px;
+	}
+}

@@ -1,0 +1,80 @@
+.table-with-list {
+	width: 100%;
+	padding-left: 300px;
+	overflow: hidden;
+}
+.table-with-list .table-list {
+	float: left;
+	width: 285px;
+	margin-left: -300px;
+	border: 1px solid #cdcdcd;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+.table-with-list .table-list h3 {
+	line-height: 32px;
+	padding: 0 10px;
+	font-weight: bold;
+	border-bottom: 1px solid #eeeeee;
+	font-size: 14px;
+}
+.table-with-list .table-list ul li {
+	position: relative;
+	border-bottom: 1px solid #eeeeee;
+}
+.table-with-list .table-list ul li input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+.table-with-list .table-list ul li:last-child {
+	border: none;
+}
+.table-with-list .table-list ul li a {
+	display: block;
+	height: 32px;
+	line-height: 32px;
+	font-size: 12px;
+	color: #333;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0 10px;
+}
+.table-with-list .table-list ul li:hover a {
+	text-decoration: none;
+	background: #d6effb;
+}
+.table-with-list .table-list ul li input:checked + a {
+	background: #199ddb;
+	color: #fff;
+	font-weight: bold;
+}
+.table-with-list .table-list ul li .realm-actions {
+	position: absolute;
+  	right: 10px;
+  	top: 0px;
+  	z-index: 10;
+}
+.table-with-list .table-list ul li .realm-actions button {
+	margin: 5px 0px 0px 5px;
+}
+.table-with-list .table-list ul li a.realm-name-holder {
+	padding: 0 65px 0 20px;
+}
+.table-with-list .table-list ul li .drag-handle {
+	cursor: move;
+	position: absolute;
+  	z-index: 10;
+  	top: 10px;
+  	left: 4px;
+}
+.table-with-list .table-list ul li input:checked ~ .drag-handle {
+	color:white;
+}

@@ -1,0 +1,169 @@
+.title-nav {
+	border-bottom: 1px solid #d4d4d4;
+	background: #fff;
+	position: relative;
+}
+.title-nav.shadow {
+	z-index: 1;
+}
+.title-nav table {
+	width: 100%;
+	color: #686868;
+	table-layout: fixed;
+}
+.title-nav table.title-table td {
+	height: 50px;
+	padding: 0 15px;
+	vertical-align: middle;
+}
+.title-nav table.title-table td.td-100 {
+	width: 100px;
+}
+.title-nav table.title-table td.td-200 {
+	width: 200px;
+}
+.title-nav table.title-table td.td-250 {
+	width: 250px;
+}
+.title-nav table.title-table td.td-300 {
+	width: 300px;
+}
+.title-nav table.title-table td.td-350 {
+	width: 350px;
+}
+.title-nav table.title-table td.td-450 {
+	width: 450px;
+}
+.title-nav table.title-table td.breadcrumbs-td {
+	padding: 0;
+	height: auto;
+}
+.title-nav table.title-table td.page-title {
+	white-space: nowrap;
+}
+.title-nav table.title-table .page-actions > * {
+	margin-left: 7px;
+	display: inline-block;
+}
+.title-nav table.nav-table td {
+	vertical-align: middle;
+}
+.title-nav table .h2 {
+	margin: 0;
+	font-size: 24px;
+	color: #1390ca;
+	display: inline-block;
+	vertical-align: middle;
+	font-family: "Arial";
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 100%;
+}
+.title-nav table .h2.item span {
+	font-size: 18px;
+	color: #0c719f;
+}
+.title-nav table .title-icon {
+	color: #1390ca;
+	font-size: 34px;
+	position: absolute;
+	left: 15px;
+	top: 50%;
+	margin-top: -17px;
+}
+.title-nav table .title-icon + .h2 {
+	padding-left: 40px;
+}
+.title-nav .dropdown-header {
+	padding: 3px 10px;
+	font-weight: bold;
+	font-size: 14px;
+}
+.title-nav .nav-ul {
+	list-style: none;
+}
+.title-nav .nav-ul li {
+	display: inline-block;
+	width: 122px;
+	text-align: center;
+	margin: 0;
+	vertical-align: top;
+}
+.title-nav .nav-ul li a {
+	display: block;
+	width: 100%;
+	height: 84px;
+	text-decoration: none;
+	color: #000;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border: 3px solid #fff;
+	position: relative;
+}
+.title-nav .nav-ul li a b {
+	position: absolute;
+	display: block;
+	width:  24px;
+	height: 18px;
+	line-height: 15px;
+	color: #40b9ea;
+	top: 4px;
+	right: 25px;
+	border: 2px solid #40b9ea;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background: #fff;
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+}
+.title-nav .nav-ul li a strong {
+	display: block;
+	width: 100%;
+	height: 55px;
+	color: #40b9ea;
+}
+.title-nav .nav-ul li a i {
+	font-size: 34px;
+	vertical-align: middle;
+}
+.title-nav .nav-ul li a span {
+	font-size: 14px;
+	color: #1390ca;
+}
+.title-nav .nav-ul li a:hover {
+	border: 3px solid #b1e6ff;
+}
+.title-nav .nav-ul li.active a {
+	background: #1390ca;
+	border: 3px solid #b1e6ff;
+	cursor: default;
+	color: #fff;
+}
+.title-nav .nav-ul li.active a b {
+	border: 2px solid #f7f7f7;
+	font-weight: bold;
+}
+.title-nav .nav-ul li.active span {
+	font-weight: bold;
+	color: #fff;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.title-nav .nav-ul li.active strong {
+	color: #fff;
+}
+.title-nav .nav-ul li a em {
+	display: inline-block;
+	width: 1px;
+	height: 100%;
+	vertical-align: middle;
+}
+.title-nav .nav-ul li span {
+	display: block;
+	width: 100%;
+	font-size: 13px;
+}

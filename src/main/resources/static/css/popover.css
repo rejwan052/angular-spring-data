@@ -1,0 +1,39 @@
+.popover {
+    padding: 0;
+    max-width: 500px;
+}
+.popover .popover-title {
+    background: #199ddb;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+}
+.popover .spinner {
+    width: 200px;
+    height: 100px;
+}
+.popover .popover-table {
+    border: 1px solid #e8e8e8;
+    border-top: none;
+    max-height: 250px;
+    overflow: auto;
+}
+.popover .popover-table table {
+    margin-bottom: 0;
+}
+.popover .popover-table table td {
+    height: 30px;
+    padding: 0 5px;
+    vertical-align: middle;
+    font-size: 13px;
+}
+.popover .nav.nav-pills.nav-stacked a {
+    padding: 3px 5px;
+    min-width: 150px;
+}
+.popover .nav.nav-pills.nav-stacked a:hover {
+    background: #d6effb;
+}
+.popover .more {
+    font-size: 12px;
+}

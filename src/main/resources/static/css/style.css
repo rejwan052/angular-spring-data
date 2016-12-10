@@ -1,0 +1,47 @@
+@import "../bootstrap/css/bootstrap.min.css";
+
+/*Plugins*/
+@import "ng-dialog.css";
+@import "ng-dialog-theme-default.css";
+@import "ng-table.css";
+
+/*Components*/
+@import "../js/components/dialog/dialog.css";
+
+/*Utils*/
+@import "../js/utils/spinner/spinner.css";
+@import "../js/utils/resizable/resizable.css";
+
+
+/*App*/
+@import "app.css";
+@import "work-list.css";
+@import "left-nav.css";
+@import "search.css";
+@import "title-nav.css";
+@import "loading.css";
+@import "data-form.css";
+@import "popover.css";
+@import "alert.css";
+@import "data-list-table.css";
+@import "entity-info.css";
+@import "table-with-list.css";
+@import "directives.css";
+@import "data-info-table.css";
+@import "print.css";
+@import "app.css";
+
+
+/*Dialogs*/
+@import "selected-items.css";
+@import "dialog-section-title.css";
+@import "dialog-table-cols.css";
+@import "dialogs.css";
+
+
+/*Custom*/
+@import "custom.css";
+
+
+/*Login*/
+@import "login.css";

@@ -1,0 +1,29 @@
+<table>
+    <tr>
+        <td>
+            <label class="control-label"><span translate="labels.name"></span>
+                <em>&nbsp;*</em>
+            </label>
+        </td>
+        <td>
+            <input
+                type="text"
+                class="form-control input-sm"
+                ng-model="formModel.name"
+                name="Name"
+                ng-required="true"
+                ng-maxlength="256"
+            >
+            <p
+                class="valid-error"
+                translate="validation.required"
+                ng-if="dialogForm.Name.$error.required && !dialogForm.Name.$pristine"
+            ></p>
+            <p
+                class="valid-error"
+                translate="validation.maxLength"
+                ng-if="dialogForm.Name.$error.maxlength"
+            ></p>
+        </td>
+    </tr>
+</table>

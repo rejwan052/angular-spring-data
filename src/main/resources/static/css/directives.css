@@ -1,0 +1,59 @@
+.entity-warning,
+.entity-warning:hover,
+.entity-warning:focus {
+	color: #df1e1e;
+	font-size: 23px;
+	margin-left: 5px;
+	display: inline-block;
+	cursor: pointer;
+}
+.popover.warning-popover {
+	border: 1px solid #ebccd1;
+	background-color: #f2dede;
+	color: #a94442;
+}
+.popover.warning-popover.right > .arrow {
+	border-right-color: #ebccd1;
+}
+.popover.warning-popover.right > .arrow:after {
+	border-right-color: #f2dede;
+}
+.popover.warning-popover p {
+	font-weight: bold;
+	font-size: 13px;
+}
+/*----------------------------------------------------*/
+.ng-table.table .no-data-tr {
+	background-color: #f9f9f9;
+}
+.ng-table.table .no-data-tr td {
+	border: none;
+	overflow: visible;
+}
+.alert-info.no-table-data {
+	background: #eee;
+	color: #000;
+	border: 1px solid #ddd;
+	margin: -23px 0 10px 0;
+}
+
+/* View Select Directive
+-----------------------------------------------------------------------------*/
+.view-select {
+	position: absolute;
+	left: 15px;
+	top: 17px;
+}
+.view-select select {
+	width: auto;
+}
+.view-select iframe {
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+.page-details-tabs .view-select {
+	left: 0;
+	top: -7px;
+}

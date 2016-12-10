@@ -1,0 +1,7 @@
+bin/
+target/
+/.settings
+.classpath
+.project
+node/
+/src/main/resources/static/js/libs-bower

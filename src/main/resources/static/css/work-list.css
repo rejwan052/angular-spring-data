@@ -1,0 +1,235 @@
+.work-list {
+	border-bottom: 1px solid #e3e2e2;
+	margin: -5px -15px 12px -15px;
+	padding-bottom: 8px;
+}
+.work-list table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.work-list table td {
+	vertical-align: middle;
+	height: 48px;
+	border-left: 1px solid #cec8c8;
+}
+.work-list table td.nofixed {
+	width: 1px;
+	white-space: nowrap;
+}
+.work-list table td.view-td {
+	padding: 0 15px;
+}
+.work-list table td.tab-actions {
+	padding-right: 10px;
+	border: none;
+	width: 1px;
+	white-space: nowrap;
+}
+.work-list table td.tab-actions > * {
+	display: inline-block;
+	margin-left: 5px;
+}
+.work-list table td:first-child {
+	border: none;
+}
+.work-list ul.filter-ul {}
+
+.work-list ul.filter-ul li {
+	float: left;
+	width: 80px;
+	text-align: center;
+	position: relative;
+}
+.work-list .nofixed ul.filter-ul li {
+	float: none;
+	display: inline-block;
+}
+.work-list ul.filter-ul li input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: 2;
+	cursor: pointer;
+}
+.work-list ul.filter-ul li a {
+	display: inline-block;
+	width: 38px;
+	height: 30px;
+	border: 1px solid #fff;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	text-decoration: none;
+	color: #797979;
+	position: relative;
+	z-index: 1;
+}
+.work-list ul.filter-ul li a[translate]{
+	width: auto;
+	line-height: 30px;
+	padding: 0 4px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.work-list ul.filter-ul li:hover a {
+	border: 1px solid #1390ca;
+}
+.work-list ul.filter-ul li:hover input.filter-checkbox + a {
+	border: 1px solid #e3e2e2;
+}
+.work-list ul.filter-ul li input:checked + a {
+	background: #1390ca;
+	border: 1px solid #b1e6ff;
+	color: #fff;
+}
+.work-list ul.filter-ul li input.filter-checkbox:checked + a {
+	background: none;
+	border: 1px solid #1390ca;
+	color: #797979;
+}
+.work-list ul.filter-ul li a em {
+	display: inline-block;
+	width: 1px;
+	height: 100%;
+	vertical-align: middle;
+}
+.work-list ul.filter-ul li a i {
+	vertical-align: middle;
+	font-size: 20px;
+}
+.work-list ul.filter-ul li a img {
+	width: 60%;
+	display: inline-block;
+	vertical-align: middle;
+	opacity: 0.7;
+}
+.work-list ul.filter-ul li a .skg-icon {
+	font-size: 20px;
+}
+.work-list ul.filter-ul li a .skg-icon + i {
+	position: absolute;
+	right: 2px;
+	top: 2px;
+	font-size: 14px;
+	text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+}
+.work-list ul.filter-ul li a .skg-icon + span,
+.work-list ul.filter-ul li a img + span {
+	display: block;
+	width: 13px;
+	height: 13px;
+	position: absolute;
+	right: 5px;
+	top: 12px;
+	background: #fff;
+	border: 1px solid #ccc;
+	font-size: 10px;
+	line-height: 12px;
+}
+.work-list ul.filter-ul li input:checked + a span {
+	background: #fff;
+	color: #1390ca;
+	border: 1px solid #b1e6ff;
+}
+.work-list ul.filter-ul li span {
+	display: block;
+	width: 100%;
+	color: #333333;
+}
+.work-list .btn-img {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	margin-right: 7px;
+}
+.work-list .btn-img img {
+	float: left;
+	width: 25px;
+	height: auto;
+	opacity: 0.7;
+}
+.work-list .btn-img .skg-icon {
+	font-size: 19px;
+	color: #797979;
+}
+.work-list .btn-img i {
+	position: absolute;
+	color: #298fd1;
+	font-size: 14px;
+	right: -10px;
+	top: -2px;
+}
+.work-list button:hover .btn-img .skg-icon {
+	color: #fff;
+}
+.work-list .btn-img em {
+	display: block;
+	width: 13px;
+	height: 13px;
+	position: absolute;
+	right: 7px;
+	top: 7px;
+	background: #fff;
+	border: 1px solid #ccc;
+	font-size: 10px;
+	line-height: 12px;
+	font-style: normal;
+}
+.work-list .ul-labels {
+}
+.work-list .ul-labels li {
+	display: inline-block;
+	position: relative;
+	border-right: 1px solid #cec8c8;
+	padding: 4px 7px;
+}
+.work-list .ul-labels li:last-child {
+	border: none;
+}
+.work-list .ul-labels li a {
+	display: block;
+	height: 28px;
+	line-height: 28px;
+	border: 1px solid #fff;
+	padding: 0 8px;
+	color: #333333;
+	font-size: 15px;
+	position: relative;
+	z-index: 1;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+.work-list .ul-labels li a:hover {
+}
+.work-list .ul-labels li input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 2;
+	cursor: pointer;
+}
+.work-list .ul-labels li input:checked + a {
+	background: #1390ca;
+	border: 1px solid #b1e6ff;
+	color: #fff;
+}
+.in-tabs-view .work-list {
+	margin: 0 0 12px 0;
+	border-top: 1px solid #ddd;
+	border-bottom: none;
+}
+
+
+.embedde-layout .work-list {
+	margin-left: 0;
+	margin-top: 0;
+}

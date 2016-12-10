@@ -1,0 +1,10 @@
+<ul class="nav nav-tabs">
+      <li ui-sref-active="active" ng-repeat="item in menuTabs">
+         	<a ng-if='item.state' ui-sref='{{item.state}}'>{{item.name}}</a>
+			<a ng-if='item.stateFunction' ui-sref='{{item.stateFunction()}}'>
+				<span ng-if='item.stateNameFunction'>{{item.stateNameFunction()}}</span>
+				<span ng-if='item.name'>{{item.name}}</span>
+			</a>   
+	     	<a ng-if='item.actionClick' href='' ng-click='item.actionClick()'>{{item.name}}</a>
+     </li> 
+</ul>

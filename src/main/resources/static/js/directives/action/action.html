@@ -1,0 +1,40 @@
+<div class="btn-group" ng-if="pageActions.actions.length && !pageActions.tpl">
+    <button type="button" class="btn btn-default dropdown-toggle white-btn btn-sm" data-toggle="dropdown">
+        <span translate="{{pageActions.btn}}"></span>
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+        <li ng-repeat="item in pageActions.actions | orderBy:'order'" class="{{item.class}}">
+            <a
+                href="#"
+                ng-click="actionClick($event, item)"
+                ng-if="item.dialog || item.export || item.print || item.wizard"
+            >
+                <i ng-class="item.icon" ng-if="item.icon"></i>
+                <span translate="{{item.label}}"></span>
+            </a>
+            <a
+                ng-if="item.href"
+                ng-href="{{item.href}}"
+                target="{{item.target}}"
+            >
+                <i ng-class="item.icon" ng-if="item.icon"></i>
+                <span translate="{{item.label}}"></span>
+            </a>
+            <span
+                ng-if="!item.dialog && !item.export && !item.print && !item.href && !item.wizard"
+                translate="{{item.label}}"
+            >
+            </span>
+        </li>
+    </ul>
+</div>
+
+<button
+    ng-if="pageActions.actions.length && pageActions.tpl == 'btn'"
+    class="btn btn-default white-btn btn-sm pull-right"
+    ng-click="actionClick($event, pageActions.actions[0])"
+>
+    <i ng-if="pageActions.actions[0].class" ng-class="pageActions.actions[0].class" style="font-size: 14px;"></i>&nbsp;
+    <span translate="{{pageActions.btn}}"></span>
+</button>

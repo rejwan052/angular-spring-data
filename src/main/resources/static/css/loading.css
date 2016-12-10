@@ -1,0 +1,29 @@
+#loading {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1000;
+	background: #f5f5f5;
+}
+#loading .panel {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 300px;
+	margin: -40px 0 0 -150px;
+	background: #199ddb;
+}
+#loading .panel .panel-body {
+	padding: 10px;
+}
+#loading .panel .h3 {
+	margin: 0 0 10px 0;
+	text-align: center;
+	color: #fff;
+}
+#loading .progress {
+	margin-bottom: 3px;
+	border: 2px solid #fff;
+}

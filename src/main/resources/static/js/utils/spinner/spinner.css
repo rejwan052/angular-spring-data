@@ -1,0 +1,25 @@
+*[spinner] .util-spinner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+*[spinner] .util-spinner.static {
+    position: static;
+}
+*[spinner].in-progress .util-spinner {
+    display: block;
+}
+*[spinner] .util-spinner img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -24px 0 0 -24px;
+}
+*[spinner] .util-spinner.static img {
+    position: static;
+    margin: 10px auto;
+    display: block;
+}

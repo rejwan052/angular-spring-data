@@ -1,0 +1,19 @@
+<div class="dialog-title">{{title}}</div>
+
+<div class="dialog-form-content">{{text}}</div>
+
+<div class="dialog-nav">
+    <button
+        type="button"
+        class="btn btn-default pull-right btn-sm blue-btn"
+        translate="buttons.yes"
+        ng-click="confirm(true)"
+    ></button>
+    <button
+        type="button"
+        class="btn btn-default pull-right btn-sm grey-btn"
+        translate="buttons.no"
+        autofocus
+        ng-click="closeThisDialog()"
+    ></button>
+</div>

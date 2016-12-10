@@ -1,0 +1,11 @@
+.skg-dialog .dialog-table-cols {
+  width: 100%;
+}
+.skg-dialog .dialog-table-cols .table-col {
+  width: 32%;
+  display: inline-block;
+  vertical-align: top;
+}
+.skg-dialog .dialog-table-cols .table-col:nth-child(2){
+  margin: 0 1.8%;
+}

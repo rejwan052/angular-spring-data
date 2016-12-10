@@ -1,0 +1,48 @@
+.entity-info {
+	background: #fff;
+	padding: 15px;
+	position: relative;
+	z-index: 1;
+	border-bottom: 1px solid #d4d4d4;
+}
+.entity-layout-grid {
+	width: 100%;
+}
+.entity-layout-grid td {
+	vertical-align: top;
+}
+.entity-info-grid {
+	font-size: 13px;
+	color: #333;
+}
+.entity-info-grid table {
+	float: left;
+	margin-right: 5%;
+	max-width: 28%;
+}
+.entity-info-grid table th {
+	font-weight: bold;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	width: 1px;
+	white-space: nowrap;
+	text-align: right;
+}
+.entity-info-grid table td {
+	padding-bottom: 10px;
+}
+
+.entity-layout-grid table tr td .role-color {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.entity-layout-grid table tr td .role-color + span {
+    display: inline-block;
+    vertical-align: middle;
+}

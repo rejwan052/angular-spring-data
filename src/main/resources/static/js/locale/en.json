@@ -1,0 +1,91 @@
+{
+
+    "table": {
+        "headers": {
+            "user": "User",
+            "name": "Name",
+            "email": "Email",
+            "userLogin": "User",
+            "ipAddress": "IP",
+            "userAgent": "Agent",
+            "date": "Date",
+            "value": "Value"
+        },
+        "table-paging": {
+            "perpage": "&nbsp;per page"
+        }
+    },
+
+    "labels": {
+        "forUser": "For User",
+        "selectedUserRoles": "Selected User Roles",
+        "name": "Name",
+        "password": "Password",
+        "reEnter": "Re-enter",
+        "username": "Username",
+        "email": "Email"
+    },
+
+    "tabsViews": {
+    	"roles": "Roles",
+    	"tokens": "Security Tokens",
+    	"users": "Users"
+    },
+
+    "noData": {
+    	"noDataFound": "No Data Found."
+    },
+
+    "buttons": {
+        "close": "Close",
+        "save": "Save",
+        "none": "none",
+        "cancel": "Cancel",
+        "add": "Add",
+        "edit": "Edit",
+        "savenew": "Save and New",
+        "selectall": "Select All",
+        "setall": "Set All",
+        "clearall": "Clear All",
+        "submit": "Submit",
+        "yes": "Yes",
+        "no": "No",
+        "ok": "OK",
+        "reset": "Reset",
+        "details": "Details"
+    },
+
+    "btnTitles": {
+        "edit": "Edit",    
+        "delete": "Delete",
+        "manageUserRoles": "Manage User Roles",
+        "resetPassword": "Reset Password"
+    },
+
+    "confirms": {
+        "deleteToken": "Are you sure you want to delete token for the user '{{name}}'? This will permanently delete it from the system.",     
+        "deleteUser": "Are you sure you want to delete '{{name}}'? This will permanently delete it from the system.",
+        "deleteRole": "Are you sure you want to delete role '{{name}}'?"      
+     },
+
+    "messages": {
+        "success": {
+            "itemDeleted": "{{name}} has been deleted.",
+            "tokenDeleted": "Token for the user '{{name}}' has been deleted.",
+            "roleSaved": "Role {{name}} has been saved successfully.",
+            "userSaved": "User {{name}} has been saved succesfully",
+            "userRolesSaved": "User Roles have been saved successfully.",
+            "passwordResetSuccess": "Password for user {{name}} has been changed successfully."
+     	}
+     },
+ 
+    "validation": {
+        "required": "This is a required field.",
+        "notValid": "The value entered is not valid.",
+        "number": "The value to be entered must be a number",
+        "notEqual": "Passwords do not match.",
+        "maxLength": "The value is too long.",
+        "notValidEmail": "The value entered is not valid email address"
+    }
+
+}

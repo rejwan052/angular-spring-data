@@ -1,0 +1,159 @@
+.flex-cell {
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+.flex-cell .empty-table-btn {
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+/*-------------------------Buttons-------------------------*/
+.btn-optional {
+	background-color: #ddd;
+	color: #333;
+	border: 1px solid #ccc;
+}
+.btn-optional:hover {
+	background-color: #ccc;
+}
+
+/*-------------------------Alerts-------------------------*/
+.alert-optional {
+	background: #eee;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+/*---------------------------------------*/
+
+.white-btn {
+	background: #fff;
+	color: #666;
+	border: 1px solid #b7b7b7;
+	font-size: 13px;
+}
+.white-btn:hover {
+	background: #9cd9f6;
+	border: 1px solid #57b0d9;
+	color: #298fd1;
+	text-shadow: none
+}
+.white-btn:hover .caret {
+	color: #298fd1;
+}
+.collapse-table-btn {
+	width: 15px;
+	height: 15px;
+	line-height: 10px;
+	text-align: center;
+	padding: 0;
+	margin-right: 5px;
+}
+.collapse-table-a {
+	font-size: 16px;
+	color: #9fa2a4;
+	margin-right: 5px;
+}
+.collapse-table-a:hover {
+	text-decoration: none;
+	color: #199ddb;
+}
+.empty-table-btn {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin-right: 5px;
+	min-width: 15px;
+}
+.action-btn {
+	background: #eee;
+	color: #797979;
+	border: 1px solid #eee;
+	text-shadow: none;
+}
+.blue-btn {
+    background: #fff;
+    min-width: 70px;
+    font-size: 13px;
+    color: #199ddb;
+    border: 1px solid #199ddb;
+}
+.blue-btn:hover,
+.blue-btn-caret:hover {
+    border: 1px solid #199ddb;
+    background: #199ddb;
+    color: #fff;
+    text-shadow: none;
+}
+.blue-btn[disabled=disabled],
+.blue-btn-caret[disabled=disabled]{
+    border: 1px solid #199ddb;
+    background: #eee;
+}
+.grey-btn {
+    background: #fff;
+    color: #717171;
+    border: 1px solid #dadada;
+    min-width: 70px;
+    font-size: 13px;
+}
+.blue-btn-caret {
+    background: #fff;
+    font-size: 13px;
+    color: #199ddb;
+    border: 1px solid #199ddb;
+}
+.btn-group .blue-btn {
+    min-width: 1px;
+}
+
+/*--------------------------------------------*/
+select.form-control {
+	font-size: 13px;
+	color: #333;
+}
+.dropdown-menu > li > a {
+	font-size: 13px;
+}
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li > a:hover {
+	background: #d6effb;
+}
+.tooltip-inner {
+	background: #fff;
+	color: #000;
+	border: 1px solid #199ddb;
+}
+.tooltip.right .tooltip-arrow {
+	border-right-color: #199ddb;
+}
+.tooltip.left .tooltip-arrow {
+	border-left-color: #199ddb;
+}
+.tooltip.top .tooltip-arrow {
+	border-top-color: #199ddb;
+}
+.tooltip.bottom .tooltip-arrow {
+	border-bottom-color: #199ddb;
+}
+.breadcrumb {
+	margin-bottom: 0;
+	background: none;
+	font-size: 13px;
+}
+/*--------------------------------------------*/
+.truncate {
+	max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.truncate.nowrap {
+	white-space: nowrap;
+}

@@ -1,0 +1,42 @@
+<div class="btn-group pull-right dropup" ng-if="!formModel.existingId">
+    <button
+        type="button"
+        class="btn btn-default btn-sm blue-btn"
+        translate="buttons.save"
+        ng-disabled="!dialogForm.$valid"
+        ng-click="save(formModel)"
+    ></button>
+    <button
+        type="button"
+        class="btn btn-sm blue-btn-caret dropdown-toggle"
+        data-toggle="dropdown"
+        aria-expanded="false"
+        ng-disabled="!dialogForm.$valid"
+    >
+        <span class="caret"></span>
+        <span class="sr-only"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <li>
+            <a
+                href="#"
+                translate="buttons.savenew"
+                ng-click="$event.preventDefault(); saveAndNew(formModel)"
+            ></a>
+        </li>
+    </ul>
+</div>
+<button
+    type="button"
+    class="btn btn-default pull-right btn-sm blue-btn"
+    translate="buttons.save"
+    ng-click="save(formModel)"
+    ng-if="formModel.existingId"
+    ng-disabled="!dialogForm.$valid"
+></button>
+<button
+    type="button"
+    class="btn btn-default pull-right btn-sm grey-btn"
+    translate="buttons.cancel"
+    ng-click="closeThisDialog()"
+></button>

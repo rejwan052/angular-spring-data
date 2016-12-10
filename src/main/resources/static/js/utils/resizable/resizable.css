@@ -1,0 +1,14 @@
+resizable {
+    display: block;
+    position: relative;
+}
+resizable .ui-resizable-s {
+    position: absolute;
+    z-index: 2;
+    right: 3px;
+    bottom: 3px;
+    background: url('data:image/gif;base64,R0lGODlhGAAYAKEBAIiIiP///////////yH5BAEKAAIALAAAAAAYABgAAAJAlI+pFusbwJtM0hcvtlpl1h2fMGpjeZ2cyaGUKqbt/NJVLdpbzk/wDfLofggisUcaroBJpMs4ZEJ5U6mk2gQWAAA7') no-repeat;
+    background-size: cover;
+    width: 12px;
+    height: 12px;
+}
