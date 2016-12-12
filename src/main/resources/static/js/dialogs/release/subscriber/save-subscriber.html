@@ -1,0 +1,53 @@
+<table>
+    <tr>
+        <td>
+            <label class="control-label"><span translate="labels.name"></span>
+                <em>&nbsp;*</em>
+            </label>
+        </td>
+        <td>
+            <input
+                type="text"
+                class="form-control input-sm"
+                ng-model="formModel.name"
+                name="Name"
+                ng-required="true"
+                ng-maxlength="256"
+            >
+            <p
+                class="valid-error"
+                translate="validation.required"
+                ng-if="dialogForm.Name.$error.required && !dialogForm.Name.$pristine"
+            ></p>
+            <p
+                class="valid-error"
+                translate="validation.maxLength"
+                ng-if="dialogForm.Name.$error.maxlength"
+            ></p>
+        </td>
+    </tr>
+</table>
+
+
+<div class="dialog-list-filter">
+    <div class="input-group" style="width: 300px;">
+        <input class="form-control" type="text" placeholder="Find Subscriber" ng-model="filter.searchQuery" ng-change="tableParams.reload()">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+    </div>
+</div>
+
+<div class="dialog-table" style="min-height: 1px;">
+    <table ng-table="tableParams" class="table table-striped table-hover ng-table-responsive fixed" template-pagination="js/templates/table/table-nav-nosize.html">
+        <tr
+                ng-repeat="item in $data"
+                ng-click="obj.id = item.id; obj.name = item.name;"
+                ng-dblclick="obj.id = item.id; obj.name = item.name;"
+                ng-class="{active: obj.id == item.id}"
+                >
+            <td data-title="tableHeaders.name" sortable="'name'">
+                {{item.name}}
+                <i class="glyphicon glyphicon-ok pull-right" ng-show="obj.id == item.id"></i>
+            </td>
+        </tr>
+    </table>
+</div>

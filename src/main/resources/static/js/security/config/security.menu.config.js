@@ -81,6 +81,40 @@ define(['angular'], function(angular) {
 			        ]
 			},
 			
+			"release.menu": {
+			       tabs: [
+		               {
+		             	   state: 'skyglass.release.categories', 
+		             	   name: 'Categories',
+		             	   permission: 'authenticated'
+		               },
+		               
+		               {
+		             	   state: 'skyglass.release.publishers', 
+		             	   name: 'Publishers',
+		             	   permission: 'authenticated'
+		               },
+		               
+		               {
+		             	   state: 'skyglass.release.subscribers', 
+		             	   name: 'Subscribers',
+		             	   permission: 'authenticated'
+		               },
+		               
+		               {
+		             	   state: 'skyglass.release.releases', 
+		             	   name: 'Releases',
+		             	   permission: 'authenticated'
+		               },
+		               
+		               {
+		             	   state: 'skyglass.release.subscriptions', 
+		             	   name: 'Subscriptions',
+		             	   permission: 'authenticated'
+		               }			               
+			       ]
+			},				
+			
 			"admin.menu": {
 			       tabs: [
 					   {

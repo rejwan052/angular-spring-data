@@ -1,34 +1,3 @@
-<table>
-    <tr>
-        <td>
-            <label class="control-label"><span translate="labels.name"></span>
-                <em>&nbsp;*</em>
-            </label>
-        </td>
-        <td>
-            <input
-                type="text"
-                class="form-control input-sm"
-                ng-model="formModel.name"
-                name="Name"
-                ng-required="true"
-                ng-maxlength="256"
-            >
-            <p
-                class="valid-error"
-                translate="validation.required"
-                ng-if="dialogForm.Name.$error.required && !dialogForm.Name.$pristine"
-            ></p>
-            <p
-                class="valid-error"
-                translate="validation.maxLength"
-                ng-if="dialogForm.Name.$error.maxlength"
-            ></p>
-        </td>
-    </tr>
-</table>
-
-
 <div class="dialog-list-filter">
     <div class="input-group" style="width: 300px;">
         <input class="form-control" type="text" placeholder="Find Publisher" ng-model="filter.searchQuery" ng-change="tableParams.reload()">
@@ -41,7 +10,7 @@
         <tr
                 ng-repeat="item in $data"
                 ng-click="obj.id = item.id; obj.name = item.name;"
-                ng-dblclick="obj.id = item.id; obj.name = item.name;"
+                ng-dblclick="obj.id = item.id; obj.name = item.name; publisherToUpload(obj)"
                 ng-class="{active: obj.id == item.id}"
                 >
             <td data-title="tableHeaders.h1" sortable="'name'">
@@ -50,4 +19,28 @@
             </td>
         </tr>
     </table>
+</div>
+
+
+<div class="dialog-nav">
+    <button
+        type="button"
+        class="btn btn-default btn-sm blue-btn pull-right"
+        translate="buttons.next"
+        ng-disabled="!obj.id"
+        ng-click="publisherToUpload(obj)"
+    ></button>
+    <button
+        type="button"
+        class="btn btn-default btn-sm blue-btn pull-right"
+        translate="buttons.prev"
+        ng-click="publisherToCategory()"
+        ng-if="!ngDialogData.wizardData.category.id"
+    ></button>
+    <button
+        type="button"
+        class="btn btn-default pull-right btn-sm grey-btn"
+        translate="buttons.cancel"
+        ng-click="closeThisDialog()"
+    ></button>
 </div>

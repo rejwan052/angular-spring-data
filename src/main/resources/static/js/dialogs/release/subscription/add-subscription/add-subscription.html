@@ -1,0 +1,24 @@
+<div class="skg-dialog-title">{{title}}</div>
+
+<div class="loading" ng-if="loading"></div>
+
+<div class="wizard-progress" ng-class="{extended: false}">
+    <div class="item" ng-class="{selected: wizard.category.id, active: wizard.step == 'category'}">
+        <h3 translate="labels.label98"></h3>
+        <div>
+            <p>{{wizard.category.name || '?'}}</p>
+            <i class="glyphicon glyphicon-ok"></i>
+        </div>
+    </div>
+    <div class="item" ng-class="{selected: wizard.subscriber.id, active: wizard.step == 'subscriber'}">
+        <h3 translate="labels.label100"></h3>
+        <div>
+            <p>{{wizard.subscriber.name || '?'}}</p>
+            <i class="glyphicon glyphicon-ok"></i>
+        </div>
+    </div>
+
+</div>
+
+<div ui-view="category" ng-if="wizard.step == 'category'"></div>
+<div ui-view="subscriber" ng-if="wizard.step == 'subscriber'"></div>

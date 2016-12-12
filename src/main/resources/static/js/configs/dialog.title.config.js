@@ -29,7 +29,31 @@ define([], function() {
             
             userRoles: function(params){
                 return "Manage User Roles"
-            }
+            },
+            
+            saveCategory: function(params){
+                if (!!params.item) {
+                    return 'Edit Category'
+                } else {
+                    return 'Create Category'
+                }
+            },
+            
+            saveSubscriber: function(params){
+                if (!!params.item) {
+                    return 'Edit Subscriber'
+                } else {
+                    return 'Create Subscriber'
+                }
+            },
+            
+            savePublisher: function(params){
+                if (!!params.item) {
+                    return 'Edit Publisher'
+                } else {
+                    return 'Create Publisher'
+                }
+            }            
 
         });
 

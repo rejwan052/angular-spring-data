@@ -1,0 +1,32 @@
+<div class="skg-dialog-title">{{title}}</div>
+
+<div class="loading" ng-if="loading"></div>
+
+<div class="wizard-progress" ng-class="{extended: false}">
+    <div class="item" ng-class="{selected: wizard.category.id, active: wizard.step == 'category'}">
+        <h3 translate="labels.name"></h3>
+        <div>
+            <p>{{wizard.category.name || '?'}}</p>
+            <i class="glyphicon glyphicon-ok"></i>
+        </div>
+    </div>
+    <div class="item" ng-class="{selected: wizard.publisher.id, active: wizard.step == 'publisher'}">
+        <h3 translate="labels.name"></h3>
+        <div>
+            <p>{{wizard.publisher.name || '?'}}</p>
+            <i class="glyphicon glyphicon-ok"></i>
+        </div>
+    </div>
+    <div class="item" ng-class="{selected: wizard.step == 'publisher', active: wizard.step == 'upload'}">
+        <h3 translate="labels.name"></h3>
+        <div>
+            <p ng-if="wizard.step != 'upload'">?</p>
+            <p translate="labels.name" ng-if="wizard.step == 'upload'"></p>
+            <i class="glyphicon glyphicon-ok"></i>
+        </div>
+    </div>
+</div>
+
+<div ui-view="category" ng-if="wizard.step == 'category'"></div>
+<div ui-view="publisher" ng-if="wizard.step == 'publisher'"></div>
+<div ui-view="upload" ng-if="wizard.step == 'upload'"></div>

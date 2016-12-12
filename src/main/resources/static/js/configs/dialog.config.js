@@ -69,33 +69,33 @@ define(['angular'], function(angular) {
                 selected: "labels.selectedUserRoles"
             },
             
-            releaseCategory: {
-                template: 'js/dialogs/release/category/release-category.html',
+            saveCategory: {
+                template: 'js/dialogs/release/category/save-category.html',
                 navigation: "saveAndNew",
                 class: "flex-dialog m",
-                controller: "releaseCategoryDialogCtrl",
+                controller: "saveCategoryDialogCtrl",
                 model: {
                 	id: "",
                     name: ""
                 }
             },            
             
-            releaseSubscriber: {
-                template: 'js/dialogs/release/subscriber/release-subscriber.html',
+            saveSubscriber: {
+                template: 'js/dialogs/release/subscriber/save-subscriber.html',
                 navigation: "saveAndNew",
                 class: "flex-dialog m",
-                controller: "releaseSubscriberDialogCtrl",
+                controller: "saveSubscriberDialogCtrl",
                 model: {
                 	id: "",
                     name: ""
                 }
             },    
             
-            releasePublisher: {
-                template: 'js/dialogs/release/publisher/release-publisher.html',
+            savePublisher: {
+                template: 'js/dialogs/release/publisher/save-publisher.html',
                 navigation: "saveAndNew",
                 class: "flex-dialog m",
-                controller: "releasePublisherDialogCtrl",
+                controller: "savePublisherDialogCtrl",
                 model: {
                 	id: "",
                     name: ""

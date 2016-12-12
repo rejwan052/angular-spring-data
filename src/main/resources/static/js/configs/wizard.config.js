@@ -1,11 +1,11 @@
 define(['angular', 'configurations'], function (angular, configurations) {
 	configurations.constant("wizardConfig", []).constant('$wizardConfig', {
 
-	    publishRelease: {
-	        title: 'Publish Release',
+	    addRelease: {
+	        title: 'Add Release',
 	        class: 'wizard-750',
-	        template: 'js/dialogs/publish-release/publish-release.html',
-	        controller: "publishReleaseDialogCtrl",
+	        template: 'js/dialogs/release/release/add-release/add-release.html',
+	        controller: "addReleaseDialogCtrl",
 	        model: {
                 categoryId: "",
                 publisherId: "",
@@ -16,7 +16,7 @@ define(['angular', 'configurations'], function (angular, configurations) {
 	    addSubscription: {
 	        title: 'Add Subscription',
 	        class: 'wizard-750',
-	        template: 'js/dialogs/add-subscription/add-subscription.html',
+	        template: 'js/dialogs/release/subscription/add-subscription/add-subscription.html',
 	        controller: "addSubscriptionDialogCtrl",
 	        model: {
 	        	subscriberId: '',

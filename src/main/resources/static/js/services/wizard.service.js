@@ -46,22 +46,22 @@ define(['angular', 'services'], function (angular, services) {
         }
 
 		var wizards = {
-	            publishRelease: function(name, contentUrl){
+	            addRelease: function(name){
 	                return {
-	                    name: name + ".publishRelease",
-	                    url: "/publish-release",
+	                    name: name + ".addRelease",
+	                    url: "/add-release",
 	                    views: {
-	                        "publisher@": {
-	                            templateUrl: contentUrl + 'js/dialogs/publish-release/publisher/publish-release-publisher.html',
-	                            controller: 'publishReleasePublisherDialogCtrl'
-	                        },
 	                        "category@": {
-	                            templateUrl: contentUrl + 'js/dialogs/publish-release/category/publish-release-category.html',
-	                            controller: 'publishReleaseCategoryDialogCtrl'
-	                        },	                    	
+	                            templateUrl: 'js/dialogs/release/release/add-release/category/add-release-category.html',
+	                            controller: 'addReleaseCategoryDialogCtrl'
+	                        },		                    	
+	                        "publisher@": {
+	                            templateUrl: 'js/dialogs/release/release/add-release/publisher/add-release-publisher.html',
+	                            controller: 'addReleasePublisherDialogCtrl'
+	                        },                   	
 	                        "upload@": {
-	                            templateUrl: contentUrl + 'js/dialogs/publish-release/upload/publish-release-upload.html',
-	                            controller: 'publishReleaseUploadDialogCtrl'
+	                            templateUrl: 'js/dialogs/release/release/add-release/upload/add-release-upload.html',
+	                            controller: 'addReleaseUploadDialogCtrl'
 	                        }
 	                    },
 	                    onEnter: ['$stateParams', '$wizardConfig', 'ngDialog', '$state', '$message',
@@ -72,20 +72,19 @@ define(['angular', 'services'], function (angular, services) {
 	                    }]
 	                }
 	            },
-	            addSubscription: function(name, contentUrl){
+	            addSubscription: function(name){
 	                return {
-	                    name: name + ".createSubscription",
-	                    url: "/create-subscription",
+	                    name: name + ".addSubscription",
+	                    url: "/add-subscription",
 	                    views: {
-	                        "subscriber@": {
-	                            templateUrl: contentUrl + 'js/dialogs/add-subscription/subscriber/add-subscription-subscriber.html',
-	                            controller: 'addSubsriptionSubscriberDialogCtrl'
-	                        },
 	                        "category@": {
-	                            templateUrl: contentUrl + 'js/dialogs/add-subscription/category/add-subscription-category.html',
+	                            templateUrl: 'js/dialogs/release/subscription/add-subscription/category/add-subscription-category.html',
 	                            controller: 'addSubscriptionCategoryDialogCtrl'
-	                        }
-	                    },
+	                        },	                    	
+	                        "subscriber@": {
+	                            templateUrl: 'js/dialogs/release/subscription/add-subscription/subscriber/add-subscription-subscriber.html',
+	                            controller: 'addSubsriptionSubscriberDialogCtrl'
+	                        },	                    },
 	                    onEnter: ['$wizardConfig', 'ngDialog', '$state', '$message',
 	                        function($wizardConfig, ngDialog, $state, $message){
 	                        openWizardModal($wizardConfig, ngDialog, $message, $state).closePromise.then(function (data) {
@@ -121,9 +120,9 @@ define(['angular', 'services'], function (angular, services) {
 
 		this.$get = get;
 
-		this.set = function(name, contentUrl){
+		this.set = function(name){
 			angular.forEach(parents[name], function(parent) {
-				$stateProvider.state(wizards[name](parent, contentUrl));
+				$stateProvider.state(wizards[name](parent));
 			});
 		};
 

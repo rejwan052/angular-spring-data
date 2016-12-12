@@ -24,6 +24,7 @@ define([
     'loginCtrl',
     'permissionsCtrl',
     
+    'releaseCtrl',
 	'categoryListCtrl',
 	'categorySubscriptionsCtrl',
 	'subscriptionsCtrl',
@@ -48,7 +49,7 @@ define([
             'skyglass.thirdparty',	
             'skyglass.utils',  
             'skyglass.security',
-             'skyglass.components', 
+            'skyglass.components', 
 
     		'ui.router',
     		'ui.bootstrap',
@@ -75,16 +76,8 @@ define([
 						  }]);
 					}); 
 					
-	                $wizardProvider.set("runApplicationProcess", $bootstrap.contentUrl);
-	                $wizardProvider.set("runComponentProcess", $bootstrap.contentUrl);
-	                $wizardProvider.set("runProcess", $bootstrap.contentUrl);
-	                $wizardProvider.set("scheduleBlackout", $bootstrap.contentUrl);
-	                $wizardProvider.set("promoteApplicationProcess", $bootstrap.contentUrl);
-	                $wizardProvider.set("exportReplication", $bootstrap.contentUrl);
-	                $wizardProvider.set("importReplication", $bootstrap.contentUrl);
-	                
-	                $wizardProvider.set("cleanExecutionHistory", $bootstrap.contentUrl);
-					
+	                $wizardProvider.set("addRelease");
+	                $wizardProvider.set("addSubscription");
 				
 					$stateProvider
 					
@@ -105,98 +98,9 @@ define([
 		                    	displayName: 'No Permissions'      	
 						    }				            
 				        }) 
-							    
-					    // this is a demonstration of how abstract states can be handled by uiBreadcrumbs
-					    // directive. See the docs for a detailed explanation.					    
-				        .state('skyglass.categories', {
-				            url: '/categories',
-				            abstract: true,
-				            views: {
-				                "mainView@": {
-				                    abstract :true
-				                }
-				            },
-						    data: {
-						        proxy: 'skyglass.categories.list'
-						    }				        
-				        })						    
+
 				    
-					    
-					    .state('skyglass.categories.list', {
-					      url: '/list',
-					      views: {
-					        'mainView@': {
-						       templateUrl: 'js/app/categories/category-list.html',
-							   controller : 'categoryListCtrl',
-					        }
-					      },
-					      data: {
-						    displayName: 'Categories',
-		                    permissions: {
-	                    	  only: ['authenticated'],
-	                    	  redirectTo: 'skyglass.permissions'
-					        }							     
-					      }
-					    })
-					    
-					    .state('skyglass.category.subscriptions', {
-					      url: '/:id/subscriptions',
-					      views: {
-					        'mainView@': {
-							  templateUrl: 'js/app/categories/category-subscriptions.html',
-							  controller : 'categorySubscriptionsCtrl'
-					        }
-					      },
-					      data: {
-					        displayName: 'Subscriptions: {{ categoryName | uppercase }}',
-		                    permissions: {
-	                    	  only: ['authenticated'],
-	                    	  redirectTo: 'skyglass.permissions'
-						    }						        
-					      },
-					      resolve: {
-					        categoryName: function($stateParams, categoryService) {
-					          return categoryService.getCategoryName($stateParams.id)
-					        },
-					        userSubscriptions: function($stateParams, categoryService) {
-					          return categoryService.getUserSubscriptions($stateParams.id)
-					        }
-					      }
-					    })					    
-						
-				        .state('skyglass.subscriptions', {
-				            url: '/subscriptions',
-				            views: {
-				                "mainView@": {
-				                    templateUrl: "js/app/subscriptions/subscriptions.html",
-				                    controller : 'subscriptionsCtrl'
-				                }
-				            },
-		                    data: {
-		                    	displayName: 'Subscriptions',
-			                    permissions: {
-		                    	  only: ['authenticated'],
-		                    	  redirectTo: 'skyglass.permissions'
-				                }		                    	
-						    }				            
-				        })	
-				        
-				        .state('skyglass.publications', {
-				            url: '/publications',
-				            views: {
-				                "mainView@": {
-				                    templateUrl: "js/app/publications/publications.html",
-				                    controller : 'publicationsCtrl'
-				                }
-				            },
-		                    data: {
-		                    	displayName: 'Publications',
-			                    permissions: {
-		                    	  only: ['authenticated'],
-		                    	  redirectTo: 'skyglass.permissions'
-				                }		                    	
-						    }				            
-				        })	
+
 				        
 				        
 					    .state($securityConfigProvider.Config.loginState, {
@@ -211,6 +115,221 @@ define([
 						    	displayName: 'Login'
 						    }
 					    })
+					    
+					    .state('skyglass.release', {
+						      url: '/release',
+						      views: {
+						        'mainView@': {
+						          templateUrl: 'js/app/release/release.html',
+						          controller: 'releaseCtrl'
+						        }
+						      },
+			                  data: {
+			                	  displayName: 'Release',
+			                	  proxyLink: 'skyglass.release.category'
+				                  permissions: {
+			                    	  only: ['authenticated'],
+			                    	  redirectTo: 'skyglass.permissions'
+								  }		                	  
+							  }
+						})		
+						
+
+						
+				        .state('skyglass.release.category', {
+				            url: '/category',
+				            abstract: true,
+				            views: {
+				                "release@skyglass.release": {
+				                    abstract :true
+				                }
+				            },
+						    data: {
+						        proxy: 'skyglass.release.category.list'
+						    }				        
+				        })						    
+				    
+					    
+					    .state('skyglass.release.category.list', {
+					      url: '/list',
+					      views: {
+					        'release@skyglass.release': {
+						       templateUrl: 'js/app/release/categories/category-list.html',
+							   controller : 'categoryListCtrl',
+					        }
+					      },
+					      data: {
+						    displayName: 'Categories',
+		                    permissions: {
+	                    	  only: ['authenticated'],
+	                    	  redirectTo: 'skyglass.permissions'
+					        }							     
+					      }
+					    })
+					    
+					    .state('skyglass.release.category.subscriptions', {
+					      url: '/:id/subscriptions',
+					      views: {
+					        'release@skyglass.release': {
+							  templateUrl: 'js/app/release/categories/category-subscriptions.html',
+							  controller : 'categorySubscriptionsCtrl'
+					        }
+					      },
+					      data: {
+					        displayName: 'Subscriptions: {{ categoryName | uppercase }}',
+		                    permissions: {
+	                    	  only: ['authenticated'],
+	                    	  redirectTo: 'skyglass.permissions'
+						    }						        
+					      },
+					      resolve: {
+					        categoryName: function($stateParams, categoryService) {
+					          return categoryService.getCategoryName($stateParams.id)
+					        }
+					      }
+					    })							
+						
+				        .state('skyglass.release.publisher', {
+				            url: '/publisher',
+				            abstract: true,
+				            views: {
+				                "release@skyglass.release": {
+				                    abstract :true
+				                }
+				            },
+						    data: {
+						        proxy: 'skyglass.release.publisher.list'
+						    }				        
+				        })						    
+				    
+					    
+					    .state('skyglass.release.publisher.list', {
+					      url: '/list',
+					      views: {
+					        'release@skyglass.release': {
+						       templateUrl: 'js/app/release/publishers/publisher-list.html',
+							   controller : 'publisherListCtrl',
+					        }
+					      },
+					      data: {
+						    displayName: 'Publishers',
+		                    permissions: {
+	                    	  only: ['authenticated'],
+	                    	  redirectTo: 'skyglass.permissions'
+					        }							     
+					      }
+					    })
+					    
+					    .state('skyglass.release.publisher.releases', {
+					      url: '/:id/releases',
+					      views: {
+					        'release@skyglass.release': {
+							  templateUrl: 'js/app/release/publishers/publisher-releases.html',
+							  controller : 'publisherReleasesCtrl'
+					        }
+					      },
+					      data: {
+					        displayName: 'Releases: {{ publisherName | uppercase }}',
+		                    permissions: {
+	                    	  only: ['authenticated'],
+	                    	  redirectTo: 'skyglass.permissions'
+						    }						        
+					      },
+					      resolve: {
+					        publisherName: function($stateParams, $resource) {
+					          return $resource.getReleaseName($stateParams.id)
+					        }
+					      }
+					    })		
+						
+					    .state('skyglass.release.releases', {
+						      url: '/releases',
+						      views: {
+						        'release@skyglass.release': {
+						          templateUrl: 'js/app/release/releases/releases.html',
+						          controller: 'releasesCtrl'
+						        }
+						      },
+			                  data: {
+			                	  displayName: 'Releases',
+				                  permissions: {
+			                    	  only: ['authenticated'],
+			                    	  redirectTo: 'skyglass.permissions'	
+								  }					                	  
+							  }					    
+						})
+						
+				        .state('skyglass.release.subscriber', {
+				            url: '/subscriber',
+				            abstract: true,
+				            views: {
+				                "release@skyglass.release": {
+				                    abstract :true
+				                }
+				            },
+						    data: {
+						        proxy: 'skyglass.release.subscriber.list'
+						    }				        
+				        })						    
+				    
+					    
+					    .state('skyglass.release.subscriber.list', {
+					      url: '/list',
+					      views: {
+					        'mainView@': {
+						       templateUrl: 'js/app/release/subscribers/subscriber-list.html',
+							   controller : 'subscriberListCtrl',
+					        }
+					      },
+					      data: {
+						    displayName: 'Subscribers',
+		                    permissions: {
+	                    	  only: ['authenticated'],
+	                    	  redirectTo: 'skyglass.permissions'
+					        }							     
+					      }
+					    })
+					    
+					    .state('skyglass.release.subscriber.subscriptions', {
+					      url: '/:id/subscriptions',
+					      views: {
+					        'release@skyglass.release': {
+							  templateUrl: 'js/app/release/subscribers/subscriber-subscriptions.html',
+							  controller : 'subscriberSubscriptionsCtrl'
+					        }
+					      },
+					      data: {
+					        displayName: 'Subscriptions: {{ subscriberName | uppercase }}',
+		                    permissions: {
+	                    	  only: ['authenticated'],
+	                    	  redirectTo: 'skyglass.permissions'
+						    }						        
+					      },
+					      resolve: {
+					        subscriberName: function($stateParams, $resource) {
+					          return $resource.getSubscriberName($stateParams.id)
+					        }
+					      }
+					    })		
+		                
+		                .state('skyglass.release.subscriptions', {
+		                    url: '/subscriptions',
+		                    views: {
+		                        'release@skyglass.release': {
+		                            templateUrl: 'js/app/release/subscriptions/subscriptions.html',
+		                            controller: 'subscriptionsCtrl',
+		                        }
+		                    },
+			                data: {
+			                	  displayName: 'Subscriptions',
+				                  permissions: {
+			                    	  only: ['authenticated'],
+			                    	  redirectTo: 'skyglass.permissions'	
+								  }					                	  
+							}	
+		                }) 
+		                
+		                
 					    
 					    .state('skyglass.admin', {
 						      url: '/admin',

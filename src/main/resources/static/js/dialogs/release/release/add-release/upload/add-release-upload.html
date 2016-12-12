@@ -1,0 +1,42 @@
+<div class="errors" ng-if="errors.length">
+    <p ng-repeat="item in errors">{{item}}</p>
+</div>
+
+<form class="form-horizontal dialog-form" name="dialogForm">
+
+    <table>
+	    <tr>
+	        <td>
+	            <label class="control-label">
+	                <span translate="labels.label17"></span>
+	            </label>
+	        </td>
+	        <td>
+	            <file-loader file="formModel.file" ng-model="document" ng-required="true"></file-loader>
+	        </td>
+	    </tr>
+    </table>
+
+    <div class="dialog-nav">
+        <button
+            type="button"
+            class="btn btn-default btn-sm blue-btn pull-right"
+            translate="buttons.submit"
+            ng-click="submit(wizard, {file: obj})"
+            ng-disabled="!dialogForm.$valid"
+        ></button>
+        <button
+            type="button"
+            class="btn btn-default btn-sm blue-btn pull-right"
+            translate="buttons.prev"
+            ng-click="uploadToPublisher()"
+        ></button>
+        <button
+            type="button"
+            class="btn btn-default pull-right btn-sm grey-btn"
+            translate="buttons.cancel"
+            ng-click="closeThisDialog()"
+        ></button>
+    </div>
+
+</form>

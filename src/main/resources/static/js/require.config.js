@@ -73,18 +73,18 @@ require.config({
         securityRoleDialogCtrl: 'dialogs/security-role/security-role.ctrl',
         multipleDialogCtrl: 'dialogs/multiple.dialog.ctrl',
         
-        publishReleaseDialogCtrl: 'dialogs/release/publish-release/publish-release.ctrl',
-        publishReleasePublisherDialogCtrl: 'dialogs/release/publish-release/publish-release-publisher.ctrl',
-        publishReleaseCategoryDialogCtrl: 'dialogs/release/publish-release/publish-release-category.ctrl',
-        publishReleaseUploadDialogCtrl: 'dialogs/release/publish-release/publish-release-upload.ctrl',
+        addReleaseDialogCtrl: 'dialogs/release/release/add-release/add-release.ctrl',
+        addReleasePublisherDialogCtrl: 'dialogs/release/release/add-release/add-release-publisher.ctrl',
+        addReleaseCategoryDialogCtrl: 'dialogs/release/release/add-release/add-release-category.ctrl',
+        addReleaseUploadDialogCtrl: 'dialogs/release/release/add-release/add-release-upload.ctrl',
         
-        addSubscriptionDialogCtrl: 'dialogs/release/add-subscription/add-subscription.ctrl',
-        addSubscriptionSubscriberDialogCtrl: 'dialogs/release/add-subscription/add-subscription-subscriber.ctrl',
-        addSubscriptionCategoryDialogCtrl: 'dialogs/release/add-subscription/add-subscription-category.ctrl',
+        addSubscriptionDialogCtrl: 'dialogs/release/subscription/add-subscription/add-subscription.ctrl',
+        addSubscriptionSubscriberDialogCtrl: 'dialogs/release/subscription/add-subscription/add-subscription-subscriber.ctrl',
+        addSubscriptionCategoryDialogCtrl: 'dialogs/release/subscription/add-subscription/add-subscription-category.ctrl',
         
-        saveCategoryDialogCtrl: 'dialogs/release/save-category.ctrl',
-        saveSubscriberDialogCtrl: 'dialogs/release/save-subscriber.ctrl',
-        savePublisherDialogCtrl: 'dialogs/release/save-publisher.ctrl',
+        saveCategoryDialogCtrl: 'dialogs/release/category/save-category.ctrl',
+        saveSubscriberDialogCtrl: 'dialogs/release/subscriber/save-subscriber.ctrl',
+        savePublisherDialogCtrl: 'dialogs/release/publisher/save-publisher.ctrl',
     	
     	//Services    	
         formatterService: 'services/formatter.service',
