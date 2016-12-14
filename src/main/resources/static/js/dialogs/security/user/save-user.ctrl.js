@@ -3,7 +3,7 @@ define([
 	'controllers'
 	
 ], function(angular, controllers) {
-    controllers.controller("securityUserDialogCtrl", ["$scope", "$translate", "$state", "$security", "$formatter", "$message",
+    controllers.controller("saveUserDialogCtrl", ["$scope", "$translate", "$state", "$security", "$formatter", "$message",
 	    function ($scope, $translate, $state, $security, $formatter, $message) {
 
 	    	$scope.formModel = angular.copy($scope.ngDialogData.model);

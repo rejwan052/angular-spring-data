@@ -30,7 +30,8 @@
         <property name="dataSource" ref="dataSource" />
 	    <property name="packagesToScan">
 	      <list>
-	        <value>skyglass.demo.data.model</value>
+	        <value>skyglass.demo.data.model.security</value>
+	        <value>skyglass.demo.data.model.release</value>
 	      </list>
 	    </property>  
 	    <!-- <property name="packagesToScan" value="skyglass.model" />  -->

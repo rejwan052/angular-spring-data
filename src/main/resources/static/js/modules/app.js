@@ -25,10 +25,6 @@ define([
     'permissionsCtrl',
     
     'releaseCtrl',
-	'categoryListCtrl',
-	'categorySubscriptionsCtrl',
-	'subscriptionsCtrl',
-	'publicationsCtrl',
 	'adminCtrl',
 	'adminWriteCtrl',
 	'adminReadCtrl',
@@ -126,7 +122,7 @@ define([
 						      },
 			                  data: {
 			                	  displayName: 'Release',
-			                	  proxyLink: 'skyglass.release.category'
+			                	  proxyLink: 'skyglass.release.category.list',
 				                  permissions: {
 			                    	  only: ['authenticated'],
 			                    	  redirectTo: 'skyglass.permissions'
@@ -198,7 +194,8 @@ define([
 				                }
 				            },
 						    data: {
-						        proxy: 'skyglass.release.publisher.list'
+						        //proxy: 'skyglass.release.publisher.list'
+						    	displayName: false
 						    }				        
 				        })						    
 				    
@@ -259,30 +256,34 @@ define([
 							  }					    
 						})
 						
-				        .state('skyglass.release.subscriber', {
-				            url: '/subscriber',
-				            abstract: true,
-				            views: {
-				                "release@skyglass.release": {
-				                    abstract :true
-				                }
-				            },
-						    data: {
-						        proxy: 'skyglass.release.subscriber.list'
-						    }				        
-				        })						    
+						.state('skyglass.release.subscriber', {
+						      url: '/subscriber',
+						      views: {
+						        'release@skyglass.release': {
+						        	abstract :true
+						        }
+						      },
+			                  data: {
+			                	  displayName: 'Subscribers',
+			                	  proxyLink: 'skyglass.release.subscriber.list',
+				                  permissions: {
+			                    	  only: ['authenticated'],
+			                    	  redirectTo: 'skyglass.permissions'
+								  }		                	  
+							  }
+						})					        
 				    
 					    
 					    .state('skyglass.release.subscriber.list', {
 					      url: '/list',
 					      views: {
-					        'mainView@': {
+					        'release@skyglass.release': {
 						       templateUrl: 'js/app/release/subscribers/subscriber-list.html',
 							   controller : 'subscriberListCtrl',
 					        }
 					      },
 					      data: {
-						    displayName: 'Subscribers',
+						    displayName: false,
 		                    permissions: {
 	                    	  only: ['authenticated'],
 	                    	  redirectTo: 'skyglass.permissions'

@@ -2,6 +2,15 @@ define(['angular', 'services'], function (angular, services) {
 	services.provider("$wizard", ["$stateProvider",  function($stateProvider){
 
 		var wizardParams = {};
+		
+		var parents = {
+			addSubscription: [
+				"skyglass.release"
+			],
+			addRelease: [
+				"skyglass.release"
+			]          
+	    };		
 
         var dialogActions = {
             message: function(data, $message, $state){

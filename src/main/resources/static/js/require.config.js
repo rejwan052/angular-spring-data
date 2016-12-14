@@ -49,10 +49,16 @@ require.config({
 
         //----------------------Controllers----------------------//
     	indexCtrl: 'app/main/index',
-    	categoryListCtrl: 'app/categories/category-list',	
-    	categorySubscriptionsCtrl: 'app/categories/category-subscriptions',
-    	subscriptionsCtrl: 'app/subscriptions/subscriptions',
-    	publicationsCtrl: 'app/publications/publications',
+    	releaseCtrl: 'app/release/release',	
+    	categoryListCtrl: 'app/release/categories/category-list',	
+    	categoryReleasesCtrl: 'app/release/categories/category-releases',
+    	categorySubscriptionsCtrl: 'app/release/categories/category-subscriptions',
+    	publisherListCtrl: 'app/release/publishers/publisher-list',
+    	publisherReleasesCtrl: 'app/release/publishers/publisher-releases',
+    	releasesCtrl: 'app/release/releases/releases',
+    	subscriberListCtrl: 'app/release/subscribers/subscriber-list',
+    	subscriberSubscriptionsCtrl: 'app/release/subscribers/subscriber-subscriptions',
+    	subscriptionsCtrl: 'app/release/subscriptions/subscriptions',
     	loginCtrl: 'app/login/login',
     	permissionsCtrl: 'app/permissions/permissions',
     	
@@ -67,20 +73,20 @@ require.config({
         adminSecurityTokensCtrl: 'app/admin/security/tokens/security-tokens',
         
         //Dialog Controllers
-        securityUserDialogCtrl: 'dialogs/security-user/security-user.ctrl',
-        resetUserPasswordDialogCtrl: 'dialogs/security-user/reset-password.ctrl',
-        userRolesDialogCtrl: 'dialogs/security-user/user-roles.ctrl',
-        securityRoleDialogCtrl: 'dialogs/security-role/security-role.ctrl',
+        saveUserDialogCtrl: 'dialogs/security/user/save-user.ctrl',
+        resetPasswordDialogCtrl: 'dialogs/security/user/reset-password.ctrl',
+        manageUserRolesDialogCtrl: 'dialogs/security/user/manage-user-roles.ctrl',
+        saveRoleDialogCtrl: 'dialogs/security/role/save-role.ctrl',
         multipleDialogCtrl: 'dialogs/multiple.dialog.ctrl',
         
         addReleaseDialogCtrl: 'dialogs/release/release/add-release/add-release.ctrl',
-        addReleasePublisherDialogCtrl: 'dialogs/release/release/add-release/add-release-publisher.ctrl',
-        addReleaseCategoryDialogCtrl: 'dialogs/release/release/add-release/add-release-category.ctrl',
-        addReleaseUploadDialogCtrl: 'dialogs/release/release/add-release/add-release-upload.ctrl',
+        addReleasePublisherDialogCtrl: 'dialogs/release/release/add-release/publisher/add-release-publisher.ctrl',
+        addReleaseCategoryDialogCtrl: 'dialogs/release/release/add-release/category/add-release-category.ctrl',
+        addReleaseUploadDialogCtrl: 'dialogs/release/release/add-release/upload/add-release-upload.ctrl',
         
         addSubscriptionDialogCtrl: 'dialogs/release/subscription/add-subscription/add-subscription.ctrl',
-        addSubscriptionSubscriberDialogCtrl: 'dialogs/release/subscription/add-subscription/add-subscription-subscriber.ctrl',
-        addSubscriptionCategoryDialogCtrl: 'dialogs/release/subscription/add-subscription/add-subscription-category.ctrl',
+        addSubscriptionSubscriberDialogCtrl: 'dialogs/release/subscription/add-subscription/subscriber/add-subscription-subscriber.ctrl',
+        addSubscriptionCategoryDialogCtrl: 'dialogs/release/subscription/add-subscription/category/add-subscription-category.ctrl',
         
         saveCategoryDialogCtrl: 'dialogs/release/category/save-category.ctrl',
         saveSubscriberDialogCtrl: 'dialogs/release/subscriber/save-subscriber.ctrl',

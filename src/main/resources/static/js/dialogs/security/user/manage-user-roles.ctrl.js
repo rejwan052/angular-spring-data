@@ -6,7 +6,7 @@ define([
     'tablePlugin'
     
 ], function(angular, controllers) {
-    controllers.controller("userRolesDialogCtrl", ["$scope", "$translate", "$q", "$security", "$message", "$formatter", "ngTableParams", "$filter", "$controller", "$q",
+    controllers.controller("manageUserRolesDialogCtrl", ["$scope", "$translate", "$q", "$security", "$message", "$formatter", "ngTableParams", "$filter", "$controller", "$q",
         function ($scope, $translate, $q, $security, $message, $formatter, ngTableParams, $filter, $controller, $q) {
 
             $scope.loading = true;

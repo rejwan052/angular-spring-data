@@ -7,10 +7,10 @@ define([
 	'adminSecurityRolesCtrl',
 	'adminSecurityTokensCtrl',
 
-    'securityUserDialogCtrl',
-    'resetUserPasswordDialogCtrl',
-    'userRolesDialogCtrl',
-    'securityRoleDialogCtrl'
+    'saveUserDialogCtrl',
+    'resetPasswordDialogCtrl',
+    'manageUserRolesDialogCtrl',
+    'saveRoleDialogCtrl'
     
 ], function(angular, controllers) {
     controllers.controller("adminSecurityCtrl", ['$scope', '$state', '$securityMenuConfig',

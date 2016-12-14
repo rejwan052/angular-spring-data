@@ -5,7 +5,7 @@ define([
 	'formatterService',
 	'messageService'
 ], function(angular, controllers) {
-    controllers.controller("publisherListCtrl", ["$scope", "$filter", "$translate", "$state", 
+    controllers.controller("subscriberListCtrl", ["$scope", "$filter", "$translate", "$state", 
                            "$release", "ngTableParams", "$formatter", "$confirm", "$message", "$securitySession",
 	    function ($scope, $filter, $translate, $state, $release, ngTableParams, 
 	    		$formatter, $confirm, $message, $securitySession) {

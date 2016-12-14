@@ -25,34 +25,10 @@ define(['angular'], function(angular) {
 			"main.menu": {
 			        tabs: [
 				        {
-	                 	   state: $securityConfig.config.homeState, 
-	                 	   name: 'Home',
+	                 	   state: 'skyglass.release.category.list', 
+	                 	   name: 'Release',
 	                 	   permission: 'authenticated'
-	                    }, 
-	                    
-	                    {
-	                 	   state: 'skyglass.tabs', 
-	                 	   name: 'Tabs',
-	                 	   permission: 'authenticated'
-	                    }, 
-	                    
-	                    {
-	                 	   state: 'skyglass.content', 
-	                 	   name: 'Content',
-	                 	   permission: 'authenticated'
-	                    },
-	                 	   
-	                    {
-	             		   state: 'skyglass.users.list', 
-	             		   name: 'Users',
-	             		   permission: 'authenticated'
-	             	   	},
-	                 		   
-	                    {
-	             		   state: 'skyglass.message', 
-	             		   name: 'Message',
-	             		   permission: 'authenticated'                    		   
-	             	   	},
+	                    },	                    
 	                 			   
 	                    {
 	             		   actionClick: function() {
@@ -84,19 +60,19 @@ define(['angular'], function(angular) {
 			"release.menu": {
 			       tabs: [
 		               {
-		             	   state: 'skyglass.release.categories', 
+		             	   state: 'skyglass.release.category.list', 
 		             	   name: 'Categories',
 		             	   permission: 'authenticated'
 		               },
 		               
 		               {
-		             	   state: 'skyglass.release.publishers', 
+		             	   state: 'skyglass.release.publisher.list', 
 		             	   name: 'Publishers',
 		             	   permission: 'authenticated'
 		               },
 		               
 		               {
-		             	   state: 'skyglass.release.subscribers', 
+		             	   state: 'skyglass.release.subscriber.list', 
 		             	   name: 'Subscribers',
 		             	   permission: 'authenticated'
 		               },
