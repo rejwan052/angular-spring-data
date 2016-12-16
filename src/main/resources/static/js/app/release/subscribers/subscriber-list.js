@@ -6,8 +6,8 @@ define([
 	'messageService'
 ], function(angular, controllers) {
     controllers.controller("subscriberListCtrl", ["$scope", "$filter", "$translate", "$state", 
-                           "$release", "ngTableParams", "$formatter", "$confirm", "$message", "$securitySession",
-	    function ($scope, $filter, $translate, $state, $release, ngTableParams, 
+                           "$subscriber", "ngTableParams", "$formatter", "$confirm", "$message", "$securitySession",
+	    function ($scope, $filter, $translate, $state, $subscriber, ngTableParams, 
 	    		$formatter, $confirm, $message, $securitySession) {
 
             var tableData;
@@ -26,7 +26,7 @@ define([
             };
 
             $scope.getSubscribers = function(){
-                $release.subscribers(function(data){
+                $subscriber.subscribers(function(data){
                     renderGrid(data);
                 });
             };
@@ -64,7 +64,7 @@ define([
                     name: item.name,
                 }).then(function (str) {
                     $confirm(str['confirms.deleteSubscriber'], function(){
-                        $release.deleteSubscriber({
+                        $subscriber.deleteSubscriber({
                             id: item.id
                         }, function(){
                             $message("success", str["messages.success.itemDeleted"]);

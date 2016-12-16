@@ -2,8 +2,8 @@ define([
 	'angular',
 	'controllers'
 ], function(angular, controllers) {
-    controllers.controller("addSubscriptionSubscriberDialogCtrl", ["$scope", "$formatter", "$release", "ngTableParams", "$translate",
-	    function ($scope, $formatter, $release, ngTableParams, $translate) {
+    controllers.controller("addSubscriptionSubscriberDialogCtrl", ["$scope", "$formatter", "$subscriber", "ngTableParams", "$translate",
+	    function ($scope, $formatter, $subscriber, ngTableParams, $translate) {
 
 	    	$scope.obj = {};
 
@@ -20,7 +20,7 @@ define([
                 total: 0,
                 getData: function($defer, params) {
                     var parameters = $formatter.resourceUrl(params.url(), $scope.filter);
-                	$release.subscribers(parameters, function(data){
+                	$subscriber.subscribers(parameters, function(data){
                         params.total(data.totalRecords);
                         $defer.resolve(data.records);
                     });

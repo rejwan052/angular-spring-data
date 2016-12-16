@@ -1,13 +1,12 @@
 package skyglass.demo.data.release;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import skyglass.demo.data.model.release.Publisher;
-import skyglass.demo.data.model.security.User;
-
 import java.util.Optional;
 
-public interface PublisherData extends JpaRepository<Publisher, Long> {
+import skyglass.demo.data.INameData;
+import skyglass.demo.model.release.Publisher;
+import skyglass.demo.model.security.User;
+
+public interface PublisherData extends INameData<Publisher, Long> {
 
     Optional<Publisher> findByUser(User user);
 

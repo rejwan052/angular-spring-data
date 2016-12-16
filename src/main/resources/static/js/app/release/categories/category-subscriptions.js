@@ -6,8 +6,8 @@ define([
 	'messageService'
 ], function(angular, controllers) {
     controllers.controller("categorySubscriptionsCtrl", ["$scope", "$filter", "$translate", "$state", 
-                           "$release", "ngTableParams", "$formatter", "$confirm", "$message", "$securitySession",
-	    function ($scope, $filter, $translate, $state, $release, ngTableParams, 
+                           "$category", "ngTableParams", "$formatter", "$confirm", "$message", "$securitySession",
+	    function ($scope, $filter, $translate, $state, $category, ngTableParams, 
 	    		$formatter, $confirm, $message, $securitySession) {
 
             var tableData;
@@ -26,7 +26,7 @@ define([
             };
 
             $scope.getCategorySubscriptions = function(){
-                $release.categorySubscriptions(function(data){
+                $category.categorySubscriptions(function(data){
                     renderGrid(data);
                 });
             };
@@ -64,7 +64,7 @@ define([
                     name: item.login,
                 }).then(function (str) {
                     $confirm(str['confirms.deleteSubscription'], function(){
-                        $release.deleteSubscription({
+                        $category.deleteSubscription({
                             id: item.id
                         }, function(){
                             $message("success", str["messages.success.itemDeleted"]);

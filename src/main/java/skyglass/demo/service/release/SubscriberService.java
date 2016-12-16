@@ -1,16 +1,17 @@
 package skyglass.demo.service.release;
 
-import skyglass.demo.data.model.release.Category;
-import skyglass.demo.data.model.release.Subscriber;
-import skyglass.demo.data.model.security.User;
+import org.springframework.stereotype.Service;
+
 import skyglass.demo.data.release.SubscriberData;
-import skyglass.demo.service.GenericService;
+import skyglass.demo.model.release.Subscriber;
+import skyglass.demo.model.security.User;
+import skyglass.demo.service.AbstractService;
 
-public interface SubscriberService extends GenericService<Subscriber, Long, SubscriberData> {
-
-	public Subscriber findByUser(User user);
+@Service
+public class SubscriberService extends AbstractService<Subscriber, Long, SubscriberData> {
 	
-	public void subscribe(User user, Category category);
+	public Subscriber findByUser(User user) {
+		return repository.findOne(user.getId());
+	}	
 
 }
-

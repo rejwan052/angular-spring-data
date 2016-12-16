@@ -2,8 +2,8 @@ define([
 	'angular',
 	'controllers',
 ], function(angular, controllers) {
-    controllers.controller("addReleaseCategoryDialogCtrl", ["$scope", "$formatter", "$release", "ngTableParams",
-	    function ($scope, $formatter, $release, ngTableParams) {
+    controllers.controller("addReleaseCategoryDialogCtrl", ["$scope", "$formatter", "$category", "ngTableParams",
+	    function ($scope, $formatter, $category, ngTableParams) {
 
 	    	$scope.obj = {};
 
@@ -19,7 +19,7 @@ define([
                 total: 0,
                 getData: function($defer, params) {
                 	var parameters = $formatter.resourceUrl(params.url(), $scope.filter);
-    				$release.categories(parameters, function(data){
+    				$category.categories(parameters, function(data){
     					params.total(data.totalRecords);
 			    		$defer.resolve(data.records);
     				});

@@ -2,8 +2,8 @@ define([
 	'angular',
 	'controllers'
 ], function(angular, controllers) {
-    controllers.controller("savePublisherDialogCtrl", ["$scope", "$formatter", "$release", "ngTableParams", "$translate",
-	    function ($scope, $formatter, $release, ngTableParams, $translate) {
+    controllers.controller("savePublisherDialogCtrl", ["$scope", "$formatter", "$publisher", "ngTableParams", "$translate",
+	    function ($scope, $formatter, $publisher, ngTableParams, $translate) {
     	
 	    	$scope.formModel = angular.copy($scope.ngDialogData.model);
 	    	$scope.loading = true;
@@ -23,7 +23,7 @@ define([
                 getData: function($defer, params) {
                     getFormData($scope.ngDialogData, $scope.formModel);  
                     var parameters = $formatter.resourceUrl(params.url(), $scope.filter);
-                	$release.publishers(parameters, function(data){
+                	$publisher.publishers(parameters, function(data){
                         params.total(data.totalRecords);
                         $defer.resolve(data.records);
                     });
@@ -50,7 +50,7 @@ define([
 	    	};
 
             var save = function(model){
-                return $release.savePublisher({}, model, null, function(error){
+                return $publisher.savePublisher({}, model, null, function(error){
                     $scope.errors = [$formatter.error(error.data.message)];
                 }).$promise;
             };

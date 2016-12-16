@@ -4,8 +4,8 @@ define([
     'addSubscriptionCategoryDialogCtrl',
     'addSubscriptionSubscriberDialogCtrl'
 ], function(angular, controllers) {
-    controllers.controller("addSubscriptionDialogCtrl", ["$window", "$scope", "$translate", "$formatter", "$release",
-        function ($window, $scope, $translate, $formatter, $application) {
+    controllers.controller("addSubscriptionDialogCtrl", ["$window", "$scope", "$translate", "$formatter", "$subscription",
+        function ($window, $scope, $translate, $formatter, $subscription) {
 
             $scope.formModel = angular.copy($scope.ngDialogData.model);
             $scope.title = $scope.ngDialogData.title;
@@ -54,7 +54,7 @@ define([
                     }
                 });
 
-                $release.saveSubscription({categoryId: data.categoryId, subscriberId: data.subscriberId}, data, function(response){
+                $subscription.saveSubscription({categoryId: data.categoryId, subscriberId: data.subscriberId}, data, function(response){
                     $scope.closeThisDialog({
                         categoryId: response.categoryId,
                         subscriberId: response.subscriberId

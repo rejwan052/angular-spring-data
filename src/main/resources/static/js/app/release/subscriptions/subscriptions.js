@@ -6,8 +6,8 @@ define([
 	'messageService'
 ], function(angular, controllers) {
     controllers.controller("subscriptionsCtrl", ["$scope", "$filter", "$translate", "$state", 
-                           "$release", "ngTableParams", "$formatter", "$confirm", "$message", "$securitySession",
-	    function ($scope, $filter, $translate, $state, $release, ngTableParams, 
+                           "$subscription", "ngTableParams", "$formatter", "$confirm", "$message", "$securitySession",
+	    function ($scope, $filter, $translate, $state, $subscription, ngTableParams, 
 	    		$formatter, $confirm, $message, $securitySession) {
 
             var tableData;
@@ -26,7 +26,7 @@ define([
             };
 
             $scope.getSubscriptions = function(){
-                $release.subscriptions(function(data){
+                $subscription.subscriptions(function(data){
                     renderGrid(data);
                 });
             };
@@ -64,7 +64,7 @@ define([
                     name: item.login,
                 }).then(function (str) {
                     $confirm(str['confirms.deleteSubscription'], function(){
-                        $release.deleteSubscription({
+                        $subscription.deleteSubscription({
                             id: item.id
                         }, function(){
                             $message("success", str["messages.success.itemDeleted"]);
@@ -82,11 +82,13 @@ define([
 
             $translate(
                 [
+                 	'table.headers.category',                 
                     'table.headers.subscriber',
                     'table.headers.subscriptionDate'
                 ]
             ).then(function (data) {
                 $scope.tableHeaders = {
+                	category: data["table.headers.category"],                		
                     subscriber: data["table.headers.subscriber"],
                     date: data["table.headers.subscriptionDate"]
                 };

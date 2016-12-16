@@ -30,6 +30,9 @@
             >
                 <tbody ng-repeat="item in $data">
                     <tr>
+                        <td data-title="tableHeaders.category" sortable="'category.name'">
+                            {{item.category.name}}
+                        </td>                      
                         <td data-title="tableHeaders.subscriber" sortable="'subscriber.name'">
                             {{item.subscriber.name}}
                         </td>
@@ -52,7 +55,7 @@
                     <tr>
                         <td
                             translate="noData.noDataFound"
-                            colspan="2"
+                            colspan="3"
                             style="text-align: center"
                         ></td>
                     </tr>

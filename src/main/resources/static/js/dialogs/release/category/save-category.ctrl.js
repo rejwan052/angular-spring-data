@@ -4,8 +4,8 @@ define([
 	
 ], function(angular, controllers) {
     controllers.controller("saveCategoryDialogCtrl", [
-        "$scope", "$translate", "$state", "$release", "$formatter", "$message",
-	    function ($scope, $translate, $state, $release, $formatter, $message) {
+        "$scope", "$translate", "$state", "$category", "$formatter", "$message",
+	    function ($scope, $translate, $state, $category, $formatter, $message) {
 
 	    	$scope.formModel = angular.copy($scope.ngDialogData.model);
 	    	$scope.loading = true;
@@ -20,7 +20,7 @@ define([
 	    	};
 
             var save = function(model){
-                return $release.saveCategory({}, model, null, function(error){
+                return $category.saveCategory({}, model, null, function(error){
                     $scope.errors = [$formatter.error(error.data.message)];
                 }).$promise;
             };

@@ -2,8 +2,8 @@ define([
 	'angular',
 	'controllers'
 ], function(angular, controllers) {
-    controllers.controller("addReleasePublisherDialogCtrl", ["$scope", "$formatter", "$release", "ngTableParams", "$translate",
-	    function ($scope, $formatter, $release, ngTableParams, $translate) {
+    controllers.controller("addReleasePublisherDialogCtrl", ["$scope", "$formatter", "$publisher", "ngTableParams", "$translate",
+	    function ($scope, $formatter, $publisher, ngTableParams, $translate) {
 
 	    	$scope.obj = {};
 
@@ -20,7 +20,7 @@ define([
                 total: 0,
                 getData: function($defer, params) {
                     var parameters = $formatter.resourceUrl(params.url(), $scope.filter);
-                	$release.publishers(parameters, function(data){
+                	$publisher.publishers(parameters, function(data){
                         params.total(data.totalRecords);
                         $defer.resolve(data.records);
                     });

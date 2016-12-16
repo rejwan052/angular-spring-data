@@ -1,12 +1,19 @@
 package skyglass.demo.service.release;
 
-import skyglass.demo.data.model.release.Publisher;
-import skyglass.demo.data.model.security.User;
+import org.springframework.stereotype.Service;
+
 import skyglass.demo.data.release.PublisherData;
-import skyglass.demo.service.GenericService;
+import skyglass.demo.model.release.Publisher;
+import skyglass.demo.model.security.User;
+import skyglass.demo.service.AbstractNameService;
 
-public interface PublisherService extends GenericService<Publisher, Long, PublisherData> {
+@Service
+public class PublisherService extends AbstractNameService<Publisher, Long, PublisherData> {
 
-	public Publisher findByUser(User user);
-	
+	public Publisher findByUser(User user) {
+		return repository.findOne(user.getId());
+	}	
+
+
+
 }

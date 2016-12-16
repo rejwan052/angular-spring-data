@@ -9,7 +9,12 @@
             "ipAddress": "IP",
             "userAgent": "Agent",
             "date": "Date",
-            "value": "Value"
+            "value": "Value",
+            "category": "Category",
+            "publisher": "Publisher",
+            "publishDate": "Publish Date",
+            "subscriber": "Subscriber",
+            "subscriptionDate": "Subscription Date"
         },
         "table-paging": {
             "perpage": "&nbsp;per page"

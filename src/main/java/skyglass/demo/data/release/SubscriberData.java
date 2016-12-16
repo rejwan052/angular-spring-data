@@ -2,12 +2,11 @@ package skyglass.demo.data.release;
 
 import java.util.Optional;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import skyglass.demo.data.INameData;
+import skyglass.demo.model.release.Subscriber;
+import skyglass.demo.model.security.User;
 
-import skyglass.demo.data.model.release.Subscriber;
-import skyglass.demo.data.model.security.User;
-
-public interface SubscriberData extends JpaRepository<Subscriber, Long> {
+public interface SubscriberData extends INameData<Subscriber, Long> {
 
     Optional<Subscriber> findByUser(User user);
 

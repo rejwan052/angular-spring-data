@@ -2,8 +2,8 @@ define([
 	'angular',
 	'controllers'    
 ], function(angular, controllers) {
-    controllers.controller("addReleaseUploadDialogCtrl", ["$scope", "$formatter", "ngTableParams", "$q", "$release",
-	    function ($scope, $formatter, ngTableParams, $q, $release) {
+    controllers.controller("addReleaseUploadDialogCtrl", ["$scope", "$formatter", "ngTableParams", "$q",
+	    function ($scope, $formatter, ngTableParams, $q) {
 
             $scope.obj = {
                 file: ''

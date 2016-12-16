@@ -1,10 +1,10 @@
 package skyglass.demo.service.security;
 
-import skyglass.demo.data.model.security.Authority;
 import skyglass.demo.data.security.AuthorityData;
-import skyglass.demo.service.GenericService;
+import skyglass.demo.model.security.Authority;
+import skyglass.demo.service.IGenericService;
 
-public interface AuthorityService extends GenericService<Authority, Long, AuthorityData> {
+public interface AuthorityService extends IGenericService<Authority, Long, AuthorityData> {
 	
 	
 

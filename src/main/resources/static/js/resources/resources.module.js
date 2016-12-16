@@ -2,16 +2,28 @@ define([
 	'angular',
 	'resource',
 	'resources/security',
-	'resources/release'
+	'resources/category',
+	'resources/publisher',
+	'resources/release',
+	'resources/subscriber',
+	'resources/subscription'
 
 ], function (
 	angular,
 	resource,
 	security,
-	release
+	category,
+	publisher,
+	release,
+	subscriber,
+	subscription
 ) {
 	return angular.module('skyglass.resources', [])
 	.factory("$security", security)
-		.factory("$release", release)
+	.factory("$category", category)
+	.factory("$publisher", publisher)
+	.factory("$release", release)	
+	.factory("$subscriber", subscriber)
+	.factory("$subscription", subscription)
 	.name;
 });

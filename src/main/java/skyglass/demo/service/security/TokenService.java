@@ -1,9 +1,9 @@
 package skyglass.demo.service.security;
 
-import skyglass.demo.data.model.security.Token;
 import skyglass.demo.data.security.TokenData;
-import skyglass.demo.service.GenericService;
+import skyglass.demo.model.security.Token;
+import skyglass.demo.service.IGenericService;
 
-public interface TokenService extends GenericService<Token, String, TokenData> {
+public interface TokenService extends IGenericService<Token, String, TokenData> {
 
 }

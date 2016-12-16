@@ -6,8 +6,8 @@ define([
 	'messageService'
 ], function(angular, controllers) {
     controllers.controller("publisherListCtrl", ["$scope", "$filter", "$translate", "$state", 
-                           "$release", "ngTableParams", "$formatter", "$confirm", "$message", "$securitySession",
-	    function ($scope, $filter, $translate, $state, $release, ngTableParams, 
+                           "$publisher", "ngTableParams", "$formatter", "$confirm", "$message", "$securitySession",
+	    function ($scope, $filter, $translate, $state, $publisher, ngTableParams, 
 	    		$formatter, $confirm, $message, $securitySession) {
 
             var tableData;
@@ -26,7 +26,7 @@ define([
             };
 
             $scope.getPublishers = function(){
-                $release.publishers(function(data){
+                $publisher.publishers(function(data){
                     renderGrid(data);
                 });
             };
@@ -64,7 +64,7 @@ define([
                     name: item.name,
                 }).then(function (str) {
                     $confirm(str['confirms.deletePublisher'], function(){
-                        $release.deletePublisher({
+                        $publisher.deletePublisher({
                             id: item.id
                         }, function(){
                             $message("success", str["messages.success.itemDeleted"]);

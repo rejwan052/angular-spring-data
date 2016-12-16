@@ -13,7 +13,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import skyglass.demo.controller.utils.ControllerUtils;
+import skyglass.demo.utils.rest.RestUtils;
  
 @Component
 public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
@@ -22,7 +22,7 @@ public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
             Authentication authentication) throws IOException, ServletException {
         clearAuthenticationAttributes(request);
-		ControllerUtils.sendResponse(response, HttpServletResponse.SC_OK, 
+		RestUtils.sendResponse(response, HttpServletResponse.SC_OK, 
 				getAuthenticationMap(authentication));
     }
     
