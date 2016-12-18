@@ -2,8 +2,8 @@ define([
 	'angular',
 	'controllers'
 ], function(angular, controllers) {
-    controllers.controller("savePublisherDialogCtrl", ["$scope", "$formatter", "$publisher", "ngTableParams", "$translate",
-	    function ($scope, $formatter, $publisher, ngTableParams, $translate) {
+    controllers.controller("savePublisherDialogCtrl", ["$scope", "$formatter", "$publisher", "$security", "ngTableParams", "$translate",
+	    function ($scope, $formatter, $publisher, $security, ngTableParams, $translate) {
     	
 	    	$scope.formModel = angular.copy($scope.ngDialogData.model);
 	    	$scope.loading = true;
@@ -23,9 +23,9 @@ define([
                 getData: function($defer, params) {
                     getFormData($scope.ngDialogData, $scope.formModel);  
                     var parameters = $formatter.resourceUrl(params.url(), $scope.filter);
-                	$publisher.publishers(parameters, function(data){
-                        params.total(data.totalRecords);
-                        $defer.resolve(data.records);
+                	$security.users(parameters, function(data){
+                        params.total(data.length);
+                        $defer.resolve(data);
                     });
                 }
             });
@@ -57,7 +57,7 @@ define([
 
             $scope.save = function(model){
                 save(model).then(function(data){
-                    $translate("messages.success.publisherSaved", {name: model.name}).then(function(str){
+                    $translate("messages.success.publisherSaved", {name: model.name, user: model.user}).then(function(str){
                         $scope.closeThisDialog({
                             action: "message",
                             type: "success",

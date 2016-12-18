@@ -98,7 +98,10 @@ define(['angular'], function(angular) {
                 controller: "savePublisherDialogCtrl",
                 model: {
                 	id: "",
-                    name: ""
+                    name: "",
+                    user: {
+                    	id: ""
+                    }
                 }
             }              
 

@@ -31,8 +31,7 @@ define([
                         $scope.closeThisDialog({
                             action: "message",
                             type: "success",
-                            text: str,
-                            pageRefresh: true
+                            text: str
                         });
                     });
                 });

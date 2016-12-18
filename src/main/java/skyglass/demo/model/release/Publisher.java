@@ -30,7 +30,6 @@ public class Publisher implements INameEntity<Long> {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-    @JsonIgnore
     private User user;
 
     @Column(name = "name", nullable = false)

@@ -40,13 +40,13 @@
     <table ng-table="tableParams" class="table table-striped table-hover ng-table-responsive fixed" template-pagination="js/templates/table/table-nav-nosize.html">
         <tr
                 ng-repeat="item in $data"
-                ng-click="obj.id = item.id; obj.name = item.name;"
-                ng-dblclick="obj.id = item.id; obj.name = item.name;"
-                ng-class="{active: obj.id == item.id}"
+                ng-click="formModel.user.id = item.id;"
+                ng-dblclick="formModel.user.id = item.id;"
+                ng-class="{active: formModel.user.id == item.id}"
                 >
             <td data-title="tableHeaders.h1" sortable="'name'">
                 {{item.name}}
-                <i class="glyphicon glyphicon-ok pull-right" ng-show="obj.id == item.id"></i>
+                <i class="glyphicon glyphicon-ok pull-right" ng-show="formModel.user.id == item.id"></i>
             </td>
         </tr>
     </table>
