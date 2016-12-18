@@ -12,8 +12,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import skyglass.demo.model.INameEntity;
 import skyglass.demo.model.security.User;
 
