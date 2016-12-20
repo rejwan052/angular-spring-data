@@ -27,7 +27,7 @@ public class AbstractResource<E extends IdEntity<ID>, ID extends Serializable,
 	
     @RequestMapping(method = RequestMethod.GET)
     @PreAuthorize("hasAuthority('SECURITY')")
-    public Iterable<E> getAllEntities() {
+    public Iterable<E> getEntities() {
         return service.findAll();
     }
     

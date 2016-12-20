@@ -2,6 +2,8 @@ package skyglass.demo.service;
 
 import java.io.Serializable;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import skyglass.demo.data.INameData;
 import skyglass.demo.model.INameEntity;
 
@@ -11,6 +13,7 @@ public class AbstractNameService<E extends INameEntity<ID>,
 	implements IGenericNameService<E, ID, D> {
 	
 	@Override
+	@Transactional
 	public E save(E entity) throws ServiceException {
     	if (entity.getId() != null) {
     		E oldEntity = findOne(entity.getId());

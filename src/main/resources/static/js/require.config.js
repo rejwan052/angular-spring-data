@@ -88,9 +88,9 @@ require.config({
         addSubscriptionSubscriberDialogCtrl: 'dialogs/release/subscription/add-subscription/subscriber/add-subscription-subscriber.ctrl',
         addSubscriptionCategoryDialogCtrl: 'dialogs/release/subscription/add-subscription/category/add-subscription-category.ctrl',
         
-        saveCategoryDialogCtrl: 'dialogs/release/category/save-category.ctrl',
+        editCategoryDialogCtrl: 'dialogs/release/category/edit-category.ctrl',
         saveSubscriberDialogCtrl: 'dialogs/release/subscriber/save-subscriber.ctrl',
-        savePublisherDialogCtrl: 'dialogs/release/publisher/save-publisher.ctrl',
+        editPublisherDialogCtrl: 'dialogs/release/publisher/edit-publisher.ctrl',
     	
     	//Services    	
         formatterService: 'services/formatter.service',

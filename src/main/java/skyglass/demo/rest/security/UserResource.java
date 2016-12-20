@@ -32,6 +32,20 @@ public class UserResource {
         return userService.findAll();
     }
     
+    @RequestMapping(method = RequestMethod.GET, path  = "/notPublishers")
+    @PreAuthorize("hasAuthority('SECURITY')")
+    public Iterable<User> getNotPublishers()
+    throws Exception {
+        return userService.findNotPublishers();
+    }
+    
+    @RequestMapping(method = RequestMethod.GET, path  = "/notSubscribers")
+    @PreAuthorize("hasAuthority('SECURITY')")
+    public Iterable<User> getNotSubscribers()
+    throws Exception {
+        return userService.findNotSubscribers();
+    }
+    
     @RequestMapping(method = RequestMethod.POST)
     @PreAuthorize("hasAuthority('SECURITY_WRITER')")
     public ResponseEntity<User> saveUser(@RequestBody User user, HttpServletResponse response)

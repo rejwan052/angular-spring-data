@@ -4,6 +4,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +24,9 @@ public class UserServiceImpl extends AbstractService<User, Long, UserData> imple
 	
 	@Autowired
 	protected AuthorityData authorityData;
+	
+	@PersistenceContext
+    private EntityManager em;
 	
 	@Override
 	public User save(User user) throws ServiceException {
@@ -52,6 +59,20 @@ public class UserServiceImpl extends AbstractService<User, Long, UserData> imple
 		}
 		user.setAuthorities(result);
 		return repository.save(user);
+	}
+	
+	@Override
+	public Iterable<User> findNotPublishers() {
+	    TypedQuery<User> query = em.createQuery(
+	    		"select u from User u left join u.publisher p where p.id is null", User.class);
+	    return query.getResultList();
+	}
+	
+	@Override
+	public Iterable<User> findNotSubscribers() {
+	    TypedQuery<User> query = em.createQuery(
+	    		"select u from User u left join u.subscriber s where s.id is null", User.class);
+	    return query.getResultList();
 	}
 
 }

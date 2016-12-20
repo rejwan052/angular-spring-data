@@ -14,7 +14,6 @@ define([
 	    			angular.forEach(model, function(val, key){
 	    				model[key] = params.item[key];
 	    			});
-	    			model.existingId = params.item.id;
 	    		} 
                 $scope.loading = false;
 	    	};

@@ -13,8 +13,8 @@ define([
 	'subscriberSubscriptionsCtrl',
 	'subscriptionsCtrl',
 	
-	'saveCategoryDialogCtrl',
-	'savePublisherDialogCtrl',
+	'editCategoryDialogCtrl',
+	'editPublisherDialogCtrl',
 	'saveSubscriberDialogCtrl',
 	'addReleaseDialogCtrl',
 	'addSubscriptionDialogCtrl'

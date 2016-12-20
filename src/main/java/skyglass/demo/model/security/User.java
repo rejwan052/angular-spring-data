@@ -4,6 +4,7 @@ package skyglass.demo.model.security;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,7 +13,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import skyglass.demo.model.release.Publisher;
+import skyglass.demo.model.release.Subscriber;
 
 @Entity
 @Table(name = "user")
@@ -20,6 +25,12 @@ public class User {
 
 	@Id @GeneratedValue
 	private Long id;
+	
+	@OneToOne(mappedBy="user", cascade = CascadeType.ALL)
+	private Publisher publisher;
+	
+	@OneToOne(mappedBy="user", cascade = CascadeType.ALL)
+	private Subscriber subscriber;
 
 	@Column(name = "login", nullable = false)
 	private String login;

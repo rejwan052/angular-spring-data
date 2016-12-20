@@ -70,7 +70,7 @@ define(['angular'], function(angular) {
             },
             
             saveCategory: {
-                template: 'js/dialogs/release/category/save-category.html',
+                template: 'js/dialogs/release/category/edit-category.html',
                 navigation: "saveAndNew",
                 class: "flex-dialog m",
                 controller: "saveCategoryDialogCtrl",
@@ -92,7 +92,7 @@ define(['angular'], function(angular) {
             },    
             
             savePublisher: {
-                template: 'js/dialogs/release/publisher/save-publisher.html',
+                template: 'js/dialogs/release/publisher/edit-publisher.html',
                 navigation: "saveAndNew",
                 class: "flex-dialog m",
                 controller: "savePublisherDialogCtrl",

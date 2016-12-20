@@ -28,6 +28,16 @@ define(function() {
                         url: baseUrl + "rest/security/user",
                         isArray: true
                     },
+                    notPublishers: {
+                        method: "GET",
+                        url: baseUrl + "rest/security/user/notPublishers",
+                        isArray: true
+                    },
+                    notSubscribers: {
+                        method: "GET",
+                        url: baseUrl + "rest/security/user/notSubscribers",
+                        isArray: true
+                    },
                     saveUser: {
                         method: "POST",
                         url: baseUrl + "rest/security/user"

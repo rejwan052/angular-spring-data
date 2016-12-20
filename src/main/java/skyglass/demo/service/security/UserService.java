@@ -7,5 +7,9 @@ import skyglass.demo.service.IGenericService;
 public interface UserService extends IGenericService<User, Long, UserData> {
 	
 	public User setAuthorities(Long userId, Long[] authorityIds);
+	
+	public Iterable<User> findNotSubscribers();
+	
+	public Iterable<User> findNotPublishers();
 
 }

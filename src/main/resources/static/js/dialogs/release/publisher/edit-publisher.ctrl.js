@@ -2,42 +2,48 @@ define([
 	'angular',
 	'controllers'
 ], function(angular, controllers) {
-    controllers.controller("savePublisherDialogCtrl", ["$scope", "$formatter", "$publisher", "$security", "ngTableParams", "$translate",
-	    function ($scope, $formatter, $publisher, $security, ngTableParams, $translate) {
+    controllers.controller("savePublisherDialogCtrl", ["$scope", "$formatter", "$publisher", 
+                           "$security", "ngTableParams", "$translate", "$message",
+	    function ($scope, $formatter, $publisher, $security, ngTableParams, $translate, $message) {
     	
 	    	$scope.formModel = angular.copy($scope.ngDialogData.model);
 	    	$scope.loading = true;
+	    	
+	    	$scope.isNew = function() {
+	    		return !$scope.ngDialogData.item;
+	    	}
+	    	
+	    	if ($scope.isNew()) {
+		    	$scope.obj = {};
 
-	    	$scope.obj = {};
+		    	$scope.filter = {
+		    		searchQuery: "",
+		    		searchFields: "name"
+		    	};
 
-	    	$scope.filter = {
-	    		searchQuery: "",
-	    		searchFields: "name"
-	    	};
+		    	$scope.tableParams = new ngTableParams({
+	                page: 1,
+	                count: 10
+	            }, {
+	                total: 0,
+	                getData: function($defer, params) {
+	                    getFormData($scope.ngDialogData, $scope.formModel);  
+	                    var parameters = $formatter.resourceUrl(params.url(), $scope.filter);
+	                	$security.notPublishers(parameters, function(data){
+	                        params.total(data.length);
+	                        $defer.resolve(data);
+	                    });
+	                }
+	            });
 
-	    	$scope.tableParams = new ngTableParams({
-                page: 1,
-                count: 10
-            }, {
-                total: 0,
-                getData: function($defer, params) {
-                    getFormData($scope.ngDialogData, $scope.formModel);  
-                    var parameters = $formatter.resourceUrl(params.url(), $scope.filter);
-                	$security.users(parameters, function(data){
-                        params.total(data.length);
-                        $defer.resolve(data);
-                    });
-                }
-            });
-
-            $translate([
-                "table.headers.name"
-            ]).then(function (str) {
-                $scope.tableHeaders = {
-                    name: str["table.headers.name"]
-                };
-            });
-            
+	            $translate([
+	                "table.headers.name"
+	            ]).then(function (str) {
+	                $scope.tableHeaders = {
+	                    name: str["table.headers.name"]
+	                };
+	            });	    		
+	    	}            
 
 
 	    	var getFormData = function(params, model){

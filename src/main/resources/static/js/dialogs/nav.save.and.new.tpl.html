@@ -1,4 +1,4 @@
-<div class="btn-group pull-right dropup" ng-if="!formModel.existingId">
+<div class="btn-group pull-right dropup" ng-if="!formModel.id">
     <button
         type="button"
         class="btn btn-default btn-sm blue-btn"
@@ -31,7 +31,7 @@
     class="btn btn-default pull-right btn-sm blue-btn"
     translate="buttons.save"
     ng-click="save(formModel)"
-    ng-if="formModel.existingId"
+    ng-if="formModel.id"
     ng-disabled="!dialogForm.$valid"
 ></button>
 <button

@@ -5,7 +5,9 @@ import java.lang.reflect.ParameterizedType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional(readOnly = true)
 public class AbstractService<E, ID extends Serializable, R extends CrudRepository<E, ID>> 
 	implements IGenericService<E, ID, R> {
 
@@ -31,6 +33,7 @@ public class AbstractService<E, ID extends Serializable, R extends CrudRepositor
     }
     
 	@Override
+	@Transactional
     public E save(E entity) throws ServiceException {
         return repository.save(entity);
     }
@@ -41,11 +44,13 @@ public class AbstractService<E, ID extends Serializable, R extends CrudRepositor
 	}
 	
 	@Override
+	@Transactional
 	public void delete(E entity) {
 		repository.delete(entity);
 	}
 	
 	@Override
+	@Transactional
 	public void delete(ID id) {
 		repository.delete(id);
 	}

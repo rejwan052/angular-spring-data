@@ -9,11 +9,9 @@ import skyglass.demo.service.AbstractNameService;
 
 @Service
 public class PublisherService extends AbstractNameService<Publisher, Long, PublisherData> {
-
+	
 	public Publisher findByUser(User user) {
 		return repository.findOne(user.getId());
 	}	
-
-
 
 }

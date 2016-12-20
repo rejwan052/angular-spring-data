@@ -11,6 +11,4 @@ import skyglass.demo.service.release.PublisherService;
 @RequestMapping("/rest/release/publisher")
 public class PublisherResource extends AbstractResource<Publisher, Long, PublisherService> {
 
-
-
 }
