@@ -5,11 +5,10 @@ import org.hibernate.Criteria;
 import skyglass.data.filter.CustomHibernateFilterResolver;
 import skyglass.data.filter.JunctionType;
 import skyglass.data.filter.http.api.PermissionType;
-import skyglass.data.model.security.Secured;
 
 public abstract class AbstractSecuredHibernateTableFilter<T> extends AbstractHibernateTableFilter<T> {
 	
-	public AbstractSecuredHibernateTableFilter(final Class<? extends Secured> clazz, JunctionType junctionType, 
+	public AbstractSecuredHibernateTableFilter(final Class<?> clazz, JunctionType junctionType, 
 			AbstractFilterSpecification filterSpecification, final PermissionType permissionType) {
 		super(clazz, junctionType, filterSpecification);
 	    

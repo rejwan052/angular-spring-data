@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TimeZone;
-import java.util.UUID;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -24,15 +23,12 @@ import skyglass.data.common.model.HasCreatedDate;
 import skyglass.data.filter.PostFieldResolver;
 import skyglass.data.filter.http.api.PermissionType;
 import skyglass.data.metadata.HibernateMetadataUtil;
-import skyglass.data.model.security.Action;
-import skyglass.data.model.security.Schema;
-import skyglass.data.model.security.Secured;
 import skyglass.data.model.security.SecurityResource;
 
 public abstract class AbstractFilterSpecification {
 	
-	protected abstract Set<Action> getExpectedActions(
-			Class<? extends Secured> clazz, PermissionType permissionType);
+	protected abstract Set<Long> getExpectedActionIds(
+			Class<?> clazz, PermissionType permissionType);
 	
 	protected abstract Long getCurrentUserId();
 	
@@ -131,10 +127,8 @@ public abstract class AbstractFilterSpecification {
     }
     
     public void addCustomSecurityResolver(Criteria criteria, String alias, 
-    		Class<? extends Secured> clazz, PermissionType permissionType) {	
-		Set<Action> expectedActions = getExpectedActions(clazz, permissionType);	
-        
-	    Set<UUID> expectedActionIds = getActionIds(expectedActions); 
+    		Class<?> clazz, PermissionType permissionType) {	
+		Set<Long> expectedActionIds = getExpectedActionIds(clazz, permissionType);	
 	    String prefix = alias + "_resource";
         
 		if (alias.equals("root")) {
@@ -145,7 +139,7 @@ public abstract class AbstractFilterSpecification {
 		
 	    criteria.setCacheable(false);
 	    
-	    for (UUID expectedActionId: expectedActionIds) {
+	    for (Long expectedActionId: expectedActionIds) {
 		    DetachedCriteria subQuery1 = DetachedCriteria.forClass(SecurityResource.class, "groupResource")
 		    	    .setProjection(Projections.distinct(Projections.id()))
 		    	    .createAlias("groupRoles", "groupRole")
@@ -234,25 +228,6 @@ public abstract class AbstractFilterSpecification {
 		return Subqueries.propertyEq("id", requestCriteria);	    	    
       
     }    */
-    
-	private void removeCommonActions(Set<Action> actions, Set<Action> expectedActions) {
-		for (Action action: expectedActions) {
-			if (actions.contains(action)) {
-				expectedActions.remove(action);
-			}
-		}
-	}
-	
-	private Set<Action> getExpectedActions(Schema schema, PermissionType permissionType) {
-		Set<Action> expectedActions = new HashSet<Action>();
-		Set<String> expectedActionNames = getExpectedActionNames(permissionType);
-		for (Action action: schema.getActions()) {
-			if (expectedActionNames.contains(action.getName())) {
-				expectedActions.add(action);
-			}
-		}	
-		return expectedActions;
-	}
 	
 	private Set<String> getExpectedActionNames(PermissionType permissionType) {
 		Set<String> result = new HashSet<String>();
@@ -262,14 +237,6 @@ public abstract class AbstractFilterSpecification {
 		}	
 		return result;
 	}
-	
-	private Set<UUID> getActionIds(Set<Action> actions) {
-		Set<UUID> result = new HashSet<UUID>();
-		for (Action action: actions) {
-			result.add(action.getId());
-		}
-		return result;
-	}  
 	
 	public static String normalizeFieldName(String expression) {
     	String[] values1 = expression.split("\\.");
