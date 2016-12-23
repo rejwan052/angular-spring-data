@@ -6,17 +6,19 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import skyglass.data.query.QueryResult;
 import skyglass.demo.data.security.AuthorityData;
 import skyglass.demo.data.security.UserData;
 import skyglass.demo.model.security.Authority;
 import skyglass.demo.model.security.User;
 import skyglass.demo.service.AbstractService;
 import skyglass.demo.service.ServiceException;
+import skyglass.demo.service.filter.HttpFilterBuilder;
 import skyglass.demo.service.security.UserService;
 
 @Service
@@ -25,8 +27,11 @@ public class UserServiceImpl extends AbstractService<User, Long, UserData> imple
 	@Autowired
 	protected AuthorityData authorityData;
 	
+	@Autowired
+	protected HttpFilterBuilder filterBuilder;
+	
 	@PersistenceContext
-    private EntityManager em;
+    protected EntityManager em;
 	
 	@Override
 	public User save(User user) throws ServiceException {
@@ -62,17 +67,29 @@ public class UserServiceImpl extends AbstractService<User, Long, UserData> imple
 	}
 	
 	@Override
-	public Iterable<User> findNotPublishers() {
-	    TypedQuery<User> query = em.createQuery(
-	    		"select u from User u left join u.publisher p where p.id is null", User.class);
-	    return query.getResultList();
+	public QueryResult<User> findNotPublishers(HttpServletRequest request) {
+		return filterBuilder.jpaDataFilter(request, getEntityClass())
+				.addFilter("publisher.id", null)
+				.getResult();
 	}
 	
 	@Override
-	public Iterable<User> findNotSubscribers() {
-	    TypedQuery<User> query = em.createQuery(
-	    		"select u from User u left join u.subscriber s where s.id is null", User.class);
-	    return query.getResultList();
+	public QueryResult<User> findNotSubscribers(HttpServletRequest request) {
+		return filterBuilder.jpaDataFilter(request, getEntityClass())
+				.addFilter("subscriber.id", null)
+				.getResult();
+	}
+
+	@Override
+	public QueryResult<User> findEntities(HttpServletRequest request) {
+		return filterBuilder.jpaDataFilter(request, getEntityClass())
+				.addHttpSearch("name")
+				.getResult();
+	}
+
+	@Override
+	public Class<User> getEntityClass() {
+		return User.class;
 	}
 
 }

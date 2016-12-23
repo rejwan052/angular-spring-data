@@ -7,7 +7,6 @@ define(['angular', 'services'], function(angular, services) {
                 var timeout, args, context, result;
 
                 function debounce() {
-                    /* jshint validthis:true */
                     context = this;
                     args = arguments;
                     var later = function() {

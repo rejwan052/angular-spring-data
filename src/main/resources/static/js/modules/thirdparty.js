@@ -4,6 +4,7 @@ define([
     'sanitize',
     'translatefiles',
     'tablePlugin',
+    'ngLocalStorage',
     'bootstrapTpls'
 ], function(angular) {
     return angular.module('skyglass.thirdparty', [

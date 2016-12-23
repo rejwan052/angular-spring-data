@@ -30,13 +30,11 @@ define(function() {
                     },
                     notPublishers: {
                         method: "GET",
-                        url: baseUrl + "rest/security/user/notPublishers",
-                        isArray: true
+                        url: baseUrl + "rest/security/user/notPublishers"
                     },
                     notSubscribers: {
                         method: "GET",
-                        url: baseUrl + "rest/security/user/notSubscribers",
-                        isArray: true
+                        url: baseUrl + "rest/security/user/notSubscribers"
                     },
                     saveUser: {
                         method: "POST",

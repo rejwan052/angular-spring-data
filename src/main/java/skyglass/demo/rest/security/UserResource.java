@@ -1,5 +1,6 @@
 package skyglass.demo.rest.security;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import skyglass.data.query.QueryResult;
 import skyglass.demo.model.security.Authority;
 import skyglass.demo.model.security.User;
 import skyglass.demo.service.ServiceException;
@@ -34,16 +36,16 @@ public class UserResource {
     
     @RequestMapping(method = RequestMethod.GET, path  = "/notPublishers")
     @PreAuthorize("hasAuthority('SECURITY')")
-    public Iterable<User> getNotPublishers()
+    public QueryResult<User> getNotPublishers(HttpServletRequest request)
     throws Exception {
-        return userService.findNotPublishers();
+        return userService.findNotPublishers(request);
     }
     
     @RequestMapping(method = RequestMethod.GET, path  = "/notSubscribers")
     @PreAuthorize("hasAuthority('SECURITY')")
-    public Iterable<User> getNotSubscribers()
+    public QueryResult<User> getNotSubscribers(HttpServletRequest request)
     throws Exception {
-        return userService.findNotSubscribers();
+        return userService.findNotSubscribers(request);
     }
     
     @RequestMapping(method = RequestMethod.POST)

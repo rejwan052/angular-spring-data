@@ -12,8 +12,7 @@ define(function() {
                 {
                     publishers: {
                         method: "GET",
-                        url: baseUrl + "rest/release/publisher",
-                        isArray: true
+                        url: baseUrl + "rest/release/publisher"
                     },
                     savePublisher: {
                         method: "POST",
@@ -25,8 +24,7 @@ define(function() {
                     },
                     publisherReleases: {
                         method: "GET",
-                        url: baseUrl + "rest/release/publisher/releases/:id",
-                        isArray: true
+                        url: baseUrl + "rest/release/publisher/releases/:id"
                     }                    
                 }
             );

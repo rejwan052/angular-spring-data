@@ -12,6 +12,11 @@ public class PublisherService extends AbstractNameService<Publisher, Long, Publi
 	
 	public Publisher findByUser(User user) {
 		return repository.findOne(user.getId());
+	}
+
+	@Override
+	public Class<Publisher> getEntityClass() {
+		return Publisher.class;
 	}	
 
 }

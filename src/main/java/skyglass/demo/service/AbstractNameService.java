@@ -2,15 +2,30 @@ package skyglass.demo.service;
 
 import java.io.Serializable;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import skyglass.data.model.INameEntity;
+import skyglass.data.query.QueryResult;
 import skyglass.demo.data.INameData;
-import skyglass.demo.model.INameEntity;
+import skyglass.demo.service.filter.HttpFilterBuilder;
 
-public class AbstractNameService<E extends INameEntity<ID>, 
+public abstract class AbstractNameService<E extends INameEntity<ID>, 
 	ID extends Serializable, D extends INameData<E, ID>> 
 	extends AbstractService<E, ID, D>
 	implements IGenericNameService<E, ID, D> {
+	
+	@Autowired
+	HttpFilterBuilder filterBuilder;
+	
+	@Override
+	public QueryResult<E> findEntities(HttpServletRequest request) {
+		return filterBuilder.jpaDataFilter(request, getEntityClass())
+				.addHttpSearch("name")
+				.getResult();
+	}
 	
 	@Override
 	@Transactional

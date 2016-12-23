@@ -2,13 +2,21 @@ package skyglass.demo.service;
 
 import java.io.Serializable;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.data.repository.Repository;
 
+import skyglass.data.query.QueryResult;
+
 public interface IGenericService <E, ID extends Serializable, R extends Repository<E, ID>> {
+	
+	Class<E> getEntityClass();
+	
+    Iterable<E> findAll();
     
     E findOne(ID id);
     
-    Iterable<E> findAll();
+    QueryResult<E> findEntities(HttpServletRequest request);
     
     E save(E entity) throws ServiceException;
     

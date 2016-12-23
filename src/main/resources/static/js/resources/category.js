@@ -12,8 +12,7 @@ define(function() {
                 {
                     categories: {
                         method: "GET",
-                        url: baseUrl + "rest/release/category",
-                        isArray: true
+                        url: baseUrl + "rest/release/category"
                     },
                     saveCategory: {
                         method: "POST",
@@ -25,8 +24,7 @@ define(function() {
                     },
                     categorySubscriptions: {
                         method: "GET",
-                        url: baseUrl + "rest/release/category/:id/subscription",
-                        isArray: true
+                        url: baseUrl + "rest/release/category/:id/subscription"
                     },
                     deleteCategorySubscription: {
                         method: "DELETE",

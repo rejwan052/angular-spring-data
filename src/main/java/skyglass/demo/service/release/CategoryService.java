@@ -4,9 +4,14 @@ import org.springframework.stereotype.Service;
 
 import skyglass.demo.data.release.CategoryData;
 import skyglass.demo.model.release.Category;
-import skyglass.demo.service.AbstractNameService;
+import skyglass.demo.service.AbstractSecuredNameService;
 
 @Service
-public class CategoryService extends AbstractNameService<Category, Long, CategoryData> {
+public class CategoryService extends AbstractSecuredNameService<Category, Long, CategoryData> {
 
+	@Override
+	public Class<Category> getEntityClass() {
+		return Category.class;
+	}
+	
 }

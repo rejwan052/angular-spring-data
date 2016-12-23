@@ -1,11 +1,8 @@
 package skyglass.demo.data.security;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
+import skyglass.demo.data.INameData;
 import skyglass.demo.model.security.Authority;
 
-public interface AuthorityData extends JpaRepository<Authority, Long> {
-	
-	public Authority findByName(String name);
+public interface AuthorityData extends INameData<Authority, Long> {
 
 }

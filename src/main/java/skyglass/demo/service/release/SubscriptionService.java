@@ -30,6 +30,11 @@ public class SubscriptionService extends AbstractService<Subscription, Long, Sub
 			s.setCategory(category);
 			repository.save(s);
 		}
-	};	
+	}
+
+	@Override
+	public Class<Subscription> getEntityClass() {
+		return Subscription.class;
+	}
 
 }

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import skyglass.demo.model.AbstractEntity;
+import skyglass.data.model.AbstractEntity;
 
 @Entity(name = "subscription")
 @Table(name = "subscription")

@@ -1,10 +1,12 @@
 define([
 	'angular',
 	'controllers'
-], function(angular, controllers) {
-    controllers.controller("savePublisherDialogCtrl", ["$scope", "$formatter", "$publisher", 
-                           "$security", "ngTableParams", "$translate", "$message",
-	    function ($scope, $formatter, $publisher, $security, ngTableParams, $translate, $message) {
+	], function(angular, controllers) {
+    controllers.controller("savePublisherDialogCtrl", ["$scope", "$stateFilter", "$translate", "$skgGrid", 
+                           "$publisher", "ngTableParams", "$formatter", "$confirm", "$message", 
+                           "$securitySession", "$q", "$security",
+	    function ($scope, $stateFilter, $translate, $skgGrid, $publisher, ngTableParams, 
+	    		$formatter, $confirm, $message, $securitySession, $q, $security) {
     	
 	    	$scope.formModel = angular.copy($scope.ngDialogData.model);
 	    	$scope.loading = true;
@@ -14,35 +16,44 @@ define([
 	    	}
 	    	
 	    	if ($scope.isNew()) {
-		    	$scope.obj = {};
+	            $scope.filter = $stateFilter.getFilter({
+		    		searchQuery: ""
+		    	});
 
-		    	$scope.filter = {
-		    		searchQuery: "",
-		    		searchFields: "name"
+		    	var renderGrid = function(){
+		    		$scope.tableParams = $skgGrid({
+		                page: 1,
+		                count: 10,
+		                sorting: {
+		                    name: "asc"
+		                }
+		            }, {
+		                total: 0,
+		                getData: function($defer, params) {
+		                	var parameters = $formatter.resourceUrl(params.url(), $scope.filter);
+		                	usersFilter(parameters, params, $defer);
+		                }
+		            });
 		    	};
 
-		    	$scope.tableParams = new ngTableParams({
-	                page: 1,
-	                count: 10
-	            }, {
-	                total: 0,
-	                getData: function($defer, params) {
-	                    getFormData($scope.ngDialogData, $scope.formModel);  
-	                    var parameters = $formatter.resourceUrl(params.url(), $scope.filter);
-	                	$security.notPublishers(parameters, function(data){
-	                        params.total(data.length);
-	                        $defer.resolve(data);
-	                    });
-	                }
-	            });
+		    	var usersFilter = function(parameters, params, defer){
+					$security.notPublishers(parameters, function(data) {
+				    	params.total(data.totalRecords);
+		    			defer.resolve(data.results);
+					});
+		    	};
 
-	            $translate([
-	                "table.headers.name"
-	            ]).then(function (str) {
+	            $translate(
+	                [
+	                    'table.headers.name'
+	                ]
+	            ).then(function (data) {
 	                $scope.tableHeaders = {
-	                    name: str["table.headers.name"]
+	                    name: data["table.headers.name"]
 	                };
-	            });	    		
+		    		renderGrid();
+	            });          
+   		
 	    	}            
 
 

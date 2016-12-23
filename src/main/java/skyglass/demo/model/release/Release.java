@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
-import skyglass.demo.model.AbstractNameEntity;
+import skyglass.data.model.AbstractNameEntity;
 
 @Entity
 @Table(name = "release")

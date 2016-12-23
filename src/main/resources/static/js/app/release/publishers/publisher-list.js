@@ -5,56 +5,43 @@ define([
 	'formatterService',
 	'messageService'
 ], function(angular, controllers) {
-    controllers.controller("publisherListCtrl", ["$scope", "$filter", "$translate", "$state", 
-                           "$publisher", "ngTableParams", "$formatter", "$confirm", "$message", "$securitySession",
-	    function ($scope, $filter, $translate, $state, $publisher, ngTableParams, 
-	    		$formatter, $confirm, $message, $securitySession) {
+    controllers.controller("publisherListCtrl", ["$scope", "$stateFilter", "$translate", "$skgGrid", 
+                           "$publisher", "ngTableParams", "$formatter", "$confirm", "$message", 
+                           "$securitySession", "$q",
+	    function ($scope, $stateFilter, $translate, $skgGrid, $publisher, ngTableParams, 
+	    		$formatter, $confirm, $message, $securitySession, $q) {
+    	
+        	$scope.adminWriter = $securitySession.permissions.adminWriter();
 
-            var tableData;
-            
-            $scope.adminWriter = $securitySession.permissions.adminWriter();
+            $scope.filter = $stateFilter.getFilter({
+	    		searchQuery: ""
+	    	});
 
-            $scope.data = {
-                list: [],
-                selected: "",
-                loading: true
-            };
+	    	var renderGrid = function(){
+	    		var publishers = $publisher.publishers($scope.filter);
+	    		$q.all([publishers.$promise]).then(function(data){
+		    		$scope.tableParams = $skgGrid({
+		                page: 1,
+		                count: 10,
+		                sorting: {
+		                    name: "asc"
+		                }
+		            }, {
+		                total: 0,
+		                getData: function($defer, params) {
+		                	var parameters = $formatter.resourceUrl(params.url(), $scope.filter);
+		                	publishersFilter(parameters, params, $defer);
+		                }
+		            });
+	    		});
+	    	};
 
-            $scope.filter = {
-                searchQuery: "",
-                fields: ["name"]
-            };
-
-            $scope.getPublishers = function(){
-                $publisher.publishers(function(data){
-                    renderGrid(data);
-                });
-            };
-
-            var renderGrid = function(data){
-                tableData = data;
-                if ($scope.tableParams) {
-                    $scope.tableParams.reload();
-                } else {
-                    $scope.tableParams = new ngTableParams({
-                        page: 1,
-                        count: 10,
-                        sorting: {
-                            name: "asc"
-                        }
-                    }, {
-                        total: tableData.length,
-                        getData: function($defer, params) {
-                            var sliceStart = (params.page() - 1) * params.count();
-                            var sliceEnd = params.page() * params.count();
-                            var filteredData = params.filter() ? $filter('filterByFields')(tableData, $scope.filter.fields, $scope.filter.searchQuery) : tableData;
-                            var orderedData = params.sorting() ? $filter('orderBy')(filteredData, params.orderBy()) : filteredData;
-                            params.total(tableData.length);
-                            $defer.resolve(orderedData.slice(sliceStart, sliceEnd));
-                        }
-                    });
-                }
-            };
+	    	var publishersFilter = function(parameters, params, defer){
+				$publisher.publishers(parameters, function(data) {
+			    	params.total(data.totalRecords);
+	    			defer.resolve(data.results);
+				});
+	    	};
 
             $scope.deletePublisher = function(item){
                 $translate([
@@ -68,17 +55,13 @@ define([
                             id: item.id
                         }, function(){
                             $message("success", str["messages.success.itemDeleted"]);
-                            $scope.getCategories();
+              				$scope.tableParams.reload();
                         }, function (error) {
                             $message("error", $formatter.error(error.data));
                         });
                     });
                 });
             };
-
-            $scope.$on('refreshTab', function() {
-                $scope.getPublishers();
-            });
 
             $translate(
                 [
@@ -88,9 +71,13 @@ define([
                 $scope.tableHeaders = {
                     name: data["table.headers.name"]
                 };
-                $scope.getPublishers();
+	    		renderGrid();
             });
+            
+  			$scope.$on('refreshTab', function() {
+  				$scope.tableParams.reload();
+    		});            
 
 	    }
-	])
+	]);
 });

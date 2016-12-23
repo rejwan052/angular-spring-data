@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import org.hibernate.criterion.Criterion;
 
-import skyglass.data.filter.api.AbstractFilterSpecification;
+import skyglass.data.filter.api.IFilterHelper;
 
 public class FilterItem {	
 	
@@ -74,7 +74,7 @@ public class FilterItem {
     	}        	
     	
     	if (filterType == FilterType.LIKE) {
-	    	return AbstractFilterSpecification.processFilterString(filterValue);
+	    	return IFilterHelper.processFilterString(filterValue);
     	}   
     	
         Object result = null;       

@@ -3,6 +3,7 @@ package skyglass.demo.rest;
 import java.io.IOException;
 import java.io.Serializable;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,23 +15,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import skyglass.demo.model.IdEntity;
+import skyglass.data.model.IdEntity;
+import skyglass.data.query.QueryResult;
 import skyglass.demo.service.IGenericService;
 import skyglass.demo.service.ServiceException;
+import skyglass.demo.service.filter.HttpFilterBuilder;
 import skyglass.demo.utils.rest.RestUtils;
 
-public class AbstractResource<E extends IdEntity<ID>, ID extends Serializable,
-	S extends IGenericService<E, ID, ?>> {
+public abstract class AbstractResource<E extends IdEntity<ID>, ID extends Serializable,
+	S extends IGenericService<E, ID, ?>> implements IGenericResource<E, ID, S> {
 	
     @Autowired
     protected S service;
-	
+    
+    @Autowired
+    protected HttpFilterBuilder filterBuilder;  
+    
     @RequestMapping(method = RequestMethod.GET)
     @PreAuthorize("hasAuthority('SECURITY')")
-    public Iterable<E> getEntities() {
-        return service.findAll();
+    public QueryResult<E> findEntities(HttpServletRequest request) {
+    	return service.findEntities(request);
     }
-    
+	
     @RequestMapping(method = RequestMethod.POST)
     @PreAuthorize("hasAuthority('SECURITY_WRITER')")
     public ResponseEntity<E> saveEntity(@RequestBody E entity, HttpServletResponse response) throws IOException {

@@ -5,7 +5,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 
 import skyglass.data.common.model.DataConstants;
-import skyglass.demo.service.filter.FilterSpecification;
+import skyglass.data.filter.api.IFilterHelper;
 
 public class HttpRequestUtils {
     public static Boolean getBooleanParamValue(HttpServletRequest request, String paramName) {
@@ -51,7 +51,7 @@ public class HttpRequestUtils {
     public static String getRegexpParamValue(HttpServletRequest request) {
         String searchQuery = HttpRequestUtils.getStringParamValue(request, DataConstants.SEARCH_QUERY);
     	if (searchQuery != null) {
-    		searchQuery = FilterSpecification.convertToRegexp(searchQuery);
+    		searchQuery = IFilterHelper.convertToRegexp(searchQuery);
     	} 
     	return searchQuery;
     }     

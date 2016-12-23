@@ -26,7 +26,7 @@ public class ReleaseService extends AbstractService<Release, Long, ReleaseData> 
 	
 	@Autowired
 	protected SubscriptionService subscriptionService;
-	
+
 	public static final String ROOT = "c://temp/upload";
 	
 	public static String getFileName(long publisherId, String uuid) {
@@ -84,6 +84,11 @@ public class ReleaseService extends AbstractService<Release, Long, ReleaseData> 
 			throw new ServiceException("ReleaseService.unpublish", "Release cannot be removed");
 		}
 		repository.delete(release);
-	}		
+	}
+
+	@Override
+	public Class<Release> getEntityClass() {
+		return Release.class;
+	}
 	
 }

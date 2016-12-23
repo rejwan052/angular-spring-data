@@ -3,11 +3,11 @@ package skyglass.demo.model.release;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import skyglass.demo.model.AbstractNameEntity;
+import skyglass.data.model.AbstractSecuredNameEntity;
 
 @Entity
-@Table(name = "domain")
-public class Category extends AbstractNameEntity<Long> {
+@Table(name = "category")
+public class Category extends AbstractSecuredNameEntity<Long> {
 
 	private static final long serialVersionUID = -6083875106616190233L;
 

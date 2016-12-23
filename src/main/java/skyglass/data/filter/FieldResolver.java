@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import skyglass.data.filter.api.AbstractFilterSpecification;
+import skyglass.data.filter.api.IFilterHelper;
 
 public class FieldResolver {
 	
@@ -20,7 +20,7 @@ public class FieldResolver {
 	
 	public FieldResolver(String fieldName, FieldType fieldType, String... fieldResolvers) {
 		this.fieldName = fieldName;
-		this.defaultResolvers.add(AbstractFilterSpecification.normalizeFieldName(fieldName));
+		this.defaultResolvers.add(IFilterHelper.normalizeFieldName(fieldName));
 		for (String fieldResolver: fieldResolvers) {
 			this.fieldResolvers.add(fieldResolver);				
 		}
@@ -70,7 +70,7 @@ public class FieldResolver {
 	
 	public void addResolvers(String... resolvers) {
 		for (String resolver: resolvers) {
-			fieldResolvers.add(AbstractFilterSpecification.normalizeFieldName(resolver));			
+			fieldResolvers.add(IFilterHelper.normalizeFieldName(resolver));			
 		}
 	}
 	

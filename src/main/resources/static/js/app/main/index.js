@@ -4,7 +4,9 @@ define([
     'tableSearchDirective',
     'services',
     'breadcrumbsDirective',
-    'showdown'
+    'showdown',
+    'skgGridService',
+    'stateFilterService'
 ], function(angular, controllers) {
     controllers.controller('indexCtrl', ['$rootScope', '$scope', '$securityService', '$securityMenuConfig', 
                                          '$message', 'ngDialog', '$dialog', '$wizard',

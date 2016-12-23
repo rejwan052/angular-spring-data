@@ -3,16 +3,24 @@ package skyglass.demo.service;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+import skyglass.data.query.QueryResult;
+import skyglass.demo.service.filter.HttpFilterBuilder;
+
 @Transactional(readOnly = true)
-public class AbstractService<E, ID extends Serializable, R extends CrudRepository<E, ID>> 
+public abstract class AbstractService<E, ID extends Serializable, R extends CrudRepository<E, ID>> 
 	implements IGenericService<E, ID, R> {
 
     @Autowired
     protected R repository;
+    
+	@Autowired
+	HttpFilterBuilder filterBuilder;
 
     protected Class<E> entityClass;
 
@@ -53,6 +61,12 @@ public class AbstractService<E, ID extends Serializable, R extends CrudRepositor
 	@Transactional
 	public void delete(ID id) {
 		repository.delete(id);
+	}
+	
+	@Override
+	public QueryResult<E> findEntities(HttpServletRequest request) {
+		return filterBuilder.jpaDataFilter(request, getEntityClass())
+				.getResult();
 	}
 
 }

@@ -19,6 +19,7 @@ require.config({
 		bootstrap: 'libs-bower/bootstrap/dist/js/bootstrap',
         bootstrapTpls: 'libs-bower/angular-bootstrap/ui-bootstrap-tpls',
         ngDialog: 'libs-bower/ngDialog/js/ngDialog',
+        ngLocalStorage: 'libs-bower/angular-local-storage/dist/angular-local-storage',
 		lodash: 'libs/lodash.min',
 		showdown: 'libs/showdown.min',
 		
@@ -46,6 +47,7 @@ require.config({
         
         //----------------------Components----------------------//
         dialogComponent: 'components/dialog/dialog',
+        gridComponent: 'components/grid/grid',
 
         //----------------------Controllers----------------------//
     	indexCtrl: 'app/main/index',
@@ -97,6 +99,8 @@ require.config({
         messageService: 'services/message.service',
         filtersService: 'services/filters.service',
         wizardService: 'services/wizard.service',
+        skgGridService: 'services/skg.grid.service',
+        stateFilterService: 'services/state.filter.service',
     	
         //Directives
         breadcrumbsDirective: 'directives/breadcrumbs/uiBreadcrumbs',
@@ -122,6 +126,7 @@ require.config({
 		bootstrap: ['jquery'],
 		jquerycookie: ['jquery'],
         bootstrapTpls: ['angular'],
+        ngLocalStorage: ['angular'],
 
         //Skyglass Modules
         skgSecurity: ['angular'],

@@ -19,6 +19,8 @@ public class DataConstants {
     public static final String REQUEST_TYPE = "requestType";
     
     public static final String FILTER_TYPE_ALL = "all";    
+    
+    public static final String EXECUTE = "execute"; 
 
 
 }
