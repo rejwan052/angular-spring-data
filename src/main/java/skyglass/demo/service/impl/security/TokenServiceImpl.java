@@ -10,10 +10,5 @@ import skyglass.demo.service.security.TokenService;
 @Service
 public class TokenServiceImpl extends AbstractService<Token, String, TokenData> 
 			implements TokenService {
-	
-	@Override
-	public Class<Token> getEntityClass() {
-		return Token.class;
-	}
 
 }

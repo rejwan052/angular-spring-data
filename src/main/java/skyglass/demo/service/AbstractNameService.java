@@ -22,7 +22,7 @@ public abstract class AbstractNameService<E extends INameEntity<ID>,
 	
 	@Override
 	public QueryResult<E> findEntities(HttpServletRequest request) {
-		return filterBuilder.jpaDataFilter(request, getEntityClass())
+		return filterBuilder.jpaDataFilter(request, entityClass)
 				.addHttpSearch("name")
 				.getResult();
 	}

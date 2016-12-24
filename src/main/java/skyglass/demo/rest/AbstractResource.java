@@ -51,9 +51,15 @@ public abstract class AbstractResource<E extends IdEntity<ID>, ID extends Serial
     
     @RequestMapping(method = RequestMethod.DELETE, path  = "/{id}")
     @PreAuthorize("hasAuthority('SECURITY_WRITER')")
-    public ResponseEntity<ID> deleteEntity(@PathVariable ID id) {
-    	service.delete(id);
-        return new ResponseEntity<ID>(id, HttpStatus.OK);
+    public ResponseEntity<ID> deleteEntity(@PathVariable ID id, HttpServletResponse response) throws IOException {
+    	try {
+        	service.delete(id);
+            return new ResponseEntity<ID>(id, HttpStatus.OK);		
+    	} catch (ServiceException se) {
+    		RestUtils.sendError(response, se.getError());
+    		return null;
+    	}
+
     } 
 
 }

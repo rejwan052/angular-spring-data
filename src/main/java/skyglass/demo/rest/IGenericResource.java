@@ -20,6 +20,6 @@ public interface IGenericResource<E extends IdEntity<ID>,
 	
 	public ResponseEntity<E> saveEntity(@RequestBody E entity, HttpServletResponse response) throws IOException;
 	
-	public ResponseEntity<ID> deleteEntity(ID id); 
+	public ResponseEntity<ID> deleteEntity(ID id, HttpServletResponse response) throws IOException; 
 
 }

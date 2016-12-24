@@ -13,10 +13,5 @@ public class SubscriberService extends AbstractNameService<Subscriber, Long, Sub
 	public Subscriber findByUser(User user) {
 		return repository.findOne(user.getId());
 	}
-
-	@Override
-	public Class<Subscriber> getEntityClass() {
-		return Subscriber.class;
-	}	
 	
 }

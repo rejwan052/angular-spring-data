@@ -85,10 +85,5 @@ public class ReleaseService extends AbstractService<Release, Long, ReleaseData> 
 		}
 		repository.delete(release);
 	}
-
-	@Override
-	public Class<Release> getEntityClass() {
-		return Release.class;
-	}
 	
 }

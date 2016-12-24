@@ -502,9 +502,7 @@ public class JpaDataFilter<T> extends AbstractDataFilter<T, DataFilter<T>> imple
 		if (fieldResolver.getFieldType() == FieldType.Criteria) {
 			return fieldResolver.getCustomFieldResolver().getCriteria();
 		}
-		if (fieldResolver.getFieldType() == FieldType.Date) {
-			return applyDateFilter(fieldName, filterValue);
-		} else if (filterType == FilterType.LIKE) {
+		if (filterType == FilterType.LIKE) {
 			return applyLikeFilter(fieldName, filterValue);
 		} else if (filterType == FilterType.EQ) {
 			return applyEqualsFilter(fieldName, filterValue);
@@ -519,28 +517,6 @@ public class JpaDataFilter<T> extends AbstractDataFilter<T, DataFilter<T>> imple
 		} else {
 			return applyEqualsFilter(fieldName, filterValue);
 		}		
-	}
-	
-	private Criterion applyDateFilter(String fieldName, Object filterValue) {
-		return filterValue == null ? Restrictions.isNull(fieldName) : RestrictionsExt.likeSQLAliased(getDateExpression(fieldName), filterValue.toString());		
-	}
-	
-	private String getDateExpression(String fieldName) {
-		return "LOWER(CONVERT(VARCHAR(10), " + convertMilisecondsToDate(formatFieldToSql(fieldName))
-				+ ", 101) + case when (DATEPART(hour, " + convertMilisecondsToDate(formatFieldToSql(fieldName))
-				+ ") > 9 AND DATEPART(hour," + convertMilisecondsToDate(formatFieldToSql(fieldName)) 
-				+ ") < 13 OR DATEPART(hour," + convertMilisecondsToDate(formatFieldToSql(fieldName))
-				+ ") > 21 AND DATEPART(hour," + convertMilisecondsToDate(formatFieldToSql(fieldName))
-				+ ") <= 24) then ' ' else ' 0' end + RIGHT(CONVERT(VARCHAR, " + convertMilisecondsToDate(formatFieldToSql(fieldName))
-				+ ", 100), case when (DATEPART(hour, " + convertMilisecondsToDate(formatFieldToSql(fieldName))
-				+ ") > 9 AND DATEPART(hour, "  + convertMilisecondsToDate(formatFieldToSql(fieldName))
-				+ ") < 13 OR DATEPART(hour,"  + convertMilisecondsToDate(formatFieldToSql(fieldName))
-				+ ") > 21 AND DATEPART(hour," + convertMilisecondsToDate(formatFieldToSql(fieldName))
-				+ ") <= 24) then 7 else 6 end))";
-	}
-	
-	private String convertMilisecondsToDate(String dateField) {
-		return "DATEADD(MILLISECOND, cast(" + dateField + " AS BIGINT) % 1000, DATEADD(SECOND, CAST(" + dateField + " AS BIGINT) / 1000, '19700101'))";
 	}
 	
 	private Criterion applyEqualsFilter(String fieldName, Object filterValue) {

@@ -8,10 +8,5 @@ import skyglass.demo.service.AbstractSecuredNameService;
 
 @Service
 public class CategoryService extends AbstractSecuredNameService<Category, Long, CategoryData> {
-
-	@Override
-	public Class<Category> getEntityClass() {
-		return Category.class;
-	}
 	
 }

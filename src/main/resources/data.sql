@@ -1,20 +1,20 @@
-insert into user (name, login, password, email) values ('User', 'user', 'user', 'user@user.com');
-insert into user (name, login, password, email) values ('Admin', 'admin', 'admin', 'admin@admin.com');
-insert into user (name, login, password, email) values ('Audit', 'audit', 'audit', 'audit@audit.com');
+insert into user (first_name, last_name, login, password, email) values ('', 'User', 'user', 'user', 'user@user.com');
+insert into user (first_name, last_name, login, password, email) values ('', 'Admin', 'admin', 'admin', 'admin@admin.com');
+insert into user (first_name, last_name, login, password, email) values ('', 'Audit', 'audit', 'audit', 'audit@audit.com');
 
 
-insert into user (name, login, password, email) values ('Steve Jobs', 'steve', 'steve', 'steve.jobs@apple.com');
-insert into user (name, login, password, email) values ('Bill Gates', 'bill', 'bill', 'bill.gates@microsoft.com');
-insert into user (name, login, password, email) values ('Mark Zuckerberg', 'mark', 'zuckerberg', 'mark.zuckerberg@facebook.com');
-insert into user (name, login, password, email) values ('Tim Cook', 'tim', 'cook', 'tim.cook@apple.com');
-insert into user (name, login, password, email) values ('Larry Page', 'larry', 'page', 'larry.page@gmail.com');
-insert into user (name, login, password, email) values ('Sergey Brin', 'sergey', 'brin', 'sergey.brin@gmail.com');
-insert into user (name, login, password, email) values ('Larry Ellison', 'larry2', 'ellison', 'larry.ellison@oracle.com');
-insert into user (name, login, password, email) values ('Jeff Bezos', 'jeff', 'bezos', 'jeff.bezos@amazon.com');
-insert into user (name, login, password, email) values ('Paul Allen', 'paul', 'allen', 'paul.allen@microsoft.com');
-insert into user (name, login, password, email) values ('Steve Balmer', 'steve2', 'ballmer', 'steve.ballmer@microsoft.com');
-insert into user (name, login, password, email) values ('Jack Dorsey', 'jack', 'dorsey', 'jack.dorsey@twitter.com');
-insert into user (name, login, password, email) values ('Matt Mullenweg', 'matt', 'mullenweg', 'matt.mullenweg@wordpress.com');
+insert into user (first_name, last_name, login, password, email) values ('Steve', 'Jobs', 'steve', 'steve', 'steve.jobs@apple.com');
+insert into user (first_name, last_name, login, password, email) values ('Bill', 'Gates', 'bill', 'bill', 'bill.gates@microsoft.com');
+insert into user (first_name, last_name, login, password, email) values ('Mark', 'Zuckerberg', 'mark', 'zuckerberg', 'mark.zuckerberg@facebook.com');
+insert into user (first_name, last_name, login, password, email) values ('Tim', 'Cook', 'tim', 'cook', 'tim.cook@apple.com');
+insert into user (first_name, last_name, login, password, email) values ('Larry', 'Page', 'larry', 'page', 'larry.page@gmail.com');
+insert into user (first_name, last_name, login, password, email) values ('Sergey', 'Brin', 'sergey', 'brin', 'sergey.brin@gmail.com');
+insert into user (first_name, last_name, login, password, email) values ('Larry', 'Ellison', 'larry2', 'ellison', 'larry.ellison@oracle.com');
+insert into user (first_name, last_name, login, password, email) values ('Jeff', 'Bezos', 'jeff', 'bezos', 'jeff.bezos@amazon.com');
+insert into user (first_name, last_name, login, password, email) values ('Paul', 'Allen', 'paul', 'allen', 'paul.allen@microsoft.com');
+insert into user (first_name, last_name, login, password, email) values ('Steve', 'Balmer', 'steve2', 'ballmer', 'steve.ballmer@microsoft.com');
+insert into user (first_name, last_name, login, password, email) values ('Jack', 'Dorsey', 'jack', 'dorsey', 'jack.dorsey@twitter.com');
+insert into user (first_name, last_name, login, password, email) values ('Matt', 'Mullenweg', 'matt', 'mullenweg', 'matt.mullenweg@wordpress.com');
 
 
 insert into authority (name) values ('ADMIN');

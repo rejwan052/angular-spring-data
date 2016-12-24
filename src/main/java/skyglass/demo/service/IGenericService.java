@@ -10,8 +10,6 @@ import skyglass.data.query.QueryResult;
 
 public interface IGenericService <E, ID extends Serializable, R extends Repository<E, ID>> {
 	
-	Class<E> getEntityClass();
-	
     Iterable<E> findAll();
     
     E findOne(ID id);
@@ -22,8 +20,8 @@ public interface IGenericService <E, ID extends Serializable, R extends Reposito
     
     boolean exists(ID id);
     
-    void delete(E entity);
+    void delete(E entity) throws ServiceException;
     
-    void delete(ID id);
+    void delete(ID id) throws ServiceException;
 
 }

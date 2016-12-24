@@ -28,26 +28,37 @@
     </tr>
 </table>
 
+<div style="float:left; width: 100%" ng-if="isNew()">
 
-<div class="dialog-list-filter" ng-if="isNew()">
-    <div class="input-group" style="width: 300px;">
-        <input class="form-control" type="text" placeholder="Find Publisher" ng-model="filter.searchQuery" ng-change="tableParams.reload()">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-    </div>
-</div>
+       	<div class="data-list-filter" table-search="tableParams" table-search-value="filter.searchQuery"></div>
 
-<div class="dialog-table" style="min-height: 1px;" ng-if="isNew()">
-    <table ng-table="tableParams" class="table table-striped table-hover ng-table-responsive fixed" template-pagination="js/templates/table/table-nav-nosize.html">
-        <tr
-                ng-repeat="item in $data"
-                ng-click="formModel.user.id = item.id; formModel.name = item.name;"
-                ng-dblclick="formModel.user.id = item.id; formModel.name = item.name;"
-                ng-class="{active: formModel.user.id == item.id}"
-                >
-            <td data-title="tableHeaders.h1" sortable="'name'">
-                {{item.name}}
-                <i class="glyphicon glyphicon-ok pull-right" ng-show="formModel.user.id == item.id"></i>
-            </td>
-        </tr>
-    </table>
+       	<div class="data-list-table">
+            <table
+                ng-table="tableParams"
+                class="table table-striped table-hover ng-table-responsive"
+                template-pagination="js/templates/table/table-nav.html"
+            >
+                <tbody ng-repeat="item in $data">
+			        <tr
+			                ng-click="formModel.user.id = item.id; formModel.name = item.name;"
+			                ng-dblclick="formModel.user.id = item.id; formModel.name = item.name;"
+			                ng-class="{active: formModel.user.id == item.id}"
+			                >
+			            <td data-title="tableHeaders.h1" sortable="'name'">
+			                {{item.name}}
+			                <i class="glyphicon glyphicon-ok pull-right" ng-show="formModel.user.id == item.id"></i>
+			            </td>
+			        </tr>
+                </tbody>
+                <tbody ng-if="$data && !$data.length">
+                    <tr>
+                        <td
+                            translate="noData.noDataFound"
+                            colspan="1"
+                            style="text-align: center"
+                        ></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 </div>

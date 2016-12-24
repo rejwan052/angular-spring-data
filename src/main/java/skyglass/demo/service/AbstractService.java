@@ -53,19 +53,19 @@ public abstract class AbstractService<E, ID extends Serializable, R extends Crud
 	
 	@Override
 	@Transactional
-	public void delete(E entity) {
+	public void delete(E entity) throws ServiceException {
 		repository.delete(entity);
 	}
 	
 	@Override
 	@Transactional
-	public void delete(ID id) {
+	public void delete(ID id) throws ServiceException {
 		repository.delete(id);
 	}
 	
 	@Override
 	public QueryResult<E> findEntities(HttpServletRequest request) {
-		return filterBuilder.jpaDataFilter(request, getEntityClass())
+		return filterBuilder.jpaDataFilter(request, entityClass)
 				.getResult();
 	}
 

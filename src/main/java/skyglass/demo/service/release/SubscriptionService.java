@@ -32,9 +32,4 @@ public class SubscriptionService extends AbstractService<Subscription, Long, Sub
 		}
 	}
 
-	@Override
-	public Class<Subscription> getEntityClass() {
-		return Subscription.class;
-	}
-
 }

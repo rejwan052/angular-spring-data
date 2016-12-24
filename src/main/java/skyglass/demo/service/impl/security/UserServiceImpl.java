@@ -68,28 +68,27 @@ public class UserServiceImpl extends AbstractService<User, Long, UserData> imple
 	
 	@Override
 	public QueryResult<User> findNotPublishers(HttpServletRequest request) {
-		return filterBuilder.jpaDataFilter(request, getEntityClass())
+		return filterBuilder.jpaDataFilter(request, entityClass)
 				.addFilter("publisher.id", null)
+		        .addFieldResolvers("name", "firstName", "lastName")
+				.addHttpSearch("name")
 				.getResult();
 	}
 	
 	@Override
 	public QueryResult<User> findNotSubscribers(HttpServletRequest request) {
-		return filterBuilder.jpaDataFilter(request, getEntityClass())
+		return filterBuilder.jpaDataFilter(request, entityClass)
 				.addFilter("subscriber.id", null)
-				.getResult();
-	}
-
-	@Override
-	public QueryResult<User> findEntities(HttpServletRequest request) {
-		return filterBuilder.jpaDataFilter(request, getEntityClass())
+		        .addFieldResolvers("name", "firstName", "lastName")
 				.addHttpSearch("name")
 				.getResult();
 	}
 
 	@Override
-	public Class<User> getEntityClass() {
-		return User.class;
+	public QueryResult<User> findEntities(HttpServletRequest request) {
+		return filterBuilder.jpaDataFilter(request, entityClass)
+				.addHttpSearch("name")
+				.getResult();
 	}
 
 }

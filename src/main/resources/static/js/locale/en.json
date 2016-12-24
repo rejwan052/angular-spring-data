@@ -71,7 +71,8 @@
         "deleteToken": "Are you sure you want to delete token for the user '{{name}}'? This will permanently delete it from the system.",     
         "deleteUser": "Are you sure you want to delete '{{name}}'? This will permanently delete it from the system.",
         "deleteRole": "Are you sure you want to delete role '{{name}}'?", 
-        "deleteCategory": "Are you sure you want to delete category '{{name}}'?"       
+        "deleteCategory": "Are you sure you want to delete category '{{name}}'?",   
+        "deletePublisher": "Are you sure you want to delete publisher '{{name}}'?"     
      },
 
     "messages": {

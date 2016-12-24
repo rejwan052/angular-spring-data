@@ -11,9 +11,4 @@ import skyglass.demo.service.security.AuthorityService;
 public class AuthorityServiceImpl extends AbstractNameService<Authority, Long, AuthorityData> 
 			implements AuthorityService {	
 
-	@Override
-	public Class<Authority> getEntityClass() {
-		return Authority.class;
-	}
-
 }
