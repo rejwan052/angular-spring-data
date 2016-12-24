@@ -42,6 +42,14 @@
     </dependencyManagement>	   
 	
 	<dependencies>
+		<dependency>
+			<groupId>skyglass</groupId>
+			<artifactId>skyglass-data</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>	
+	
+	
+	
          <!--Use in for make Spring Boot not parent-->
          <dependency>
              <groupId>org.springframework.boot</groupId>
