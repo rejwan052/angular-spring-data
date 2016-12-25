@@ -44,22 +44,12 @@ define([
 	    	};
 
             $scope.deletePublisher = function(item){
-                $translate([
-                    'confirms.deletePublisher',
-                    'messages.success.itemDeleted'
-                ], {
-                    name: item.name,
-                }).then(function (str) {
-                    $confirm(str['confirms.deletePublisher'], function(){
-                        $publisher.deletePublisher({
-                            id: item.id
-                        }, function(){
-                            $message("success", str["messages.success.itemDeleted"]);
-              				$scope.tableParams.reload();
-                        }, function (error) {
-                            $message("error", $formatter.error(error.data));
-                        });
-                    });
+                $publisher.deletePublisher({
+                    id: item.id
+                }, function(){
+      				$scope.tableParams.reload();
+                }, function (error) {
+                    $message("error", $formatter.error(error.data));
                 });
             };
 

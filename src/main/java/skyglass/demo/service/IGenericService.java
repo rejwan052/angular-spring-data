@@ -12,11 +12,15 @@ public interface IGenericService <E, ID extends Serializable, R extends Reposito
 	
     Iterable<E> findAll();
     
+    Iterable<E> findAll(ID[] ids);
+    
     E findOne(ID id);
     
     QueryResult<E> findEntities(HttpServletRequest request);
     
     E save(E entity) throws ServiceException;
+    
+    void saveAll(ID[] ids) throws ServiceException;
     
     boolean exists(ID id);
     

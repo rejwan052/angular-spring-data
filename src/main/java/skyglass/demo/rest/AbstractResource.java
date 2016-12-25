@@ -49,6 +49,16 @@ public abstract class AbstractResource<E extends IdEntity<ID>, ID extends Serial
 
     } 
     
+    @RequestMapping(method = RequestMethod.POST, path ="/saveAll")
+    @PreAuthorize("hasAuthority('SECURITY_WRITER')")
+    public ResponseEntity<String> saveAll(
+    		@RequestBody EntitiesWrapper<ID> entitiesWrapper, HttpServletResponse response)
+    				throws IOException, ServiceException {
+    	service.saveAll(entitiesWrapper.ids);
+        return new ResponseEntity<String>("", HttpStatus.OK);
+
+    }     
+    
     @RequestMapping(method = RequestMethod.DELETE, path  = "/{id}")
     @PreAuthorize("hasAuthority('SECURITY_WRITER')")
     public ResponseEntity<ID> deleteEntity(@PathVariable ID id, HttpServletResponse response) throws IOException {
@@ -61,5 +71,9 @@ public abstract class AbstractResource<E extends IdEntity<ID>, ID extends Serial
     	}
 
     } 
+    
+    protected static class EntitiesWrapper<ID> {
+		public ID[] ids;
+    }
 
 }

@@ -80,6 +80,7 @@ require.config({
         manageUserRolesDialogCtrl: 'dialogs/security/user/manage-user-roles.ctrl',
         saveRoleDialogCtrl: 'dialogs/security/role/save-role.ctrl',
         multipleDialogCtrl: 'dialogs/multiple.dialog.ctrl',
+        multipleSelectDialogCtrl: 'dialogs/multiple.select.dialog.ctrl',
         
         addReleaseDialogCtrl: 'dialogs/release/release/add-release/add-release.ctrl',
         addReleasePublisherDialogCtrl: 'dialogs/release/release/add-release/publisher/add-release-publisher.ctrl',
@@ -92,6 +93,7 @@ require.config({
         
         editCategoryDialogCtrl: 'dialogs/release/category/edit-category.ctrl',
         saveSubscriberDialogCtrl: 'dialogs/release/subscriber/save-subscriber.ctrl',
+        addPublishersDialogCtrl: 'dialogs/release/publisher/add-publishers.ctrl',
         editPublisherDialogCtrl: 'dialogs/release/publisher/edit-publisher.ctrl',
     	
     	//Services    	

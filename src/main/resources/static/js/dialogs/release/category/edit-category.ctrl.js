@@ -3,7 +3,7 @@ define([
 	'controllers'
 	
 ], function(angular, controllers) {
-    controllers.controller("saveCategoryDialogCtrl", [
+    controllers.controller("editCategoryDialogCtrl", [
         "$scope", "$translate", "$state", "$category", "$formatter", "$message",
 	    function ($scope, $translate, $state, $category, $formatter, $message) {
 

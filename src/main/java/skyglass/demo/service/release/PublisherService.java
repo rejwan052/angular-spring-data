@@ -23,6 +23,15 @@ public class PublisherService extends AbstractNameService<Publisher, Long, Publi
 	
 	@Override
 	@Transactional
+	public void saveAll(Long[] entityIds) {
+		Iterable<User> users = userService.findAll(entityIds);
+		for (User user: users) {
+			repository.save(new Publisher(user, user.getName()));
+		}
+	}	
+	
+	@Override
+	@Transactional
 	public void delete(Publisher publisher) throws ServiceException {
 		publisher.getUser().setPublisher(null);
 		userService.save(publisher.getUser());

@@ -32,6 +32,15 @@ public class Publisher implements INameEntity<Long> {
 
     @Column(name = "name", nullable = false)
     private String name;
+    
+    public Publisher() {
+    	
+    }
+    
+    public Publisher(User user, String name) {
+    	this.user = user;
+    	this.name = name;
+    }
 
     @Override
     public Long getId() {

@@ -5,8 +5,8 @@
             <td style="border: none; padding-right: 15px">
                 <button
                     class="btn btn-default white-btn btn-sm pull-right"
-                    btn-title="btnTitles.createPublisher"
-                    ng-click="openDialog($event, 'savePublisher')"
+                    btn-title="btnTitles.addPublishers"
+                    ng-click="openDialog($event, 'addPublishers')"
                 >
                     <i class="glyphicon glyphicon-plus-sign"></i>
                 </button>
@@ -36,7 +36,7 @@
                         <td data-title="" class="action-td">
                             <button
                                 class="btn btn-hide btn-default btn-xs action-btn"
-                                ng-click="openDialog($event, 'savePublisher', {item:item})"
+                                ng-click="openDialog($event, 'editPublisher', {item:item})"
                                 btn-title="btnTitles.edit"
                                 ng-if="adminWriter"
                             >

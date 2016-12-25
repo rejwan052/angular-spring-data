@@ -1,0 +1,34 @@
+<div style="float:left; width: 100%">
+
+       	<div class="data-list-filter" table-search="tableParams" table-search-value="filter.searchQuery"></div>
+
+       	<div class="data-list-table">
+            <table
+                ng-table="tableParams"
+                class="table table-striped table-hover ng-table-responsive"
+                template-pagination="js/templates/table/table-nav.html"
+            >
+                <tbody ng-repeat="item in $data">
+			        <tr
+			                ng-click="pushOrRemoveIfExists(formModel, item);"
+			                ng-dblclick="pushOrRemoveIfExists(formModel, item);"
+			                ng-class="{active: isItemInArray(formModel, item)}"
+			                >
+			            <td data-title="tableHeaders.h1" sortable="'name'">
+			                {{item.name}}
+			                <i class="glyphicon glyphicon-ok pull-right" ng-show="isItemInArray(formModel, item)"></i>
+			            </td>
+			        </tr>
+                </tbody>
+                <tbody ng-if="$data && !$data.length">
+                    <tr>
+                        <td
+                            translate="noData.noDataFound"
+                            colspan="1"
+                            style="text-align: center"
+                        ></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>

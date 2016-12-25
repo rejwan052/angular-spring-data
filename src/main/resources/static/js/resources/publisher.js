@@ -18,6 +18,10 @@ define(function() {
                         method: "POST",
                         url: baseUrl + "rest/release/publisher"
                     },
+                    savePublishers: {
+                        method: "POST",
+                        url: baseUrl + "rest/release/publisher/saveAll"
+                    },                    
                     deletePublisher: {
                         method: "DELETE",
                         url: baseUrl + "rest/release/publisher/:id"

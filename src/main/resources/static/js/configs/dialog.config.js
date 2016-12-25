@@ -73,7 +73,7 @@ define(['angular'], function(angular) {
                 template: 'js/dialogs/release/category/edit-category.html',
                 navigation: "saveAndNew",
                 class: "flex-dialog m",
-                controller: "saveCategoryDialogCtrl",
+                controller: "editCategoryDialogCtrl",
                 model: {
                 	id: "",
                     name: ""
@@ -91,17 +91,24 @@ define(['angular'], function(angular) {
                 }
             },    
             
-            savePublisher: {
+            addPublishers: {
+                template: 'js/dialogs/base.multiple.select.tpl.html',
+                navigation: "save",
+                class: "flex-dialog m",
+                controller: "addPublishersDialogCtrl",
+                model: {
+                    ids: []
+                }
+            },             
+            
+            editPublisher: {
                 template: 'js/dialogs/release/publisher/edit-publisher.html',
-                navigation: "saveAndNew",
+                navigation: "save",
                 class: "flex-dialog m",
                 controller: "savePublisherDialogCtrl",
                 model: {
                 	id: "",
-                    name: "",
-                    user: {
-                    	id: ""
-                    }
+                    name: ""
                 }
             }              
 

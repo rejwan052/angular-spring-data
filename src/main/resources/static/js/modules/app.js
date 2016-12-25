@@ -32,7 +32,8 @@ define([
 	'adminSecurityCtrl',
     'btnTitleDirective',
     
-    'multipleDialogCtrl'
+    'multipleDialogCtrl',
+    'multipleSelectDialogCtrl'
 ], function(angular) {
 
     return angular.module('skyglass', [

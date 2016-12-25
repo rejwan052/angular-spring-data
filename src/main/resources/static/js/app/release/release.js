@@ -14,6 +14,7 @@ define([
 	'subscriptionsCtrl',
 	
 	'editCategoryDialogCtrl',
+	'addPublishersDialogCtrl',
 	'editPublisherDialogCtrl',
 	'saveSubscriberDialogCtrl',
 	'addReleaseDialogCtrl',

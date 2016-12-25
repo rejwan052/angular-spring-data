@@ -2,6 +2,7 @@ package skyglass.demo.service;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -39,12 +40,23 @@ public abstract class AbstractService<E, ID extends Serializable, R extends Crud
     public Iterable<E> findAll() {
 		return repository.findAll();
     }
+	
+	@Override
+    public Iterable<E> findAll(ID[] ids) {
+		return repository.findAll(Arrays.asList(ids));
+    }
     
 	@Override
 	@Transactional
     public E save(E entity) throws ServiceException {
         return repository.save(entity);
     }
+	
+	@Override
+	@Transactional
+	public void saveAll(ID[] entityIds) {
+		repository.save(repository.findAll(Arrays.asList(entityIds)));
+	}	
 
 	@Override
 	public boolean exists(ID id) {

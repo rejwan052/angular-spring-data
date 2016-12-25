@@ -64,7 +64,8 @@
         "edit": "Edit",    
         "delete": "Delete",
         "manageUserRoles": "Manage User Roles",
-        "resetPassword": "Reset Password"
+        "resetPassword": "Reset Password",
+        "addPublishers": "Add Publishers"
     },
 
     "confirms": {
@@ -84,7 +85,8 @@
             "userRolesSaved": "User Roles have been saved successfully.",
             "passwordResetSuccess": "Password for user {{name}} has been changed successfully.",
             "categorySaved": "Category '{{name}}' has been saved successfully",
-            "publisherSaved": "Publisher '{{name}}' has been saved successfully"
+            "publisherSaved": "Publisher '{{name}}' has been saved successfully",
+            "publishersAdded": "Publishers have been added successfully"
      	}
      },
  
