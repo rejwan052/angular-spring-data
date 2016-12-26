@@ -12,17 +12,14 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import skyglass.data.model.INameEntity;
-import skyglass.demo.model.security.User;
 
 @Entity(name = "subscriber")
 @Table(name = "subscriber")
 public class Subscriber implements INameEntity<Long> {
 
 	@GenericGenerator(name = "generator", strategy = "foreign",
-	parameters = @Parameter(name = "property", value = "user"))
+	parameters = @Parameter(name = "property", value = "releaseUser"))
 	@Id
 	@GeneratedValue(generator = "generator")
 	@Column(name = "id", unique = true, nullable = false)
@@ -30,13 +27,21 @@ public class Subscriber implements INameEntity<Long> {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-    @JsonIgnore
-    private User user;
+    private ReleaseUser releaseUser;
 
     @Column(name = "name", nullable = false)
     private String name;
     
-	@Override
+    public Subscriber() {
+    	
+    }
+    
+    public Subscriber(ReleaseUser releaseUser, String name) {
+    	this.releaseUser = releaseUser;
+    	this.name = name;
+    }
+
+    @Override
     public Long getId() {
         return id;
     }
@@ -45,12 +50,12 @@ public class Subscriber implements INameEntity<Long> {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public ReleaseUser getReleaseUser() {
+        return releaseUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setReleaseUser(ReleaseUser releaseUser) {
+        this.releaseUser = releaseUser;
     }
 
     @Override
@@ -61,5 +66,4 @@ public class Subscriber implements INameEntity<Long> {
     public void setName(String name) {
         this.name = name;
     }
-   
 }

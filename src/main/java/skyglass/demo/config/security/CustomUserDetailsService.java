@@ -14,9 +14,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import skyglass.demo.data.security.UserData;
-import skyglass.demo.model.security.Authority;
-import skyglass.demo.model.security.User;
+import skyglass.data.data.security.UserData;
+import skyglass.data.model.security.Authority;
+import skyglass.data.model.security.User;
 
 /**
  * Authenticate a user from the database.

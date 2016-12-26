@@ -12,14 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import skyglass.data.service.AbstractService;
+import skyglass.data.service.ServiceException;
 import skyglass.demo.data.release.ReleaseData;
 import skyglass.demo.model.release.Category;
 import skyglass.demo.model.release.Publisher;
 import skyglass.demo.model.release.Release;
 import skyglass.demo.model.release.Subscriber;
 import skyglass.demo.model.release.Subscription;
-import skyglass.demo.service.AbstractService;
-import skyglass.demo.service.ServiceException;
 
 @Service
 public class ReleaseService extends AbstractService<Release, Long, ReleaseData> {

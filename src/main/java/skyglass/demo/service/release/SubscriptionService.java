@@ -7,11 +7,11 @@ import java.util.stream.StreamSupport;
 
 import org.springframework.stereotype.Service;
 
+import skyglass.data.service.AbstractService;
 import skyglass.demo.data.release.SubscriptionData;
 import skyglass.demo.model.release.Category;
 import skyglass.demo.model.release.Subscriber;
 import skyglass.demo.model.release.Subscription;
-import skyglass.demo.service.AbstractService;
 
 @Service
 public class SubscriptionService extends AbstractService<Subscription, Long, SubscriptionData> {

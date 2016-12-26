@@ -9,7 +9,11 @@ define(function() {
                 {
                     id: "@id"
                 },
-                {                 
+                {  
+                    notSubscribers: {
+                        method: "GET",
+                        url: baseUrl + "rest/security/release/user/notSubscribers"
+                    },                 	
                     subscribers: {
                         method: "GET",
                         url: baseUrl + "rest/release/subscriber",

@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import skyglass.data.rest.AbstractResource;
+import skyglass.data.service.ServiceException;
 import skyglass.demo.model.release.Publisher;
-import skyglass.demo.rest.AbstractResource;
-import skyglass.demo.service.ServiceException;
 import skyglass.demo.service.release.PublisherService;
 
 @RestController

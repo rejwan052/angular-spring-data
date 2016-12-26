@@ -13,10 +13,10 @@ import org.springframework.security.web.authentication.rememberme.PersistentReme
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.stereotype.Component;
 
-import skyglass.demo.data.security.TokenData;
-import skyglass.demo.data.security.UserData;
-import skyglass.demo.model.security.Token;
-import skyglass.demo.model.security.User;
+import skyglass.data.data.security.TokenData;
+import skyglass.data.data.security.UserData;
+import skyglass.data.model.security.Token;
+import skyglass.data.model.security.User;
 
 @Component
 public class CustomTokenRepository implements PersistentTokenRepository {

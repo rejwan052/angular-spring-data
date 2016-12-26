@@ -16,6 +16,21 @@ insert into user (first_name, last_name, login, password, email) values ('Steve'
 insert into user (first_name, last_name, login, password, email) values ('Jack', 'Dorsey', 'jack', 'dorsey', 'jack.dorsey@twitter.com');
 insert into user (first_name, last_name, login, password, email) values ('Matt', 'Mullenweg', 'matt', 'mullenweg', 'matt.mullenweg@wordpress.com');
 
+insert into release_user (id) values (1);
+insert into release_user (id) values (2);
+insert into release_user (id) values (3);
+insert into release_user (id) values (4);
+insert into release_user (id) values (5);
+insert into release_user (id) values (6);
+insert into release_user (id) values (7);
+insert into release_user (id) values (8);
+insert into release_user (id) values (9);
+insert into release_user (id) values (10);
+insert into release_user (id) values (11);
+insert into release_user (id) values (12);
+insert into release_user (id) values (13);
+insert into release_user (id) values (14);
+insert into release_user (id) values (15);
 
 insert into authority (name) values ('ADMIN');
 insert into authority (name) values ('TECHNICAL_USER');

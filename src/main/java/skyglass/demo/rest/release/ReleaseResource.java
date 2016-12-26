@@ -30,20 +30,20 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import skyglass.data.model.security.User;
+import skyglass.data.rest.AbstractResource;
+import skyglass.data.rest.util.RestUtils;
+import skyglass.data.service.Error;
 import skyglass.demo.model.release.Category;
 import skyglass.demo.model.release.Publisher;
 import skyglass.demo.model.release.Release;
 import skyglass.demo.model.release.Subscriber;
 import skyglass.demo.model.release.Subscription;
-import skyglass.demo.model.security.User;
-import skyglass.demo.rest.AbstractResource;
-import skyglass.demo.service.Error;
 import skyglass.demo.service.release.CategoryService;
 import skyglass.demo.service.release.PublisherService;
 import skyglass.demo.service.release.ReleaseService;
 import skyglass.demo.service.release.SubscriberService;
 import skyglass.demo.service.release.SubscriptionService;
-import skyglass.demo.utils.rest.RestUtils;
 
 @RestController
 @RequestMapping("/rest/release/release")

@@ -2,11 +2,22 @@ package skyglass.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
 @Controller
+@ComponentScan(basePackages = {
+		"skyglass.demo.config",
+		"skyglass.demo.rest",
+		"skyglass.demo.service",
+		"skyglass.data.rest", 
+		"skyglass.data.service"})
+@EnableJpaRepositories(basePackages = {"skyglass.data.data", "skyglass.demo.data"})
+@EntityScan(basePackages = {"skyglass.data.model", "skyglass.demo.model"})
 public class SkgApplication {
 	
 	public static final String APP_NAME = "skyglass";

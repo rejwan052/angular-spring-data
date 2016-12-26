@@ -13,7 +13,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import skyglass.demo.utils.rest.RestUtils;
+import skyglass.data.rest.util.RestUtils;
  
 @Component
 public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {

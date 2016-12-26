@@ -13,14 +13,13 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import skyglass.data.model.INameEntity;
-import skyglass.demo.model.security.User;
 
 @Entity(name = "publisher")
 @Table(name = "publisher")
 public class Publisher implements INameEntity<Long> {
 
 	@GenericGenerator(name = "generator", strategy = "foreign",
-	parameters = @Parameter(name = "property", value = "user"))
+	parameters = @Parameter(name = "property", value = "releaseUser"))
 	@Id
 	@GeneratedValue(generator = "generator")
 	@Column(name = "id", unique = true, nullable = false)
@@ -28,7 +27,7 @@ public class Publisher implements INameEntity<Long> {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-    private User user;
+    private ReleaseUser releaseUser;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -37,8 +36,8 @@ public class Publisher implements INameEntity<Long> {
     	
     }
     
-    public Publisher(User user, String name) {
-    	this.user = user;
+    public Publisher(ReleaseUser releaseUser, String name) {
+    	this.releaseUser = releaseUser;
     	this.name = name;
     }
 
@@ -51,12 +50,12 @@ public class Publisher implements INameEntity<Long> {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public ReleaseUser getReleaseUser() {
+        return releaseUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setReleaseUser(ReleaseUser releaseUser) {
+        this.releaseUser = releaseUser;
     }
 
     @Override

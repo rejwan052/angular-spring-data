@@ -9,7 +9,7 @@ define(function() {
                 {
                     id: "@id"
                 },
-                {
+                {              	
                     releases: {
                         method: "GET",
                         url: baseUrl + "rest/release/release",

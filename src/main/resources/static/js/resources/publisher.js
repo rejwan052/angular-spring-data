@@ -10,6 +10,10 @@ define(function() {
                     id: "@id"
                 },
                 {
+                    notPublishers: {
+                        method: "GET",
+                        url: baseUrl + "rest/security/release/user/notPublishers"
+                    },               	
                     publishers: {
                         method: "GET",
                         url: baseUrl + "rest/release/publisher"

@@ -3,7 +3,7 @@ package skyglass.demo.data.release;
 import java.util.Collection;
 import java.util.List;
 
-import skyglass.demo.data.INameData;
+import skyglass.data.data.INameData;
 import skyglass.demo.model.release.Publisher;
 import skyglass.demo.model.release.Release;
 
